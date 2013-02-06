@@ -25,19 +25,19 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 * `.opera` or `.no-opera`: Defines if the browser is Opera. This feature is turned off by adding `defunctr-ie-only`. 
 
 
-* `.ie-version-7` and `.no-ie-version-7`: Defines if the browser is IE 7. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-version-8` and `.no-ie-version-8`: Defines if the browser is IE 8. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-version-9` and `.no-ie-version-9`: Defines if the browser is IE 9. This feature is turned off by adding `defunctr-ie-only`. 
+* `.ie-version-7` and `.no-ie-version-7`: Defines if the browser is IE 7. This feature is turned off by adding `defunctr-version-off`. 
+* `.ie-version-8` and `.no-ie-version-8`: Defines if the browser is IE 8. This feature is turned off by adding `defunctr-version-off`. 
+* `.ie-version-9` and `.no-ie-version-9`: Defines if the browser is IE 9. This feature is turned off by adding `defunctr-version-off`. 
 
-* `.ie-gt-6` and `.no-ie-gt-6`: Defines if the browser is IE 7+. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-gt-7` and `.no-ie-gt-7`: Defines if the browser is IE 8+. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-gt-8` and `.no-ie-gt-8`: Defines if the browser is IE 9+. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-gt-9` and `.no-ie-gt-9`: Defines if the browser is IE 10+. This feature is turned off by adding `defunctr-ie-only`. 
+* `.ie-gt-6` and `.no-ie-gt-6`: Defines if the browser is IE 7+. This feature is turned off by adding `defunctr-gt-off`. 
+* `.ie-gt-7` and `.no-ie-gt-7`: Defines if the browser is IE 8+. This feature is turned off by adding `defunctr-gt-off`. 
+* `.ie-gt-8` and `.no-ie-gt-8`: Defines if the browser is IE 9+. This feature is turned off by adding `defunctr-gt-off`. 
+* `.ie-gt-9` and `.no-ie-gt-9`: Defines if the browser is IE 10+. This feature is turned off by adding `defunctr-gt-off`. 
 
-* `.ie-lt-7` and `.no-ie-lt-7`: Defines if the browser is less than IE 7. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-lt-8` and `.no-ie-lt-8`: Defines if the browser is less than IE 8. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-lt-9` and `.no-ie-lt-9`: Defines if the browser is less than IE 9. This feature is turned off by adding `defunctr-ie-only`. 
-* `.ie-lt-10` and `.no-ie-lt-10`: Defines if the browser is less than IE 10. This feature is turned off by adding `defunctr-ie-only`. 
+* `.ie-lt-7` and `.no-ie-lt-7`: Defines if the browser is less than IE 7. This feature is turned off by adding `defunctr-lt-off`. 
+* `.ie-lt-8` and `.no-ie-lt-8`: Defines if the browser is less than IE 8. This feature is turned off by adding `defunctr-lt-off`. 
+* `.ie-lt-9` and `.no-ie-lt-9`: Defines if the browser is less than IE 9. This feature is turned off by adding `defunctr-lt-off`. 
+* `.ie-lt-10` and `.no-ie-lt-10`: Defines if the browser is less than IE 10. This feature is turned off by adding `defunctr-lt-off`. 
 
 ### Limitations on this release
 
