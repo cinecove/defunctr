@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Defunctr</id>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <title>Defunctr</title>
         <authors>Victoria French</authors>
         <owners>Victoria French</owners>
@@ -10,15 +10,15 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Defunctr is a module for Modernizr that will detect the current browser using feature detection. It will then append browser informational classes to the head element of the page, giving the designer the ability to override CSS styles without using older browser hacks. Changing the browsers compatability mode will cause the correct classes to be applied and changing a user-agent will have not effect on the class generation.</description>
         <summary>Defunctr is a module for Modernizr that will append browser versioning information into the head element of your web pages using feature detection.</summary>
-        <releaseNotes>Initial Release.</releaseNotes>
-        <copyright>2012 Victoria French</copyright>
+        <releaseNotes>Better detection of Internet Explorer and experimental support for KHtml</releaseNotes>
+        <copyright>2013 Victoria French</copyright>
         <tags>Modernizr, Browser Detection, HTML5, Shiv</tags>
         <dependencies>
             <dependency id="Modernizr" version="2.6.2" />
         </dependencies>
     </metadata>
     <files>
-        <file src="..\src\defunctr-1.0.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.0.js" />
-        <file src="..\src\defunctr-1.0.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.0.min.js" />
+        <file src="..\src\defunctr-1.1.0.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.0.js" />
+        <file src="..\src\defunctr-1.1.0.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.0.min.js" />
     </files>
 </package>

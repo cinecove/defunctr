@@ -45,7 +45,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 * Firefox can only be detected from version 0.8+
 * Safari can only be detected from version 3.0+
 * Chrome can only be detected from version 1.0+
-* Khtml is currently not supported
+* Experimental support for KHtml
 * Only IE gives version information
 
 ### License
