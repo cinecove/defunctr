@@ -1,5 +1,11 @@
 ### HEAD
 
+### 1.1.1 (February 28, 2014)
+
+* Added Support for Opera Next
+* Updated Readme.md
+* Updated Changelog.md
+
 ### 1.1.0 (February 8, 2013)
 
 * Added simple Test Page

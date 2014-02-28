@@ -99,7 +99,7 @@ textarea {
    .no-js .js-on { display: none; }
    .js .js-off { display: none; }
    .js .js-on { display: block; }
-   
+
    .js-on span { display: none; }
    .ie .ielabel { display: inline; }
    .ie-lt-6 .ieoldlabel { display: inline; }
@@ -114,6 +114,7 @@ textarea {
    .chrome .chromelabel { display: inline; }
    .webkit .wlabel { display: inline; }
    .firefox .fflabel { display: inline; }
+   .opera-next .operalabel { display: inline; }
 
 
 
