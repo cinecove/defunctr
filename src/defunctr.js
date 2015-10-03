@@ -1,4 +1,4 @@
-/* Defunctr Nightly 1.1.Next | MIT & BSD | Copyright 2013 Victoria French |  http://github.com/victoriafrench/defunctr */
+/* Defunctr Nightly 1.1.Next | MIT & BSD | Copyright 2013 - 2015 Cinecove Digital, LLC |  http://github.com/cinecove/defunctr */
 window.Defunctr = (function (window, document, undefined) {
     var version = '1.1.0',
     r = {};
