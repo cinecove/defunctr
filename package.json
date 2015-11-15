@@ -1,0 +1,33 @@
+{
+  "name": "defunctr",
+  "title": "Defunctr",
+  "description": "JavaScript library for web browser detection by feature detection.",
+  "version": "2.0.0-pre",
+  "main": "dist/defunctr.js",
+  "homepage": "http://oss.cinecove.com/defunctr",
+  "author": {
+    "name": "Cinecove Digital, LLC and other contributors",
+    "url": "https://github.com/cinecove/defunctr/blob/master/AUTHORS.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cinecove/defunctr.git"
+  },
+  "keywords": [
+    "defunctr",
+    "javascript",
+    "browser",
+    "library",
+    "detection",
+    "html5",
+    "shiv",
+    "modernizr"
+  ],
+  "bugs": {
+    "url": "https://github.com/cinecove/defunctr/issues"
+  },
+  "license": "MIT & BSD",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {}
+}
