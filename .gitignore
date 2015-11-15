@@ -1,2 +1,12 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+.project
+.settings
+*~
+*.diff
+*.patch
+/*.html
+.DS_Store
+.bower.json
+.sizecache.json
+
+/dist
+/node_modules
