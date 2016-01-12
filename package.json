@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/cinecove/defunctr/issues"
   },
-  "license": "MIT & BSD",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {}
