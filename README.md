@@ -39,6 +39,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 
 ### Limitations on this release
 
+* Microsoft Edge is not detected
 * Opera can only be detected from version 8.0+
 * Opera Next is detected as Opera-Next not Opera.
 * Firefox can only be detected from version 0.8+
