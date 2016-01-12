@@ -2,12 +2,12 @@
 
 ##### Defunctr is a [Modernizr](http://www.modernizr.com) extension JavaScript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
+> **PRODUCTION USERS:** The master branch is currently in flux as we prepare for the upcoming 2.0 release. If you are looking for the stable release check out the [<i class="icon-folder-open"></i> legacy-1.x branch](https://github.com/cinecove/defunctr/tree/legacy-1.x) for source code and release files.
+
 - [Website](http://github.com/cinecove/defunctr)
 - [NuGet Package](https://www.nuget.org/packages/Defunctr/)
 
-Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
-user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `Defunctr` object, and as classes on the
-`<html>` element. This information allows you to enhance your pages with a granular level of control.
+Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `Defunctr` object, and as classes on the `<html>` element. This information allows you to enhance your pages with a granular level of control.
 
 Defunctr has the ability to exclude testing and tagging by appending any of the following classes to your pages `<html>` element:
 
