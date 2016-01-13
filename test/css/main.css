@@ -107,7 +107,9 @@ textarea {
    .ie-version-7 .ie7label { display: inline; }
    .ie-version-8 .ie8label { display: inline; }
    .ie-version-9 .ie9label { display: inline; }
-   .ie-gt-9 .ie10label { display: inline; }
+   .ie-version-10 .ie10label { display: inline; }
+   .ie-version-11 .ie11label { display: inline; }
+   .ie-gt-11 .ie12label { display: inline; }
    .opera .olabel { display: inline; }
    .khtml .klabel { display: inline; }
    .safari .safarilabel { display: inline; }
@@ -115,6 +117,7 @@ textarea {
    .webkit .wlabel { display: inline; }
    .firefox .fflabel { display: inline; }
    .opera-next .operalabel { display: inline; }
+   .edge .edgelabel { display: inline; }
 
 
 

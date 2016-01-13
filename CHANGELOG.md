@@ -1,5 +1,8 @@
 ### HEAD
 
+* Support for IE 11
+* Support for IE 12
+* Support for Edge
 * Added support for require, commmonjs, and amd
 
 ### 1.1.2 (January 13, 2016)

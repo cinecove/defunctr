@@ -36,21 +36,30 @@
         r.isKhtml = (function (document, undefined) { return 'KhtmlMarquee' in document.documentElement.style })(document);
         r.isOperaNext  = (function (self, navigator, undefined) { return self.isWebkit && /(Opera|OPR)/.test(navigator.userAgent); })(r, navigator);
         r.isChrome = (function (self, undefined) { return !self.isSafari && !self.isOperaNext && self.isWebkit; })(r);
+        r.isEdge = (function (self, window, document, undefined) { return !('ActiveXObject' in window) && (typeof window.Event === 'function') && (typeof document.all !== 'undefined'); })(r, window, document);
 
-        r.ieBelowVersion6 = (function (self, document, undefined) { return self.isIE && !(document.compatMode != undefined); })(r, document);
-        r.ieBelowVersion7 = (function (self, window, undefined) { return self.isIE && !(window.XMLHttpRequest != undefined); })(r, window);
-        r.ieBelowVersion8 = (function (self, document, undefined) { return self.isIE && !(document.querySelector != undefined); })(r, document);
-        r.ieBelowVersion9 = (function (self, document, undefined) { return self.isIE && !(document.addEventListener != undefined); })(r, document);
-        r.ieBelowVersion10 = (function (self, window, undefined) { return self.isIE && !(window.atob != undefined); })(r, window);
-        r.ieAboveVersion5 = (function (self, window, undefined) { return self.isIE && (document.compatMode != undefined); })(r, window);
-        r.ieAboveVersion6 = (function (self, window, undefined) { return self.isIE && (window.XMLHttpRequest != undefined); })(r, window);
-        r.ieAboveVersion7 = (function (self, document, undefined) { return r.isIE && (document.querySelector != undefined); })(r, document);
-        r.ieAboveVersion8 = (function (self, window, undefined) { return self.isIE && (document.addEventListener != undefined); })(r, window);
-        r.ieAboveVersion9 = (function (self, window, undefined) { return self.isIE && (window.atob != undefined); })(r, window);
+        r.ieBelowVersion6 = (function (self, document, undefined) { return self.isIE && !(document.compatMode !== undefined); })(r, document);
+        r.ieBelowVersion7 = (function (self, window, undefined) { return self.isIE && !(window.XMLHttpRequest !== undefined); })(r, window);
+        r.ieBelowVersion8 = (function (self, document, undefined) { return self.isIE && !(document.querySelector !== undefined); })(r, document);
+        r.ieBelowVersion9 = (function (self, document, undefined) { return self.isIE && !(document.addEventListener !== undefined); })(r, document);
+        r.ieBelowVersion10 = (function (self, window, undefined) { return self.isIE && !(window.atob !== undefined); })(r, window);
+        r.ieBelowVersion11 = (function (self, window, undefined) { return self.isIE && (window.atob !== undefined) && !(window.ActiveXObject === undefined); })(r, window);
+        r.ieBelowVersion12 = (function (self, window, undefined) { return self.isIE && (typeof window.Event !== 'function'); })(r, window);
+
+        r.ieAboveVersion5 = (function (self, window, undefined) { return self.isIE && (document.compatMode !== undefined); })(r, window);
+        r.ieAboveVersion6 = (function (self, window, undefined) { return self.isIE && (window.XMLHttpRequest !== undefined); })(r, window);
+        r.ieAboveVersion7 = (function (self, document, undefined) { return r.isIE && (document.querySelector !== undefined); })(r, document);
+        r.ieAboveVersion8 = (function (self, window, undefined) { return self.isIE && (document.addEventListener !== undefined); })(r, window);
+        r.ieAboveVersion9 = (function (self, window, undefined) { return self.isIE && (window.atob !== undefined); })(r, window);
+        r.ieAboveVersion10 = (function (self, window, undefined) { return self.isIE && (window.atob !== undefined) && (window.ActiveXObject === undefined); })(r, window);
+        r.ieAboveVersion11 = (function (self, window, undefined) { return self.isIE && (typeof window.Event === 'function'); })(r, window);
+
         r.ieIsVersion6 = (function (self, undefined) { return self.ieAboveVersion5 && self.ieBelowVersion7; })(r);
         r.ieIsVersion7 = (function (self, undefined) { return self.ieAboveVersion6 && self.ieBelowVersion8; })(r);
         r.ieIsVersion8 = (function (self, undefined) { return self.ieAboveVersion7 && self.ieBelowVersion9; })(r);
         r.ieIsVersion9 = (function (self, undefined) { return self.ieAboveVersion8 && self.ieBelowVersion10; })(r);
+        r.ieIsVersion10 = (function (self, undefined) { return self.ieAboveVersion9 && self.ieBelowVersion11; })(r);
+        r.ieIsVersion11 = (function (self, undefined) { return self.ieAboveVersion10 && self.isBelowVersion12; })(r);
 
 
         r.chromeIsAbove15 = (function (window, undefined) { return !!(window.chrome && window.chrome.webstore && window.chrome.webstore.install); })(window);
@@ -69,6 +78,7 @@
         tests[prefix + 'firefox'] = function () { return r.detective.isFirefox; };
         tests[prefix + 'khtml'] = function () { return r.detective.isKhtml; };
         tests[prefix + 'webkit'] = function () { return r.detective.isWebkit; };
+        tests[prefix + 'edge'] = function () { return r.detective.isEdge; };
     }
 
     if (!ltoff) {
