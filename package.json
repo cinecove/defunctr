@@ -67,6 +67,7 @@
   },
   "scripts": {
     "install": "npm run build",
-    "build": "grunt"
+    "build": "grunt",
+    "nuget": "grunt nuget"
   }
 }
