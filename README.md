@@ -6,7 +6,7 @@
 - [NuGet Package](https://www.nuget.org/packages/Defunctr/)
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
-user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `Defunctr` object, and as classes on the
+user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `defunctr` object, and as classes on the
 `<html>` element. This information allows you to enhance your pages with a granular level of control.
 
 Defunctr has the ability to exclude testing and tagging by appending any of the following classes to your pages `<html>` element:
