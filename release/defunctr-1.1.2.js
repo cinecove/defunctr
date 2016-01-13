@@ -1,5 +1,16 @@
+/*!
+ * Defunctr 1.1.2
+ * https://github.com/cinecove/defunctr
+ *
+ * Copyright 2012 - 2016 Cinecove Digital, LLC and other contributors
+ * Released under the MIT license
+ * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
+ *
+ * Build Date: 2016-01-13T13:58:40
+ */
+
 window.defunctr = window.Defunctr = (function (window, document, undefined) {
-    var version = '@@version',
+    var version = '1.1.2',
     r = {},
     docElement = document.documentElement,
     defunctr = 'defunctr',
