@@ -51,3 +51,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 ### License
 
 MIT license
+
+### Special Thanks
+
+We would like to give a shout-out to **JetBrains** for providing [WebStorm](https://www.jetbrains.com/webstorm/) licenses to our project! Big Huge Hugs!
