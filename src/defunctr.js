@@ -86,6 +86,8 @@
         tests[prefix + 'ie-lt-8'] = function () { return r.detective.ieBelowVersion8; };
         tests[prefix + 'ie-lt-9'] = function () { return r.detective.ieBelowVersion9; };
         tests[prefix + 'ie-lt-10'] = function () { return r.detective.ieBelowVersion10; };
+        tests[prefix + 'ie-lt-11'] = function () { return r.detective.ieBelowVersion11; };
+        tests[prefix + 'ie-lt-12'] = function () { return r.detective.ieBelowVersion12; };
     }
 
     if (!gtoff) {
@@ -93,12 +95,16 @@
         tests[prefix + 'ie-gt-7'] = function () { return r.detective.ieAboveVersion7; };
         tests[prefix + 'ie-gt-8'] = function () { return r.detective.ieAboveVersion8; };
         tests[prefix + 'ie-gt-9'] = function () { return r.detective.ieAboveVersion9; };
+        tests[prefix + 'ie-gt-10'] = function () { return r.detective.ieAboveVersion10; };
+        tests[prefix + 'ie-gt-11'] = function () { return r.detective.ieAboveVersion11; };
     }
 
     if (!voff) {
         tests[prefix + 'ie-version-7'] = function () { return r.detective.ieIsVersion7; };
         tests[prefix + 'ie-version-8'] = function () { return r.detective.ieIsVersion8; };
         tests[prefix + 'ie-version-9'] = function () { return r.detective.ieIsVersion9; };
+        tests[prefix + 'ie-version-10'] = function () { return r.detective.ieIsVersion10; };
+        tests[prefix + 'ie-version-11'] = function () { return r.detective.ieIsVersion11; };
     }
 
     r.version = version;
