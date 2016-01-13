@@ -1,14 +1,30 @@
-window.defunctr = window.Defunctr = (function (window, document, undefined) {
+(function (window, factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        module.exports = window.document ? factory(window, window.document, window.Modernizr, true) : function(w) {
+            if (!w.document) {
+                throw new Error("Defunctr requires a window with a document. It can not be used from in the node environment.");
+            } else {
+                return factory(w, w.document, window.Modernizr);
+            }
+        };
+    } else {
+        factory(window, window.document, window.Modernizr);
+    }
+}(typeof window !== "undefined" ? window : this, function (window, document, modernizr, noGlobal) {
+    if (typeof modernizr === 'undefined') {
+        throw new Error("Modernizr was not found attached to the window.");
+    }
+
     var version = '@@version',
-    r = {},
-    docElement = document.documentElement,
-    defunctr = 'defunctr',
-    prefix = '',
-	gtoff = docElement.className.indexOf('defunctr-gt-off') > 0,
-    ltoff = docElement.className.indexOf('defunctr-lt-off') > 0,
-    voff = docElement.className.indexOf('defunctr-version-off') > 0,
-    onlyie = docElement.className.indexOf('defunctr-ie-only') > 0,
-	tests = [];
+        r = {},
+        docElement = document.documentElement,
+        defunctr = 'defunctr',
+        prefix = '',
+        gtoff = docElement.className.indexOf('defunctr-gt-off') > 0,
+        ltoff = docElement.className.indexOf('defunctr-lt-off') > 0,
+        voff = docElement.className.indexOf('defunctr-version-off') > 0,
+        onlyie = docElement.className.indexOf('defunctr-ie-only') > 0,
+        tests = [];
 
     r.detective = (function (window, document, undefined) {
         var r = {};
@@ -17,8 +33,8 @@ window.defunctr = window.Defunctr = (function (window, document, undefined) {
         r.isIE = (function (window, undefined) { return 'ActiveXObject' in window; /*return (document.all != undefined) && !self.isOpera;*/ })(window);
         r.isFirefox = (function (document, undefined) { return 'MozBoxSizing' in document.documentElement.style; /* 0.8+ */ })(document);
         r.isSafari = (function (window, undefined) { return Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0; /*v 3+ */ })(window);
-		r.isKhtml = (function (document, undefined) { return 'KhtmlMarquee' in document.documentElement.style })(document);
-		r.isOperaNext  = (function (self, navigator, undefined) { return self.isWebkit && /(Opera|OPR)/.test(navigator.userAgent); })(r, navigator);
+        r.isKhtml = (function (document, undefined) { return 'KhtmlMarquee' in document.documentElement.style })(document);
+        r.isOperaNext  = (function (self, navigator, undefined) { return self.isWebkit && /(Opera|OPR)/.test(navigator.userAgent); })(r, navigator);
         r.isChrome = (function (self, undefined) { return !self.isSafari && !self.isOperaNext && self.isWebkit; })(r);
 
         r.ieBelowVersion6 = (function (self, document, undefined) { return self.isIE && !(document.compatMode != undefined); })(r, document);
@@ -51,8 +67,8 @@ window.defunctr = window.Defunctr = (function (window, document, undefined) {
         tests[prefix + 'opera'] = function () { return r.detective.isOpera; };
         tests[prefix + 'opera-next'] = function() { return r.detective.isOperaNext; };
         tests[prefix + 'firefox'] = function () { return r.detective.isFirefox; };
-		tests[prefix + 'khtml'] = function () { return r.detective.isKhtml; };
-		tests[prefix + 'webkit'] = function () { return r.detective.isWebkit; };
+        tests[prefix + 'khtml'] = function () { return r.detective.isKhtml; };
+        tests[prefix + 'webkit'] = function () { return r.detective.isWebkit; };
     }
 
     if (!ltoff) {
@@ -78,7 +94,7 @@ window.defunctr = window.Defunctr = (function (window, document, undefined) {
     r.version = version;
 
     for (var key in tests) {
-        window.Modernizr.addTest(key, tests[key]);
+        modernizr.addTest(key, tests[key]);
     }
 
     docElement.className = docElement.className.replace(/\bdefunctr-gt-off\b/, '');
@@ -86,6 +102,11 @@ window.defunctr = window.Defunctr = (function (window, document, undefined) {
     docElement.className = docElement.className.replace(/\bdefunctr-version-off\b/, '');
     docElement.className = docElement.className.replace(/\bdefunctr-ie-only\b/, '');
 
+    if (!noGlobal) {
+        window.defunctr = window.Defuntr = r;
+    }
+
     return r;
-})(this, this.document);
+}));
+
 

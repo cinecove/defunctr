@@ -1,5 +1,9 @@
 ### HEAD
 
+* Added support for require, commmonjs, and amd
+
+### 1.1.2 (January 13, 2016)
+
 * Removed unused variable declarations
 * Deprecated window.Defunctr in favor of window.defunctr
 * Updated .gitignore with support for webstorm
