@@ -18,8 +18,8 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="../release/defunctr-1.1.2.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.js" />
-        <file src="../release/defunctr-1.1.2.map" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.map" />
-        <file src="../release/defunctr-1.1.2.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.min.js" />
+        <file src="..\release\defunctr-1.1.2.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.js" />
+        <file src="..\release\defunctr-1.1.2.map" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.map" />
+        <file src="..\release\defunctr-1.1.2.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.min.js" />
     </files>
 </package>

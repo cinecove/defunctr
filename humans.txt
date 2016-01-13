@@ -7,7 +7,7 @@
 
 # THANKS
 
-    <name>
+    JetBrains - Thank your for the WebStorm licenses!
 
 # TECHNOLOGY COLOPHON
 
