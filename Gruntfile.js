@@ -114,6 +114,35 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-git-contributors');
+    grunt.config('contributors', {
+        master: {
+            path: 'AUTHORS.txt',
+            branch: 'master',
+            chronologically: true
+        },
+        f1: {
+            path: 'AUTHORS.txt',
+            branch: 'feature/fix-1x',
+            chronologically: true
+        },
+        f2: {
+            path: 'AUTHORS.txt',
+            branch: 'legacy-1.x',
+            chronologically: true
+        }
+    });
+
     //   'clean:release'
-    grunt.registerTask('default', ['clean:release', 'replace:build', 'uglify:min', 'usebanner', 'copy:release',]);
+    grunt.registerTask('default', [
+        'clean:release',
+        'replace:build',
+        'uglify:min',
+        'usebanner',
+        'copy:release',
+        'clean:release',
+        'contributors:master',
+        'contributors:f1',
+        'contributors:f2'
+    ]);
 };
