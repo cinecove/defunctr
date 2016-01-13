@@ -2,7 +2,7 @@
 
 ##### Defunctr is a [Modernizr](http://www.modernizr.com) extension JavaScript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
-> **PRODUCTION USERS:** The master branch is currently in flux as we prepare for the upcoming 2.0 release. If you are looking for the stable release check out the [<i class="icon-folder-open"></i> legacy-1.x branch](./tree/legacy-1.x) for source code and release files.
+> **PRODUCTION USERS:** The master branch is currently in flux as we prepare for the upcoming 2.0 release. If you are looking for the stable release check out the [<i class="icon-folder-open"></i> legacy-1.x branch](https://github.com/cinecove/defunctr/tree/legacy-1.x) for source code and release files.
 
 - [Website](http://github.com/cinecove/defunctr)
 
@@ -18,8 +18,8 @@ Releases can by pulled by your package manager, used through our cdn releases, o
 - [Defunctr CDN](#)
 
 #### Direct Download
-- [Releases](./releases)
-- [Releases Branch](./tree/dist)
+- [Releases](https://github.com/cinecove/defunctr/releases)
+- [Releases Branch](https://github.com/cinecove/defunctr/tree/dist)
 
 ## Getting Started
 To build Defunctr make sure you have `git`, `node`, and `npm` installed.
