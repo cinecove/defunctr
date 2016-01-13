@@ -50,4 +50,4 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 
 ### License
 
-MIT lincense
+MIT license

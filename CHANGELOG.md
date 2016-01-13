@@ -1,5 +1,15 @@
 ### HEAD
 
+* Removed unused variable declarations
+* Deprecated window.Defunctr in favor of window.defunctr
+* Updated .gitignore with support for webstorm
+* Updated humans.txt
+* Updated License
+* Fixed issue with variable declaration
+* Added NPM and Grunt build
+* Updated Readme.md
+* Updated Changelog.md
+
 ### 1.1.1 (February 28, 2014)
 
 * Added Support for Opera Next
