@@ -74,6 +74,20 @@ module.exports = function (grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-git-deploy');
+	grunt.config('git_deploy', {
+		release: {
+			options: {
+				url: 'https://github.com/cinecove/defunctr.git',
+				message: 'autocommit deploy version <%= pkg.version %>',
+				tag: false,
+				branch: 'dist'
+			},
+			src: '<%= dirs.output %>'
+		}
+	});
+
 
 	grunt.registerTask('default', ['copy:scripts', 'uglify:min', 'usebanner']);
+	grunt.registerTask('deploy', ['copy:scripts', 'uglify:min', 'usebanner', 'git_deploy:release']);
 };
