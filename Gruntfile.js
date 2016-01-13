@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             ' * <%= pkg.title %> <%= pkg.version %>\r\n' +
             ' * <%= pkg.homepage %>\r\n' +
             ' *\r\n' +
-            ' * Copyright 2013 - <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\r\n' +
+            ' * Copyright 2012 - <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\r\n' +
             ' * Released under the <%= pkg.license %> license\r\n' +
             ' * <%= pkg.licenseUrl %>\r\n' +
             ' *\r\n' +
@@ -117,6 +117,34 @@ module.exports = function (grunt) {
                     dest: '<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.js'
                 }
             ]
+        },
+        nuget: {
+            options: {
+                patterns: [
+                    {
+                        match: 'version',
+                        replacement: '<%= pkg.version %>'
+                    },
+                    {
+                        match: 'projecturl',
+                        replacement: '<%= pkg.homepage %>'
+                    },
+                    {
+                        match: 'copyright',
+                        replacement: '<%= pkg.author.name %>'
+                    },
+                    {
+                        match: 'year',
+                        replacement: '<%= grunt.template.today("yyyy") %>'
+                    }
+                ]
+            },
+            files: [
+                {
+                    src: ['nuget/Defunctr.config'],
+                    dest: 'nuget/Defunctr.nuspec'
+                }
+            ]
         }
     });
 
@@ -139,6 +167,14 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-nuget');
+    grunt.config('nugetpack', {
+       dist: {
+           src: 'nuget/Defunctr.nuspec',
+           dest: 'nuget/'
+       }
+    });
+
     //   'clean:release'
     grunt.registerTask('default', [
         'clean:release',
@@ -151,5 +187,10 @@ module.exports = function (grunt) {
         'contributors:master',
         'contributors:f1',
         'contributors:f2'
+    ]);
+    grunt.registerTask('nuget', [
+        'default',
+        'replace:nuget',
+        'nugetpack:dist'
     ]);
 };
