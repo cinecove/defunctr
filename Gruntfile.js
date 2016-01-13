@@ -91,6 +91,12 @@ module.exports = function (grunt) {
                 force: true
             },
             src: [ '<%= dirs.output %>' ]
+        },
+        temp: {
+            options: {
+                force: true
+            },
+            src: [ 'tmp' ]
         }
     });
 
@@ -141,6 +147,7 @@ module.exports = function (grunt) {
         'usebanner',
         'copy:release',
         'clean:release',
+        'clean:temp',
         'contributors:master',
         'contributors:f1',
         'contributors:f2'
