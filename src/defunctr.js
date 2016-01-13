@@ -1,10 +1,8 @@
-/* Defunctr Nightly 1.1.Next | MIT & BSD | Copyright 2013 - 2015 Cinecove Digital, LLC |  http://github.com/cinecove/defunctr */
-window.Defunctr = (function (window, document, undefined) {
-    var version = '1.1.0',
-    r = {};
+window.defunctr = window.Defunctr = (function (window, document, undefined) {
+    var version = '@@version',
+    r = {},
     docElement = document.documentElement,
-    docHead = document.head || document.getElementsByTagName('head')[0],
-    defunctr = 'defunctr';
+    defunctr = 'defunctr',
     prefix = '',
 	gtoff = docElement.className.indexOf('defunctr-gt-off') > 0,
     ltoff = docElement.className.indexOf('defunctr-lt-off') > 0,
@@ -79,7 +77,7 @@ window.Defunctr = (function (window, document, undefined) {
 
     r.version = version;
 
-    for (key in tests) {
+    for (var key in tests) {
         window.Modernizr.addTest(key, tests[key]);
     }
 
