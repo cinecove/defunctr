@@ -74,6 +74,16 @@ module.exports = function (grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.config('clean', {
+		release: {
+			options: {
+				force: true
+			},
+			src: [ 'tmp' ]
+		}
+	});
+
 	grunt.loadNpmTasks('grunt-git-deploy');
 	grunt.config('git_deploy', {
 		release: {
@@ -89,5 +99,5 @@ module.exports = function (grunt) {
 
 
 	grunt.registerTask('default', ['copy:scripts', 'uglify:min', 'usebanner']);
-	grunt.registerTask('deploy', ['copy:scripts', 'uglify:min', 'usebanner', 'git_deploy:release']);
+	grunt.registerTask('deploy', ['copy:scripts', 'uglify:min', 'usebanner', 'clean:release', 'git_deploy:release']);
 };

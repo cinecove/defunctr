@@ -12,3 +12,6 @@
 /dist
 /node_modules
 /build
+/tmp
+
+npm-debug.log
