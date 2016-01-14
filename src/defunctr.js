@@ -1,18 +1,45 @@
-(function (window, factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        module.exports = window.document ? factory(window, window.document, window.Modernizr, true) : function(w) {
-            if (!w.document) {
-                throw new Error("Defunctr requires a window with a document. It can not be used from in the node environment.");
-            } else {
-                return factory(w, w.document, window.Modernizr);
+(function (context, window, factory) {
+    function requireDocument(document) {
+        if (!document) {
+            throw new Error("Defunctr requires a window with a document.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    var modn = window.Modernizr;
+
+    if (typeof define === "function" && define.amd) {
+        /* amd support */
+        if (requireDocument(window.document)) {
+            define("defunctr", ["Modernizr"], function (modernizr) {
+                return factory(context, window, window.document, modernizr);
+            });
+        }
+    } else if (typeof module === "object" && typeof module.exports === "object") {
+        /* require and node support */
+        module.exports = window.document ? factory(context, window, window.document, modn, true) : function(w) {
+            if (requireDocument(w.document)) {
+                return factory(context, w, w.document, modn);
+            }
+        };
+    } else if (typeof exports === "object" && exports) {
+        /* other commonjs types */
+        exports = window.document ? factory(context, window, window.document, modn, true) : function(w) {
+            if (requireDocument(w.document)) {
+                return factory(context, w, w.document, modn);
             }
         };
     } else {
-        factory(window, window.document, window.Modernizr);
+        factory(context, window, window.document, modn);
     }
-}(typeof window !== "undefined" ? window : this, function (window, document, modernizr, noGlobal) {
+}(this, typeof window !== "undefined" ? window : this, function (context, window, document, modernizr, noGlobal) {
+    if (!modernizr && typeof require !== undefined) {
+        modernizr = require("Modernizr");
+    }
     if (typeof modernizr === 'undefined') {
-        throw new Error("Modernizr was not found attached to the window.");
+        throw new Error("Modernizr was not found.");
     }
 
     var version = '@@version',
