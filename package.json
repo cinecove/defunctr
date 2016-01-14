@@ -2,7 +2,7 @@
   "name": "defunctr",
   "title": "Defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
-  "version": "1.2.1-pre",
+  "version": "1.2.2",
   "main": "src/defunctr.js",
   "homepage": "https://github.com/cinecove/defunctr",
   "author": {
@@ -32,6 +32,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-banner": "^0.6.0",
+    "grunt-bump": "^0.7.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib": "^0.11.0",
     "grunt-contrib-clean": "^0.5.0",
@@ -68,6 +69,7 @@
   "scripts": {
     "install": "npm run build",
     "build": "grunt",
-    "nuget": "grunt nuget"
+    "nuget": "grunt nuget",
+    "release": "grunt release --env=production"
   }
 }
