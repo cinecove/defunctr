@@ -2,14 +2,12 @@
 # Defunctr
 ![Github version](https://img.shields.io/github/release/cinecove/defunctr.svg) ![Bower version](https://img.shields.io/bower/v/defunctr.svg)  [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg)](https://www.nuget.org/packages/defunctr)  ![Gem version](https://img.shields.io/gem/v/defunctr.svg) [![npm version](https://img.shields.io/npm/v/defunctr.svg)](https://www.npmjs.com/package/defunctr)
 
-
-
-
 ##### Defunctr is a [Modernizr](http://www.modernizr.com) extension JavaScript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
 - [Website](http://github.com/cinecove/defunctr)
 - [NuGet Package](https://www.nuget.org/packages/Defunctr/) [![NuGet version](https://img.shields.io/nuget/dt/defunctr.svg?label=downloads)](https://www.nuget.org/packages/defunctr)
 - [Bower](#bower)
+- [NPM](#npm)
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
 user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `defunctr` object, and as classes on the
@@ -71,6 +69,12 @@ Just run
 
     $ bower install defunctr
 
+### NPM
+To Install with [npm](https://www.npmjs.com/).
+
+Just run
+
+    $ npm install defunctr
 
 ### License
 

@@ -57,7 +57,19 @@ module.exports = function (grunt) {
                 var ver = grunt.config("build_tag");
                 return dest + src.replace('-' + ver, '');
             }
-        }
+        },
+		working: {
+			expand: true,
+			cwd: '<%= dirs.output %>/',
+			src: '**',
+			dest: '<%= dirs.release %>/',
+			flatten: true,
+			filter: 'isFile',
+			rename: function (dest, src) {
+				var ver = grunt.config("build_tag");
+				return dest + src.replace('-' + ver, '');
+			}
+		}
     });
 
     grunt.loadNpmTasks('grunt-banner');
@@ -255,6 +267,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'build',
         'copy:build',
+		'copy:working',
         'clean:build'
     ]);
     grunt.registerTask('nuget', [
@@ -269,6 +282,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'copy:build',
+		'copy:working',
         'clean:build',
 		'gitadd'
     ]);

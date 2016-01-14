@@ -1,11 +1,9 @@
 /gh-pages
 /node_modules
+/bower_components
 /nuget
 /release
-/src
-/test
-/Gruntfile.js
-/humans.txt
+/dist
 .jshintignore
 .jshintrc
 /.editorconfig

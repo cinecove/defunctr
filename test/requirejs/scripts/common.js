@@ -1,7 +1,7 @@
 requirejs.config({
 	baseUrl: 'scripts',
 	paths: {
-		defunctr: '../../../src/defunctr'
+		defunctr: '../../../release/defunctr'
 	},
 	shim: {
 		Modernizr: {

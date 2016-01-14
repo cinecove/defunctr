@@ -9,6 +9,9 @@ node_modules
 .settings
 *~
 *.diff
+/release/defunctr.js
+/release/defunctr.min.js
+/release/defunctr.map
 *.patch
 .DS_Store
 .sizecache.json
