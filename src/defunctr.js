@@ -9,14 +9,11 @@
     }
 
     var modn = window.Modernizr;
-    if (modn === undefined && typeof require === 'function') {
-        modn = require('Modernizr');
-    }
 
     if (typeof define === "function" && define.amd) {
         /* amd support */
         if (requireDocument(window.document)) {
-            define(["defunctr"], ["Modernizr"], function (modernizr) {
+            define("defunctr", ["Modernizr"], function (modernizr) {
                 return factory(context, window, window.document, modernizr);
             });
         }
