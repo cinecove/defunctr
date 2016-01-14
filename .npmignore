@@ -1,0 +1,15 @@
+/gh-pages
+/node_modules
+/nuget
+/release
+/src
+/test
+/Gruntfile.js
+/humans.txt
+.jshintignore
+.jshintrc
+/.editorconfig
+/.gitattributes
+/.jscs.json
+/.mailmap
+/.travis.yml

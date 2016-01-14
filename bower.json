@@ -1,0 +1,47 @@
+{
+  "name": "defunctr",
+  "description": "JavaScript library for web browser detection by feature detection.",
+  "main": "dist/defunctr.js",
+  "authors": [
+    {
+      "name": "Victoria French",
+      "homepage": "https://twitter.com/victoriafrench"
+    },
+    {
+      "name": "Cinecove Digital",
+      "homepage": "https://twitter.com/cinecove"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "defunctr",
+    "javascript",
+    "browser",
+    "library",
+    "detection",
+    "html5",
+    "shiv",
+    "modernizr"
+  ],
+  "homepage": "https://github.com/cinecove/defunctr",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "release",
+    "src",
+    "Gruntfile.js",
+    "package.json",
+    "README.md",
+    "humans.txt",
+    "CONTRIBUTING.md"
+  ],
+  "dependencies": {
+    "modernizr-min": "~3.0.0"
+  }
+}
