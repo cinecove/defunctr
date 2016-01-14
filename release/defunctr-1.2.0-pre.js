@@ -1,3 +1,14 @@
+/*!
+ * Defunctr 1.2.0-pre
+ * https://github.com/cinecove/defunctr
+ *
+ * Copyright 2012 - 2016 Cinecove Digital, LLC and other contributors
+ * Released under the MIT license
+ * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
+ *
+ * Build Date: 2016-01-13T21:53:46
+ */
+
 (function (window, factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
         module.exports = window.document ? factory(window, window.document, window.Modernizr, true) : function(w) {
@@ -15,7 +26,7 @@
         throw new Error("Modernizr was not found attached to the window.");
     }
 
-    var version = '@@version',
+    var version = '1.2.0-pre',
         r = {},
         docElement = document.documentElement,
         defunctr = 'defunctr',

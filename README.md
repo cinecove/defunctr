@@ -18,7 +18,9 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
     
 ### Classes created by Defunctr
 
+* `.undetected-browser` or `.no-undetected-browser`: Defines if Defunctr is unable to detect the browser.
 * `.ie` or `.no-ie`: Defines if the browser is Internet Explorer. This feature is always on.
+* `.edge` or `.no-edge`: Defines if the browser is Microsoft Edge. (Edge is Not and IE Browser)
 * `.chrome` or `.no-chrome`: Defines if the browser is Chrome. 
 * `.safari` or `.no-safari`: Defines if the browser is Safari. 
 * `.webkit` or `.no-webkit`: Defines if the browser is Webkit including Chrome, Safari, and Opera Next. 
@@ -28,25 +30,33 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 * `.ie-version-7` and `.no-ie-version-7`: Defines if the browser is IE 7. 
 * `.ie-version-8` and `.no-ie-version-8`: Defines if the browser is IE 8. 
 * `.ie-version-9` and `.no-ie-version-9`: Defines if the browser is IE 9. 
+* `.ie-version-10` and `.no-ie-version-10`: Defines if the browser is IE 10.
+* `.ie-version-11` and `.no-ie-version-11`: Defines if the browser is IE 11.
+* `.ie-version-12` and `.no-ie-version-12`: Defines if the browser is IE12.
 * `.ie-gt-6` and `.no-ie-gt-6`: Defines if the browser is IE 7+. 
 * `.ie-gt-7` and `.no-ie-gt-7`: Defines if the browser is IE 8+. 
 * `.ie-gt-8` and `.no-ie-gt-8`: Defines if the browser is IE 9+. 
 * `.ie-gt-9` and `.no-ie-gt-9`: Defines if the browser is IE 10+. 
+* `.ie-gt-10` and `.no-ie-gt-10`: Defines if the browser is IE 11+.
+* `.ie-gt-11` and `.no-ie-gt-11`: Defines if the browser is IE 12+.
 * `.ie-lt-7` and `.no-ie-lt-7`: Defines if the browser is less than IE 7. 
 * `.ie-lt-8` and `.no-ie-lt-8`: Defines if the browser is less than IE 8. 
 * `.ie-lt-9` and `.no-ie-lt-9`: Defines if the browser is less than IE 9. 
 * `.ie-lt-10` and `.no-ie-lt-10`: Defines if the browser is less than IE 10. 
+* `.ie-lt-11` and `.no-ie-lt-11`: Defines if the browser is less than IE 11.
+* `.ie-lt-12` and `.no-ie-lt-12`: Defines if the browser is less than IE 12.
 
-### Limitations on this release
+### Things to know about this release
 
-* Microsoft Edge is not detected
+* Internet Explorer can only be detected from version 5.0+
+* Microsoft Edge is detected as Microsoft Edge not Internet Explorer.
 * Opera can only be detected from version 8.0+
 * Opera Next is detected as Opera-Next not Opera.
 * Firefox can only be detected from version 0.8+
 * Safari can only be detected from version 3.0+
 * Chrome can only be detected from version 1.0+
-* Experimental support for KHtml
-* Only IE gives version information
+* Experimental support for KHtml.
+* Only Internet Explorer is supported for version information.
 
 ### License
 

@@ -1,5 +1,13 @@
 ### HEAD
 
+* Support for IE 11
+* Support for IE 12 preview
+* Support for Edge
+* Support for tagging undetected or unknown browsers.
+* Added support for require, commmonjs, and amd
+
+### 1.1.2 (January 13, 2016)
+
 * Removed unused variable declarations
 * Deprecated window.Defunctr in favor of window.defunctr
 * Updated .gitignore with support for webstorm
