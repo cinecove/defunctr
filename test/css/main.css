@@ -95,29 +95,43 @@ textarea {
 
 
 
-   .no-js .js-off { display: block; }
-   .no-js .js-on { display: none; }
-   .js .js-off { display: none; }
-   .js .js-on { display: block; }
+   .no-js .js-off { 
+    display: block; 
+  }
 
-   .js-on span { display: none; }
-   .ie .ielabel { display: inline; }
-   .ie-lt-6 .ieoldlabel { display: inline; }
-   .ie-version-6 .ie6label { display: inline; }
-   .ie-version-7 .ie7label { display: inline; }
-   .ie-version-8 .ie8label { display: inline; }
-   .ie-version-9 .ie9label { display: inline; }
-   .ie-version-10 .ie10label { display: inline; }
-   .ie-version-11 .ie11label { display: inline; }
-   .ie-gt-11 .ie12label { display: inline; }
-   .opera .olabel { display: inline; }
-   .khtml .klabel { display: inline; }
-   .safari .safarilabel { display: inline; }
-   .chrome .chromelabel { display: inline; }
-   .webkit .wlabel { display: inline; }
-   .firefox .fflabel { display: inline; }
-   .opera-next .operalabel { display: inline; }
-   .edge .edgelabel { display: inline; }
+   .no-js .js-on,
+   .js .js-off { 
+    display: none; 
+  }
+
+   .js .js-on { 
+    display: block; 
+  }
+
+   .js-on span { 
+    display: none; 
+  }
+
+   .ie .ie-label,
+   .ie-lt-6 .ieold-label,
+   .ie-version-6 .ie6-label,
+   .ie-version-7 .ie7-label,
+   .ie-version-8 .ie8-label,
+   .ie-version-9 .ie9-label,
+   .ie-version-10 .ie10-label,
+   .ie-version-11 .ie11-label,
+   .ie-gt-11 .ie12-label,
+   .opera .o-label,
+   .khtml .k-label,
+   .safari .safari-label,
+   .chrome .chrome-label,
+   .webkit .w-label,
+   .firefox .ff-label,
+   .opera-next .opera-label,
+   .edge .edge-label,
+   .undetected-broweser .undetected-label {
+    display: inline;
+   }
 
 
 

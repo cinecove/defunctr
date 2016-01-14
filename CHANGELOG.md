@@ -1,8 +1,9 @@
 ### HEAD
 
 * Support for IE 11
-* Support for IE 12
+* Support for IE 12 preview
 * Support for Edge
+* Support for tagging undetected or unknown browsers.
 * Added support for require, commmonjs, and amd
 
 ### 1.1.2 (January 13, 2016)

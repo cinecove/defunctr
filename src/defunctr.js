@@ -37,6 +37,7 @@
         r.isOperaNext  = (function (self, navigator) { return self.isWebkit && /(Opera|OPR)/.test(navigator.userAgent); })(r, navigator);
         r.isChrome = (function (self) { return !self.isSafari && !self.isOperaNext && self.isWebkit; })(r);
         r.isEdge = (function (self, window, document) { return !('ActiveXObject' in window) && (typeof window.Event === 'function') && (typeof window.msWriteProfilerMark !== 'undefined'); })(r, window, document);
+        r.isUndetected = (function (self) { return !((self.isWebkit) || (self.isOpera) || (self.isIE) || (self.isFirefox) || (self.isSafari) || (self.isKhtml) || (self.isOperaNext) || (self.isEdge)); })(r);
 
         r.ieAboveVersion5 = (function (self, window) { return self.isIE && (typeof document.compatMode !== 'undefined' && document.compatMode !== 'BackCompat'); })(r, window);
         r.ieAboveVersion6 = (function (self, window) { return self.isIE && self.ieAboveVersion5 && (typeof window.XMLHttpRequest !== 'undefined'); })(r, window);
@@ -79,6 +80,7 @@
         tests[prefix + 'khtml'] = function () { return r.detective.isKhtml; };
         tests[prefix + 'webkit'] = function () { return r.detective.isWebkit; };
         tests[prefix + 'edge'] = function () { return r.detective.isEdge; };
+        tests[prefix + 'undetected-broweser'] = function () { return r.detective.isUndetected; };
     }
 
     if (!ltoff) {
