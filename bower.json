@@ -39,7 +39,8 @@
     "package.json",
     "README.md",
     "humans.txt",
-    "CONTRIBUTING.md"
+    "CONTRIBUTING.md",
+    "nuget"
   ],
   "dependencies": {
     "modernizr-min": "~3.0.0"
