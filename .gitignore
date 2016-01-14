@@ -1,5 +1,15 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 .idea
-build
+/build
 node_modules
+/dist
+*-dev.*
+.project
+.settings
+*~
+*.diff
+*.patch
+.DS_Store
+.sizecache.json
+bower_components

@@ -2,8 +2,8 @@
   "name": "defunctr",
   "title": "Defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
-  "version": "1.2.1-pre",
-  "main": "src/defunctr.js",
+  "version": "1.2.0",
+  "main": "dist/defunctr.js",
   "homepage": "https://github.com/cinecove/defunctr",
   "author": {
     "name": "Cinecove Digital, LLC and other contributors",
@@ -28,10 +28,15 @@
   },
   "license": "MIT",
   "licenseUrl": "https://github.com/cinecove/defunctr/blob/master/LICENSE.md",
-  "dependencies": {},
+  "dependencies": {
+    "modernizr": "^3.0.0"
+  },
   "devDependencies": {
+    "bower": "^1.7.2",
     "grunt": "^0.4.5",
     "grunt-banner": "^0.6.0",
+    "grunt-bower": "^0.20.0",
+    "grunt-bump": "^0.7.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib": "^0.11.0",
     "grunt-contrib-clean": "^0.5.0",
@@ -60,6 +65,7 @@
     "grunt-contrib-uglify": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-yuidoc": "^0.5.2",
+    "grunt-git": "^0.3.7",
     "grunt-git-contributors": "^0.1.5",
     "grunt-git-deploy": "^0.3.0",
     "grunt-nuget": "^0.1.5",
@@ -68,6 +74,13 @@
   "scripts": {
     "install": "npm run build",
     "build": "grunt",
-    "nuget": "grunt nuget"
-  }
+    "nuget": "grunt nuget",
+    "release": "grunt release --env=production"
+  },
+  "contributors": [
+    {
+      "name": "Victoria French",
+      "url": "https://twitter.com/victoriafrench"
+    }
+  ]
 }

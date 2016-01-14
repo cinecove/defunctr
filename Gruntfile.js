@@ -5,46 +5,84 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         dirs: {
             output: 'build',
-            dist: 'release',
-            source: 'src'
-        }
+            dist: 'dist',
+            source: 'src',
+            release: 'release'
+        },
+        banner: '/*!\r\n' +
+        ' * <%= pkg.title %> <%= build_tag %>\r\n' +
+        ' * <%= pkg.homepage %>\r\n' +
+        ' *\r\n' +
+        ' * Copyright 2012 - <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\r\n' +
+        ' * Released under the <%= pkg.license %> license\r\n' +
+        ' * <%= pkg.licenseUrl %>\r\n' +
+        ' *\r\n' +
+        ' * Build Date: <%= grunt.template.today("isoDateTime") %>\r\n' +
+        ' */\r\n'
+    });
+
+    grunt.config("env", grunt.option("env") || process.env.GRUNT_ENV || 'dev');
+    grunt.config("bump_type", (grunt.option("bumptype") || process.env.GRUNT_BUMPTYPE || 'patch').toLowerCase()); // patch, minor, major, prerelease, preminor, premajor
+    grunt.config("build_label", grunt.config("env").toLowerCase() === 'production' ? '' : '-' + grunt.config("env").toLowerCase());
+    grunt.config("build_tag", grunt.config("pkg").version + grunt.config("build_label"));
+
+    grunt.registerTask("refresh-config", "", function() {
+        grunt.config("pkg", grunt.file.readJSON('package.json'));
+        grunt.config("build_label", grunt.config("env").toLowerCase() === 'production' ? '' : '-' + grunt.config("env").toLowerCase());
+        grunt.config("build_tag", grunt.config("pkg").version + grunt.config("build_label"));
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.config('copy', {
         scripts: {
             src: '<%= dirs.source %>/defunctr.js',
-            dest: '<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.js'
+            dest: '<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.js'
         },
-        release: {
+        build: {
+            expand: true,
+            cwd: '<%= dirs.output %>/',
+            src: '**',
+            dest: '<%= dirs.release %>/',
+            flatten: true,
+            filter: 'isFile'
+        },
+        dist: {
             expand: true,
             cwd: '<%= dirs.output %>/',
             src: '**',
             dest: '<%= dirs.dist %>/',
             flatten: true,
-            filter: 'isFile'
+            filter: 'isFile',
+            rename: function (dest, src) {
+                var ver = grunt.config("build_tag");
+                return dest + src.replace('-' + ver, '');
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-banner');
     grunt.config('usebanner', {
-        options: {
-            position: 'top',
-            banner: '/*!\r\n' +
-            ' * <%= pkg.title %> <%= pkg.version %>\r\n' +
-            ' * <%= pkg.homepage %>\r\n' +
-            ' *\r\n' +
-            ' * Copyright 2012 - <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\r\n' +
-            ' * Released under the <%= pkg.license %> license\r\n' +
-            ' * <%= pkg.licenseUrl %>\r\n' +
-            ' *\r\n' +
-            ' * Build Date: <%= grunt.template.today("isoDateTime") %>\r\n' +
-            ' */\r\n'
+        build: {
+            options: {
+                position: 'top',
+                banner: '<%= banner %>'
+            },
+            files: {
+                src: [
+                    '<%= dirs.output %>/*.js'
+                ]
+            }
         },
-        files: {
-            src: [
-                '<%= dirs.output %>/*.js'
-            ]
+        dist: {
+            options: {
+                position: 'top',
+                banner: '<%= banner %>'
+            },
+            files: {
+                src: [
+                    '<%= dirs.output %>/*.js'
+                ]
+            }
         }
     });
 
@@ -68,10 +106,10 @@ module.exports = function (grunt) {
         min: {
             options: {
                 sourceMap: true,
-                sourceMapName: '<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.map'
+                sourceMapName: '<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.map'
             },
             files: {
-                '<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.min.js': ['<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.js']
+                '<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.min.js': ['<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.js']
             }
         }
     });
@@ -86,7 +124,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.config('clean', {
-        release: {
+        build: {
             options: {
                 force: true
             },
@@ -97,6 +135,12 @@ module.exports = function (grunt) {
                 force: true
             },
             src: [ 'tmp' ]
+        },
+        dist: {
+            options: {
+                force: true
+            },
+            src: [ '<%= dirs.dist %>']
         }
     });
 
@@ -107,14 +151,14 @@ module.exports = function (grunt) {
                 patterns: [
                     {
                         match: 'version',
-                        replacement: '<%= pkg.version %>'
+                        replacement: '<%= build_tag %>'
                     }
                 ]
             },
             files: [
                 {
                     src: ['<%= dirs.source %>/defunctr.js'],
-                    dest: '<%= dirs.output %>/<%= pkg.name %>-<%= pkg.version %>.js'
+                    dest: '<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.js'
                 }
             ]
         },
@@ -123,7 +167,7 @@ module.exports = function (grunt) {
                 patterns: [
                     {
                         match: 'version',
-                        replacement: '<%= pkg.version %>'
+                        replacement: '<%= build_tag %>'
                     },
                     {
                         match: 'projecturl',
@@ -175,22 +219,57 @@ module.exports = function (grunt) {
        }
     });
 
-    //   'clean:release'
-    grunt.registerTask('default', [
-        'clean:release',
+    grunt.loadNpmTasks('grunt-bump');
+    grunt.config('bump', {
+        files: ['package.json', 'bower.json'],
+        updateConfigs: [],
+        commit: false,
+        createTag: false,
+        push: false
+    });
+
+	grunt.loadNpmTasks('grunt-git');
+	grunt.config('gitadd', {
+		task: {
+			options: {
+				force: true
+			},
+			files: {
+				src: [
+					'<%= dirs.dist %>/*.*'
+				]
+			}
+		}
+	});
+
+    grunt.registerTask('build', [
+        'clean:build',
         'replace:build',
         'uglify:min',
-        'usebanner',
-        'copy:release',
-        'clean:release',
-        'clean:temp',
+        'usebanner:build',
         'contributors:master',
         'contributors:f1',
-        'contributors:f2'
+        'contributors:f2',
+        'clean:temp'
+    ]);
+    grunt.registerTask('default', [
+        'build',
+        'copy:build',
+        'clean:build'
     ]);
     grunt.registerTask('nuget', [
-        'default',
         'replace:nuget',
         'nugetpack:dist'
+    ]);
+
+    grunt.registerTask('release', [
+        'bump-only:' + grunt.config("bump_type"),
+        'refresh-config',
+        'build',
+        'clean:dist',
+        'copy:dist',
+        'copy:build',
+        'clean:build',
+		'gitadd'
     ]);
 };
