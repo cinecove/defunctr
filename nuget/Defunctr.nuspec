@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Defunctr</id>
-        <version>1.1.2</version>
+        <version>1.2.0-pre</version>
         <title>Defunctr</title>
         <authors>Cinecove</authors>
         <owners>Cinecove</owners>
@@ -18,8 +18,8 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="..\release\defunctr-1.1.2.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.js" />
-        <file src="..\release\defunctr-1.1.2.map" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.map" />
-        <file src="..\release\defunctr-1.1.2.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.1.2.min.js" />
+        <file src="..\release\defunctr-1.2.0-pre.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.2.0-pre.js" />
+        <file src="..\release\defunctr-1.2.0-pre.map" target="content\Scripts\Vendor\Defunctr\defunctr-1.2.0-pre.map" />
+        <file src="..\release\defunctr-1.2.0-pre.min.js" target="content\Scripts\Vendor\Defunctr\defunctr-1.2.0-pre.min.js" />
     </files>
 </package>
