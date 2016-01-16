@@ -128,7 +128,9 @@ This project is licensed under the MIT license.
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)
 
 [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=triage&title=Triage)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=Bug&title=Bug)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=Discussion&title=Discussion)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=enhansement&title=New%20Feature)](http://waffle.io/Cinecove/defunctr) 
+
 [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=ready&title=Ready%20For%20Dev)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=in%20progress&title=In%20Progress)](http://waffle.io/Cinecove/defunctr)
+
 [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=qa%20ready&title=QA%20Ready)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=testing&title=QA%20Testing)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull%20failed&title=Failed%20QA)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull%20ready&title=Passed%20QA)](http://waffle.io/Cinecove/defunctr)
 
 Throughput Graph
