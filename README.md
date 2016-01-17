@@ -166,6 +166,9 @@ We support most browsers, which is the point of using our module in the first pl
 
 ### CDN Delivery
 
+> **CDNJS**
+> We would like to add CDNJS to our list in the future. CDNJS requires a github project star rating above 100. If you would like to see Defunctr hosted there, please contribute by starring this project.
+
 Defunctr is available on the [jsDelivr](http://www.jsdelivr.com/projects/defunctr) content delivery network.
 
 To use Defunctr via jsDelivr add the following script to your html (replace the version with the one you wish to use). Be sure to add Modernizr before you add Defunctr.
@@ -180,6 +183,19 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 	</body>
 	...
 ```
+
+####Version aliasing with jsDelivr
+
+For latest version use:
+
+```//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js```
+
+You can also load versions per branch:
+```//cdn.jsdelivr.net/defunctr/1.2.1/defunctr.min.js``` Exact 1.2.1 branch
+
+```//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js``` Latest in 1.2.* branch
+
+```//cdn.jsdelivr.net/defunctr/1/defunctr.min.js``` Latest in 1.* branch
 
 ### Bower
 To Install with [bower](http://bower.io/).
@@ -255,7 +271,7 @@ You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard]
 | ------- | ---------------------------|
 |Pending|[![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=triage&title=Triage)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=Bug&title=Bug)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=Discussion&title=Discussion)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=enhancement&title=New%20Feature)](http://waffle.io/Cinecove/defunctr) |
 |Development|[![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=ready&title=Ready%20For%20Dev)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=in%20progress&title=In%20Progress)](http://waffle.io/Cinecove/defunctr)|
-|QA|[![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=qa%20ready&title=QA%20Ready)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=testing&title=QA%20Testing)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull%20failed&title=Failed%20QA)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull%20ready&title=Passed%20QA)](http://waffle.io/Cinecove/defunctr)|
+|QA|[![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=qa-ready&title=QA%20Ready)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=testing&title=QA%20Testing)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull-failed&title=Failed%20QA)](http://waffle.io/Cinecove/defunctr) [![Stories in Progress](https://badge.waffle.io/Cinecove/defunctr.svg?label=pull-ready&title=Passed%20QA)](http://waffle.io/Cinecove/defunctr)|
 
 Throughput Graph
 
