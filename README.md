@@ -166,7 +166,8 @@ We support most browsers, which is the point of using our module in the first pl
 
 ### CDN Delivery
 
-> **CDNJS**
+> **Help Us Get On CDNJS**:
+> 
 > We would like to add CDNJS to our list in the future. CDNJS requires a github project star rating above 100. If you would like to see Defunctr hosted there, please contribute by starring this project.
 
 Defunctr is available on the [jsDelivr](http://www.jsdelivr.com/projects/defunctr) content delivery network.
@@ -188,14 +189,15 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 
 For latest version use:
 
-```//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js```
+`//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js`
 
 You can also load versions per branch:
-```//cdn.jsdelivr.net/defunctr/1.2.1/defunctr.min.js``` Exact 1.2.1 branch
 
-```//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js``` Latest in 1.2.* branch
+`//cdn.jsdelivr.net/defunctr/1.2.1/defunctr.min.js` Exact 1.2.1 branch
 
-```//cdn.jsdelivr.net/defunctr/1/defunctr.min.js``` Latest in 1.* branch
+`//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js` Latest in 1.2.* branch
+
+`//cdn.jsdelivr.net/defunctr/1/defunctr.min.js` Latest in 1.* branch
 
 ### Bower
 To Install with [bower](http://bower.io/).
