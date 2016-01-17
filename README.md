@@ -5,6 +5,7 @@
 
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
+|[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/jquery)|
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)   [![NuGet version](https://img.shields.io/nuget/dt/defunctr.svg?label=downloads)](https://www.nuget.org/packages/defunctr)|
 |[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) **Coming Soon**|
@@ -162,6 +163,23 @@ We support most browsers, which is the point of using our module in the first pl
 * Opera Next is detected as Opera-Next not Opera.
 * Experimental support for KHtml.
 * Only Internet Explorer is supported for version information.
+
+### CDN Delivery
+
+Defunctr is available on the [jsDelivr](http://www.jsdelivr.com/projects/defunctr) content delivery network.
+
+To use Defunctr via jsDelivr add the following script to your html (replace the version with the one you wish to use). Be sure to add Modernizr before you add Defunctr.
+
+``` html
+	...
+	<body>
+		...
+		
+		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/defunctr/{version}/defunctr.min.js"></script>
+	</body>
+	...
+```
 
 ### Bower
 To Install with [bower](http://bower.io/).
