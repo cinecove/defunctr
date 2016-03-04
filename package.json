@@ -53,13 +53,10 @@
     "grunt-contrib-jasmine": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-jst": "^0.6.0",
-    "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-contrib-qunit": "^1.0.1",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-stylus": "^1.1.0",
-    "grunt-contrib-symlink": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-yuidoc": "^0.10.0",
@@ -67,7 +64,7 @@
     "grunt-git-contributors": "^0.1.5",
     "grunt-git-deploy": "^0.3.0",
     "grunt-nuget": "^0.1.5",
-    "grunt-nuget-pack": "0.0.6",
+    "grunt-nuget-pack": "^0.0.6",
     "grunt-replace": "^0.11.0"
   },
   "scripts": {
