@@ -23,7 +23,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 |`defunctr-version-off`|Defunctr will not add browser version classes to the `<head>` element|
 |`defunctr-lt-off`|Defunctr will not add less than version classes to the `<head>` element|
 |`defunctr-gt-off`|Defunctr will not add greater than version classes to the `<head>` element|
-    
+
 ### Classes created by Defunctr
 
 Defunctr will assign a series of tests to Modernizr to execute. Modernizr will apply class names to the `<html>` element based on the results of the test. The class name will be appended with `no-` if the test result is false.
@@ -55,7 +55,7 @@ Now we want a special condition for Internet Explorer version below 10.
 		background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
 		background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
 	}
-	
+
 	.ie-lt-10 .button {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
 	}
@@ -73,7 +73,7 @@ Now we need to hack the border radius for Internet Explorer 8 and below, and Ope
 		background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
 		background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
 	}
-	
+
 	.ie-lt-10 .button {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
 	}
@@ -167,7 +167,7 @@ We support most browsers, which is the point of using our module in the first pl
 ### CDN Delivery
 
 > **Help Us Get On CDNJS**:
-> 
+>
 > We would like to add CDNJS to our list in the future. CDNJS requires a github project star rating above 100. If you would like to see Defunctr hosted there, please contribute by starring this project.
 
 Defunctr is available on the [jsDelivr](http://www.jsdelivr.com/projects/defunctr) content delivery network.
@@ -178,7 +178,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 	...
 	<body>
 		...
-		
+
 		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/defunctr/{version}/defunctr.min.js"></script>
 	</body>
@@ -208,7 +208,7 @@ Just run
 
 ### NPM
 
-> **NOTE:** 
+> **NOTE:**
 > The NPM release is currently in development and has not been released yet. It will be available shortly.
 
 To Install with [npm](https://www.npmjs.com/).
@@ -227,7 +227,7 @@ Just run
 #### Optional Tools
 - [WebStorm](http://jetbrains.com/webstorm) (Project Editor)
 
-check out the source code 
+check out the source code
 ``` bash
 
 #create your project directory
@@ -238,9 +238,9 @@ $ git clone https://github.com/Cinecove/defunctr.git .
 
 # BUILD using npm and grunt:
 $ npm install
-    
-# If you want to send us changes, you should fork 
-# the project into your own account first, and use 
+
+# If you want to send us changes, you should fork
+# the project into your own account first, and use
 # that URL to clone it.
 
 # If you fork it later you can just change the origin by:
@@ -249,13 +249,13 @@ $ npm install
 $ git remote rename origin upstream
 
 # add your repo url as the origin:
-# e.g. git@github.com:victoriafrench/defunctr.git 
-$ git remote add origin <your-repo-url> 
+# e.g. git@github.com:victoriafrench/defunctr.git
+$ git remote add origin <your-repo-url>
 
 # the compiled modules are located in the release directory.
 # tests are located in the tests directory and reference the
 # release directory
- 
+
 $ cd release
 
 ```
@@ -265,7 +265,7 @@ $ cd release
 Defunctr is licensed under the [MIT license](./LICENSE.md)
 
 
-### Project Dashboard
+### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr)
 
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)
 
@@ -294,7 +294,7 @@ There are currently three branches in the git repository:
 
 
 
-### Team Members 
+### Team Members
 
 | Branch | Purpose |
 | ------- | ---------------------------|
