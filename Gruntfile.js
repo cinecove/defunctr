@@ -7,7 +7,8 @@ module.exports = function (grunt) {
             output: 'build',
             dist: 'dist',
             source: 'src',
-            release: 'release'
+            release: 'release',
+			nuget: 'nuget'
         },
         banner: '/*!\r\n' +
         ' * <%= pkg.title %> <%= build_tag %>\r\n' +
@@ -173,34 +174,6 @@ module.exports = function (grunt) {
                     dest: '<%= dirs.output %>/<%= pkg.name %>-<%= build_tag %>.js'
                 }
             ]
-        },
-        nuget: {
-            options: {
-                patterns: [
-                    {
-                        match: 'version',
-                        replacement: '<%= build_tag %>'
-                    },
-                    {
-                        match: 'projecturl',
-                        replacement: '<%= pkg.homepage %>'
-                    },
-                    {
-                        match: 'copyright',
-                        replacement: '<%= pkg.author.name %>'
-                    },
-                    {
-                        match: 'year',
-                        replacement: '<%= grunt.template.today("yyyy") %>'
-                    }
-                ]
-            },
-            files: [
-                {
-                    src: ['nuget/Defunctr.config'],
-                    dest: 'nuget/Defunctr.nuspec'
-                }
-            ]
         }
     });
 
@@ -223,13 +196,38 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-nuget');
-    grunt.config('nugetpack', {
-       dist: {
-           src: 'nuget/Defunctr.nuspec',
-           dest: 'nuget/'
-       }
-    });
+	grunt.loadNpmTasks('grunt-nuget-pack');
+	grunt.config('nugetpack', {
+		dist: {
+			options: {
+				id: 'Defunctr',
+				title: 'Defunctr',
+				version: '<%= build_tag %>',
+				authors: 'Cinecove',
+				owners: 'Cinecove',
+				description: 'Defunctr is a module for Modernizr that will detect the current browser using feature detection. It will then append browser informational classes to the head element of the page, giving the designer the ability to override CSS styles without using older browser hacks. Changing the browsers compatibility mode will cause the correct classes to be applied and changing a user-agent will have not effect on the class generation.',
+				releaseNotes: 'See <%= pkg.homepage %> for release notes for version <%= build_tag %>',
+				summary: 'Defunctr is a module for Modernizr that will append browser versioning information into the head element of your web pages using feature detection.',
+				//language: 'en-us',
+				projectUrl: '<%= pkg.homepage %>',
+				//iconUrl: '',
+				licenseUrl: '<%= pkg.licenseUrl %>',
+				copyright: '2013 - <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>',
+				requireLicenseAcceptance: false,
+				dependencies: [
+					{ id: 'Modernizr', version: '2.6' }
+				],
+				tags: 'Modernizr, Browser Detection, HTML5, Shiv',
+				outputDir: 'nuget/',
+				baseDir: '.'
+			},
+			files: [
+				{ src: '<%= dirs.release %>/defunctr-<%= build_tag %>.js', dest: '/content/Scripts/Vendor/Defunctr/defunctr.js'},
+				{ src: '<%= dirs.release %>/defunctr-<%= build_tag %>.map', dest: '/content/Scripts/Vendor/Defunctr/defunctr.map'},
+				{ src: '<%= dirs.release %>/defunctr-<%= build_tag %>.min.js', dest: '/content/Scripts/Vendor/Defunctr/defunctr.min.js'}
+			]
+		}
+	});
 
     grunt.loadNpmTasks('grunt-bump');
     grunt.config('bump', {
@@ -248,7 +246,8 @@ module.exports = function (grunt) {
 			},
 			files: {
 				src: [
-					'<%= dirs.dist %>/*.*'
+					'<%= dirs.dist %>/*.*',
+					'<%= dirs.nuget %>/*.*'
 				]
 			}
 		}
@@ -271,7 +270,6 @@ module.exports = function (grunt) {
         'clean:build'
     ]);
     grunt.registerTask('nuget', [
-        'replace:nuget',
         'nugetpack:dist'
     ]);
 
@@ -283,6 +281,7 @@ module.exports = function (grunt) {
         'copy:dist',
         'copy:build',
 		'copy:working',
+		'nugetpack:dist',
         'clean:build',
 		'gitadd'
     ]);
