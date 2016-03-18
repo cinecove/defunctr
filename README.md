@@ -305,4 +305,6 @@ There are currently three branches in the git repository:
 
 We would like to give a shout-out to **JetBrains** for providing [WebStorm](https://www.jetbrains.com/webstorm/) licenses to our project! Big Huge Hugs!
 
+[BrowserStack](http://browserstack.com) had provided us with a valuable testing account for this project. We greatly appreciate their support and hope you check them out!
+
 [![Analytics](https://ga-beacon.appspot.com/UA-58610544-5/defunctr/readme.md)](https://github.com/igrigorik/ga-beacon)
