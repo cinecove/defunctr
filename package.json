@@ -54,7 +54,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-jst": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt-contrib-qunit": "^1.0.1",
+    "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
@@ -62,7 +62,7 @@
     "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-git": "^0.3.7",
     "grunt-git-contributors": "^0.1.5",
-    "grunt-git-deploy": "^0.3.0",
+    "grunt-git-deploy": "^0.3.1",
     "grunt-nuget": "^0.1.5",
     "grunt-nuget-pack": "^0.0.6",
     "grunt-replace": "^0.11.0"
