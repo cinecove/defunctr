@@ -52,5 +52,8 @@ test: [
 "**/tests/**",
 "**/spec/**",
 "**/specs/**"
-]
+],
+"critics": {
+  "lint": {"engine": "eslint"}
+}
 }
