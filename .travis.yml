@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "5"
-  - "4"
+#  - "4" removing node 4 until all the grunt tasks have been peer updated. npm 3 does this different so node 5 is ok
 
 sudo: required
 
