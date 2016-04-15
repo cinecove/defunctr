@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 3,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "globalReturn": true
+    },
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "commonjs": true
+  }
+}

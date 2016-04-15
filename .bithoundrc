@@ -43,7 +43,7 @@ ignore: [
 "**/extjs/welcome/**",
 "bower_components/**",
 "test/requirejs/scripts/require.js",
-"**/release/**,
+"**/release/**",
 "**/dist/**",
 "**/Modernizr.js"
 ],

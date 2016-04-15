@@ -1,0 +1,4 @@
+build/
+release/
+test/requirejs/scripts/require.js
+**/Modernizr.js
