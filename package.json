@@ -60,7 +60,7 @@
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-contrib-yuidoc": "^1.0.0",
-    "grunt-git": "^0.3.7",
+    "grunt-git": "^1.0.0",
     "grunt-git-contributors": "^0.1.5",
     "grunt-git-deploy": "^0.3.1",
     "grunt-nuget": "^0.1.5",
