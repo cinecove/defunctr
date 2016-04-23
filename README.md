@@ -6,7 +6,7 @@
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
 |[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/defunctr)|
-|[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)   [![NuGet version](https://img.shields.io/nuget/dt/defunctr.svg?label=downloads)](https://www.nuget.org/packages/defunctr)|
+|[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
 |[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) **Coming Soon**|
 |[Ruby Gem](#ruby-gem)| ![Gem version](https://img.shields.io/gem/v/defunctr.svg?label=current%20version) **Coming Soon** |
