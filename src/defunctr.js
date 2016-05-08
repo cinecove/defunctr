@@ -107,7 +107,7 @@
         tests[prefix + 'khtml'] = function () { return r.detective.isKhtml; };
         tests[prefix + 'webkit'] = function () { return r.detective.isWebkit; };
         tests[prefix + 'edge'] = function () { return r.detective.isEdge; };
-        tests[prefix + 'undetected-broweser'] = function () { return r.detective.isUndetected; };
+        tests[prefix + 'undetected-browser'] = function () { return r.detective.isUndetected; };
     }
 
     if (!ltoff) {
