@@ -1,5 +1,13 @@
 ### HEAD
 
+### 1.2.2 (May 8, 2016)
+* Fixes for linting issues
+* Corrected spelling on css class name `unsuported-browser`
+
+## 1.2.1 (January 14, 2016)
+* Bower support added
+
+## 1.2.0 (January 14, 2016)
 * Support for IE 11
 * Support for IE 12 preview
 * Support for Edge
