@@ -8,7 +8,7 @@
 |[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/defunctr)|
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
 |[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
-|[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) **Coming Soon**|
+|[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
 |[Ruby Gem](#ruby-gem)| ![Gem version](https://img.shields.io/gem/v/defunctr.svg?label=current%20version) **Coming Soon** |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
@@ -207,9 +207,6 @@ Just run
     $ bower install defunctr
 
 ### NPM
-
-> **NOTE:**
-> The NPM release is currently in development and has not been released yet. It will be available shortly.
 
 To Install with [npm](https://www.npmjs.com/).
 
