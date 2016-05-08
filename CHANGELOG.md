@@ -1,9 +1,11 @@
 ### HEAD
 
+### 1.2.3 (May 8, 2016)
+* NPM support added
+
 ### 1.2.2 (May 8, 2016)
 * Fixes for linting issues
 * Corrected spelling on css class name `undetected-browser`
-* NPM supported
 
 ## 1.2.1 (January 14, 2016)
 * Bower support added

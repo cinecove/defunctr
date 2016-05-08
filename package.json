@@ -2,7 +2,7 @@
   "name": "defunctr",
   "title": "Defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "release/defunctr.js",
   "homepage": "https://github.com/cinecove/defunctr",
   "author": {
