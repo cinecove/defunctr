@@ -1,1 +1,2 @@
 Victoria French <victoria.french@cinecove.com>
+greenkeeperio-bot <support@greenkeeper.io>
