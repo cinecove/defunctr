@@ -193,7 +193,7 @@ For latest version use:
 
 You can also load versions per branch:
 
-`//cdn.jsdelivr.net/defunctr/1.2.1/defunctr.min.js` Exact 1.2.1 branch
+`//cdn.jsdelivr.net/defunctr/1.2.3/defunctr.min.js` Exact 1.2.3 branch
 
 `//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js` Latest in 1.2.* branch
 
