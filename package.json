@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "bower": "^1.7.9",
+    "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-banner": "^0.6.0",
     "grunt-bower": "^0.21.2",
@@ -65,7 +66,8 @@
     "grunt-git-deploy": "^0.3.1",
     "grunt-nuget": "^0.1.5",
     "grunt-nuget-pack": "^0.0.6",
-    "grunt-replace": "^1.0.1"
+    "grunt-replace": "^1.0.1",
+    "mocha": "^2.5.3"
   },
   "scripts": {
     "install": "npm run build",
