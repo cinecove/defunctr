@@ -1,5 +1,5 @@
 
-# [Defunctr](http://github.com/cinecove/defunctr) ![Github version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=Current%20Version)
+# [Defunctr](http://github.com/cinecove/defunctr) ![Github version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=Current%20Version) [![Join the chat at https://gitter.im/cinecove/defunctr](https://badges.gitter.im/cinecove/defunctr.svg)](https://gitter.im/cinecove/defunctr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ##### Defunctr is a [Modernizr](http://www.modernizr.com) extension JavaScript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
