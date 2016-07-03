@@ -262,7 +262,7 @@ $ cd release
 Defunctr is licensed under the [MIT license](./LICENSE.md)
 
 
-### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr)
+### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
 
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)
 
