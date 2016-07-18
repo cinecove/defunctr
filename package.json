@@ -47,7 +47,7 @@
     "grunt-contrib-csslint": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-handlebars": "^1.0.0",
-    "grunt-contrib-htmlmin": "^1.4.0",
+    "grunt-contrib-htmlmin": "^2.0.0",
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-jade": "^1.0.0",
     "grunt-contrib-jasmine": "^1.0.3",
