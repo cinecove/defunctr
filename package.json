@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "bower": "^1.7.9",
+    "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-banner": "^0.6.0",
     "grunt-bower": "^0.21.2",
@@ -47,7 +48,7 @@
     "grunt-contrib-csslint": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-handlebars": "^1.0.0",
-    "grunt-contrib-htmlmin": "^1.4.0",
+    "grunt-contrib-htmlmin": "^2.0.0",
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-jade": "^1.0.0",
     "grunt-contrib-jasmine": "^1.0.3",
@@ -57,7 +58,7 @@
     "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-git": "^1.0.0",
@@ -65,7 +66,8 @@
     "grunt-git-deploy": "^0.3.1",
     "grunt-nuget": "^0.1.5",
     "grunt-nuget-pack": "^0.0.6",
-    "grunt-replace": "^1.0.1"
+    "grunt-replace": "^1.0.1",
+    "mocha": "^2.5.3"
   },
   "scripts": {
     "install": "npm run build",
