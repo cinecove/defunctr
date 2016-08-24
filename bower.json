@@ -2,7 +2,10 @@
   "name": "defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
   "main": "dist/defunctr.js",
-  "version": "1.3.2",
+  "version": "1.3.0",
+  "main": [
+    "dist/defunctr.js"
+  ]
   "authors": [
     {
       "name": "Victoria French",
@@ -25,18 +28,39 @@
     "modernizr"
   ],
   "homepage": "https://github.com/cinecove/defunctr",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cinecove/defunctr.git"
+  },
   "moduleType": [
     "amd",
-    "globals"
+    "globals",
+    "node"
   ],
   "ignore": [
     "**/.*",
+    "docs",
+    "lib",
+    "dist/index.js"
     "node_modules",
     "bower_components",
     "test",
     "release",
     "src",
-    "Gruntfile.js",
+    ".babelrc",
+    ".bithoundrc",
+    ".editorconfig",
+    ".eslintignore",
+    ".eslintrc",
+    ".eslintrc.json.old",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    "Gruntfile.js.old",
+    "gulpfile.js",
+    "info.ini",
+    "rollup.config.js",
+    "update.json",
     "package.json",
     "README.md",
     "humans.txt",
