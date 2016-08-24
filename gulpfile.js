@@ -68,6 +68,7 @@ gulp.task('build-umd', function () {
     .pipe(strip())
     .pipe(replace('@@version', version))
     .pipe(banner(header, { pkg: pkg, build_tag: build_tag, buildDate: buildDate }))
+    .pipe(gulp.dest('./release'))
     .pipe(rename({suffix: '-' + version}))
     .pipe(gulp.dest('./release'))
     .pipe(rename({basename: 'defunctr', suffix: '-dev'}))
@@ -80,7 +81,9 @@ gulp.task('build-umd', function () {
     }))
     .pipe(rename({ basename: 'defunctr', suffix: ''}))
     .pipe(gulp.dest('./dist'))
-    .pipe(rename({ suffix: '-' + version + '.min'}))
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest('./release'))
+    .pipe(rename({ basename: 'defunctr', suffix: '-' + version + '.min'}))
     .pipe(gulp.dest('./release'));
 });
 
