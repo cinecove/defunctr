@@ -73,7 +73,7 @@
     "release": "rollup -c && gulp bump && gulp release --env=production",
     "watch": "rollup -c -w",
     "pretest": "npm run build",
-    "test": "mocha",
+    "test": "mocha \"./{,!(node_modules)/**/}*.test.js\"",
     "prepublish": "npm test"
   },
   "contributors": [
