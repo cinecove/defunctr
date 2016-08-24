@@ -3,7 +3,7 @@
 .idea
 /build
 node_modules
-/dist
+dist
 *-dev.*
 .project
 .settings
