@@ -19,6 +19,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 
 | CSS Class | Description |
 | ------- | ---------------------------|
+|`defunctr-off`|Defunctr will NOT add any classes to the `<head>` element|
 |`defunctr-ie-only`|Defunctr will only include ie testing|
 |`defunctr-version-off`|Defunctr will not add browser version classes to the `<head>` element|
 |`defunctr-lt-off`|Defunctr will not add less than version classes to the `<head>` element|
@@ -179,7 +180,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 	<body>
 		...
 
-		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.3.0/modernizr.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/defunctr/{version}/defunctr.min.js"></script>
 	</body>
 	...
@@ -204,7 +205,9 @@ To Install with [bower](http://bower.io/).
 
 Just run
 
+```
     $ bower install defunctr
+```
 
 ### NPM
 
@@ -212,17 +215,34 @@ To Install with [npm](https://www.npmjs.com/).
 
 Just run
 
+```
     $ npm install defunctr
+```
+
+### NuGet
+
+To Install with [NuGet](https://www.nuget.org/)
+
+Using the NuGet package manager, execute:
+
+```
+	PM> Install-Package Defunctr
+```
+
+> **NOTICE:**
+> Visual Studio 2015 users should begin migrating to NPM. New projects created in Visual Studio 2015 and above should use the NPM package.
 
 ### Building the code
 
 #### Required Tools
 - Node
 - NPM
-- Grunt
+- Gulp
 
 #### Optional Tools
-- [WebStorm](http://jetbrains.com/webstorm) (Project Editor)
+- [ATOM](https://atom.io/) (Project IDE)
+- [WebStorm](http://jetbrains.com/webstorm) (Project IDE)
+- [Visual Studio Code](https://code.visualstudio.com/) (Project IDE)
 
 check out the source code
 ``` bash

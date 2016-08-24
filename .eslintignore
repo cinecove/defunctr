@@ -1,4 +1,7 @@
 build/
 release/
-test/requirejs/scripts/require.js
+dist/
+test/requirejs/*
+test/common/**/*
+test/index_test.js
 **/Modernizr.js

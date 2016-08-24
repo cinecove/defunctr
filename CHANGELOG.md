@@ -1,5 +1,16 @@
 ### HEAD
 
+* Moved off Grunt to Gulp
+* Moved to rollup for UMD and node transpiling
+* Migrated all code to ES6
+* All tests are stored as separate files now
+* If Modernizr is not found, component will use an internal tester
+* Allows css class tagging to be turned of by adding `defunctr-off`
+* Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
+* Starting to add test suite
+* Adding flow
+* Build now occurs on Node 6.3+
+
 ### 1.2.3 (May 8, 2016)
 * NPM support added
 
@@ -65,4 +76,3 @@
 * Added Support for IE
 * Added License
 * Added Readme.md
-

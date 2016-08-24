@@ -1,10 +1,10 @@
 requirejs.config({
 	baseUrl: 'scripts',
 	paths: {
-		defunctr: '../../../release/defunctr'
+		defunctr: '../../../dist/defunctr-dev'
 	},
 	shim: {
-		Modernizr: {
+		modernizr: {
 			exports: 'Modernizr'
 		}
 	}
