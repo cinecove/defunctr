@@ -2,6 +2,7 @@
   "name": "defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
   "main": "dist/defunctr.js",
+  "version": "1.3.2",
   "authors": [
     {
       "name": "Victoria French",
