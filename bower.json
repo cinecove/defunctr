@@ -4,7 +4,7 @@
   "main": "dist/defunctr.js",
   "version": "1.3.0-beta1",
   "main": [
-    "dist/defunctr.js"
+    "release/defunctr.min.js"
   ],
   "authors": [
     {
@@ -44,6 +44,7 @@
     "dist/index.js"
     "node_modules",
     "bower_components",
+    "browserdiffs",
     "test",
     "release",
     "src",
@@ -68,6 +69,6 @@
     "nuget"
   ],
   "dependencies": {
-    "modernizr-min": "~3.0.0"
+    "modernizr-min": "~3.3.0"
   }
 }

@@ -1,0 +1,40 @@
+document.documentElement.style
+keys	length
+cssText
+parentRule
+removeProperty
+getPropertyPriority
+getPropertyValue
+getPropertyShorthand
+getPropertyCSSValue
+isPropertyImplicit
+item
+setProperty
+window.msWriteProfilerMark
+exists	undefined
+window.opera
+exists	undefined
+window.opera.version
+exists	undefined
+document.all
+exists	undefined
+window.ActiveXObject
+exists	undefined
+window.HTMLElement
+toString	[object HTMLElementConstructor]
+navigator.userAgent
+value	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/534.57.7 (KHTML, like Gecko) Version/5.1.5 Safari/534.55.3
+window.Event
+[object EventConstructor]
+document.compatMode
+typeof	BackCompat
+window.XMLHttpRequest
+undefined
+document.querySelector
+function querySelector() { [native code] }
+document.addEventListener
+function addEventListener() { [native code] }
+window.atob
+function atob() { [native code] }
+window.chrome
+undefined
