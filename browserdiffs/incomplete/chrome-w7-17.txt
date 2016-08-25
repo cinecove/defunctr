@@ -1,0 +1,40 @@
+document.documentElement.style
+keys	cssText
+length
+parentRule
+getPropertyValue
+getPropertyCSSValue
+removeProperty
+getPropertyPriority
+setProperty
+item
+getPropertyShorthand
+isPropertyImplicit
+window.msWriteProfilerMark
+exists	undefined
+window.opera
+exists	undefined
+window.opera.version
+exists	undefined
+document.all
+exists	undefined
+window.ActiveXObject
+exists	undefined
+window.HTMLElement
+toString	function HTMLElement() { [native code] }
+navigator.userAgent
+value	Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.66 Safari/535.11
+window.Event
+function Event() { [native code] }
+document.compatMode
+typeof	BackCompat
+window.XMLHttpRequest
+undefined
+document.querySelector
+function querySelector() { [native code] }
+document.addEventListener
+function addEventListener() { [native code] }
+window.atob
+function atob() { [native code] }
+window.chrome
+{"searchBox":{"value":"","verbatim":false,"selectionStart":0,"selectionEnd":0,"x":0,"y":0,"width":0,"height":0,"onchange":null,"onsubmit":null,"oncancel":null,"onresize":null},"app":{"isInstalled":false},"appNotifications":{},"webstore":{}}

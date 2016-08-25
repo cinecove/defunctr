@@ -4,6 +4,7 @@
 /nuget
 /release
 /dist
+/browserdiffs
 .jshintignore
 .jshintrc
 /.editorconfig

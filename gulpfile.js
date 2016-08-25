@@ -12,7 +12,7 @@ var nugetpack = require('gulp-nuget-pack');
 var main = pkg['main'];
 var mainmod = pkg['jsnext:main'];
 var version = pkg['version'];
-var build_tag = version + ((gutil.env.env === undefined || gutil.env.env === 'production' || gutil.env.env === 'prod') ? '' : '-' + gutil.env.env.toLowerCase());
+var build_tag = version
 var buildDate = (new Date()).toISOString();
 
 var header = '/*!\r\n' +
@@ -41,7 +41,7 @@ gulp.task('nuget-pack', function (callback) {
     copyright: '2013 - ' + (new Date()).getFullYear() + ' ' + pkg.author.name,
     requireLicenseAcceptance: false,
     dependencies: [
-      { id: 'Modernizr', version: '3.0' }
+      { id: 'Modernizr', version: '[2,4)' }
     ],
     tags: 'Modernizr, Browser Detection, HTML5, Shiv',
     outputDir: 'nuget',
@@ -60,6 +60,24 @@ gulp.task('nuget-pack', function (callback) {
 gulp.task('bump', function() {
   return gulp.src(['./package.json', './bower.json'])
     .pipe(bump())
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('bump-beta', function() {
+  return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump({type: 'prerelease'}))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('bump-minor', function() {
+  return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump({type: 'minor'}))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('bump-major', function() {
+  return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump({type: 'major'}))
     .pipe(gulp.dest('./'));
 });
 

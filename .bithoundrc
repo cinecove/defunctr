@@ -45,6 +45,9 @@
     "test/requirejs/scripts/require.js",
     "**/release/**",
     "**/dist/**",
+    "**/browserdiffs/**",
+    "**/nuget/**",
+    "**/docs/**",
     "**/Modernizr.js"
   ],
   "test": [
