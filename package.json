@@ -58,7 +58,7 @@
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.5",
     "mocha": "^2.5.3",
-    "rollup": "^0.34.10",
+    "rollup": "^0.35.10",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-istanbul": "^1.0.0",
     "rollup-watch": "^2.5.0"
