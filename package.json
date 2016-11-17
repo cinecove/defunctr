@@ -34,7 +34,7 @@
     "modernizr": "^3.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
+    "babel-eslint": "^7.1.1",
     "babel-plugin-external-helpers": "^6.8.0",
     "babel-plugin-syntax-flow": "^6.13.0",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
