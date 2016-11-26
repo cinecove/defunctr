@@ -6,209 +6,209 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2016-08-24T17:04:24.709Z
+ * Build Date: 2016-11-26T00:26:40.944Z
  */
 import Modernizr from 'modernizr';
 
-var window$1 = window || null;
-var navigator$1 = navigator || null;
-var document = window$1 ? window$1.document || null : null;
-var _undefined = void 0;
+var browserWindow = window || null;
+var browserNavigator = navigator || null;
+var browserDocument = browserWindow ? browserWindow.document || null : null;
+var undef = void 0;
 
 var noop = function noop() {};
-var console = window$1 && window$1.console ? window$1.console : undefined;
+var console = browserWindow && browserWindow.console ? browserWindow.console : undefined;
 var log = console ? console.log || noop : noop;
 var warn = console ? console.warn || log : noop;
-var error = console ? console.error || log : noop;
+var error$1 = console ? console.error || log : noop;
 
 var logger = {
   log: log,
   warn: warn,
-  error: error
+  error: error$1
 };
 
-function htmlElementConstructorCheck () {
-  return Boolean(window$1 && window$1.HTMLElement && Object.prototype.toString.call(window$1.HTMLElement).indexOf('Constructor') > 0);
-}
+var htmlElementConstructorCheck = function () {
+  return Boolean(browserWindow && browserWindow.HTMLElement && Object.prototype.toString.call(browserWindow.HTMLElement).indexOf('Constructor') > 0);
+};
 
-function safari () {
+var safari = function () {
   return htmlElementConstructorCheck();
-}
+};
 
-function webKitTransformCheck () {
-  return Boolean(document && document.documentElement && document.documentElement.style && 'WebkitTransform' in document.documentElement.style);
-}
+var webKitTransformCheck = function () {
+  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'WebkitTransform' in browserDocument.documentElement.style);
+};
 
-function msWriteProfilerMarkCheck () {
-  return Boolean(window$1 && typeof window$1.msWriteProfilerMark !== 'undefined');
-}
+var msWriteProfilerMarkCheck = function () {
+  return Boolean(browserWindow && typeof browserWindow.msWriteProfilerMark !== 'undefined');
+};
 
-function webkit () {
+var webkit = function () {
   return webKitTransformCheck() && msWriteProfilerMarkCheck() === false;
-}
+};
 
 
 function hasOperaHeader() {
-  return Boolean(navigator$1 && navigator$1.userAgent && /(Opera|OPR)/.test(navigator$1.userAgent));
+  return Boolean(browserNavigator && browserNavigator.userAgent && /(Opera|OPR)/.test(browserNavigator.userAgent));
 }
 
-function operaNext () {
+var operaNext = function () {
   return webkit() && hasOperaHeader();
-}
+};
 
-function chrome () {
+var chrome = function () {
   return !safari() && !operaNext() && webkit();
-}
+};
 
-function activeXCheck () {
-  return 'ActiveXObject' in window$1;
-}
+var activeXCheck = function () {
+  return 'ActiveXObject' in browserWindow;
+};
 
-function functionalEventCheck () {
-  return Boolean(window$1 && window$1.Event && typeof window$1.Event === 'function');
-}
+var functionalEventCheck = function () {
+  return Boolean(browserWindow && browserWindow.Event && typeof browserWindow.Event === 'function');
+};
 
-function edge () {
+var edge = function () {
   return Boolean(!activeXCheck() && functionalEventCheck() && msWriteProfilerMarkCheck());
-}
+};
 
-function mozBoxSizingCheck () {
-  return Boolean(document && document.documentElement && document.documentElement.style && 'MozBoxSizing' in document.documentElement.style);
-}
+var mozBoxSizingCheck = function () {
+  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'MozBoxSizing' in browserDocument.documentElement.style);
+};
 
-function firefox () {
+var firefox = function () {
   return mozBoxSizingCheck();
-}
+};
 
-function khtmlMarqueeCheck () {
-  return Boolean(document && document.documentElement && document.documentElement.style && 'KhtmlMarquee' in document.documentElement.style);
-}
+var khtmlMarqueeCheck = function () {
+  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'KhtmlMarquee' in browserDocument.documentElement.style);
+};
 
-function khtml () {
+var khtml = function () {
   return khtmlMarqueeCheck();
-}
+};
 
-function operaVersionCheck () {
-  return Boolean(window$1 && window$1.opera && window$1.opera.version !== _undefined);
-}
+var operaVersionCheck = function () {
+  return Boolean(browserWindow && browserWindow.opera && browserWindow.opera.version !== undef);
+};
 
-function opera () {
+var opera = function () {
   return operaVersionCheck();
-}
+};
 
 
 
-function ie () {
+var ie = function () {
   return activeXCheck();
-}
+};
 
-function undetected () {
+var undetected = function () {
   return !webkit() && !ie() && !chrome() && !edge() && !firefox() && !opera() && !operaNext() && !safari();
-}
+};
 
-function hasXmlHttpRequestCheck () {
-  return Boolean(window$1 && typeof window$1.XMLHttpRequest !== 'undefined');
-}
+var hasXmlHttpRequestCheck = function () {
+  return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
+};
 
-function hasBackCompatCheck () {
-  return Boolean(document && document.compatMode && document.compatMode === 'BackCompat');
-}
+var hasBackCompatCheck = function () {
+  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
+};
 
-function isAboveVersion6 () {
+var isAboveVersion6 = function () {
   return ie() && hasBackCompatCheck() && !hasXmlHttpRequestCheck();
-}
+};
 
-function hasQuerySelectorCheck () {
-  return Boolean(document && document.querySelector !== 'undefined');
-}
+var hasQuerySelectorCheck = function () {
+  return Boolean(browserDocument && browserDocument.querySelector !== 'undefined');
+};
 
-function isAboveVersion7 () {
+var isAboveVersion7 = function () {
   return ie() && hasQuerySelectorCheck();
-}
+};
 
-function hasAddEventListenerCheck () {
-  return Boolean(document && document.addEventListener !== 'undefined');
-}
+var hasAddEventListenerCheck = function () {
+  return Boolean(browserDocument && browserDocument.addEventListener !== 'undefined');
+};
 
-function isAboveVersion8 () {
+var isAboveVersion8 = function () {
   return ie() && hasAddEventListenerCheck();
-}
+};
 
-function hasAtobCheck () {
-  return Boolean(window$1 && typeof window$1.atob !== 'undefined');
-}
+var hasAtobCheck = function () {
+  return Boolean(browserWindow && typeof browserWindow.atob !== 'undefined');
+};
 
-function isAboveVersion9 () {
+var isAboveVersion9 = function () {
   return ie() && hasAtobCheck();
-}
+};
 
-function isAboveVersion10 () {
+var isAboveVersion10 = function () {
   return ie() && hasAtobCheck() && !activeXCheck();
-}
+};
 
-function isAboveVersion11 () {
+var isAboveVersion11 = function () {
   return ie() && functionalEventCheck();
-}
+};
 
-function hasCompatModeCheck () {
-  return Boolean(document && typeof document.compatMode !== 'undefined');
-}
+var hasCompatModeCheck = function () {
+  return Boolean(browserDocument && typeof browserDocument.compatMode !== 'undefined');
+};
 
-function isBelowVersion6 () {
+var isBelowVersion6 = function () {
   return ie() && (!hasCompatModeCheck() || hasBackCompatCheck());
-}
+};
 
-function isBelowVersion7 () {
+var isBelowVersion7 = function () {
   return ie() && !hasBackCompatCheck() && !hasXmlHttpRequestCheck();
-}
+};
 
-function isBelowVersion8 () {
+var isBelowVersion8 = function () {
   return ie() && !hasQuerySelectorCheck();
-}
+};
 
-function isBelowVersion9 () {
+var isBelowVersion9 = function () {
   return ie() && !hasAddEventListenerCheck();
-}
+};
 
-function isBelowVersion10 () {
+var isBelowVersion10 = function () {
   return ie() && !hasAtobCheck();
-}
+};
 
-function isBelowVersion11 () {
+var isBelowVersion11 = function () {
   return ie() && !hasAtobCheck() && activeXCheck();
-}
+};
 
-function isBelowVersion12 () {
+var isBelowVersion12 = function () {
   return ie() && !functionalEventCheck();
-}
+};
 
-function isAboveVersion5 () {
+var isAboveVersion5 = function () {
   return ie() && hasBackCompatCheck();
-}
+};
 
-function isVersion6 () {
+var isVersion6 = function () {
   return isAboveVersion5() && isBelowVersion7();
-}
+};
 
-function isVersion7 () {
+var isVersion7 = function () {
   return isAboveVersion6() && isBelowVersion8();
-}
+};
 
-function isVersion8 () {
+var isVersion8 = function () {
   return isAboveVersion7() && isBelowVersion9();
-}
+};
 
-function isVersion9 () {
+var isVersion9 = function () {
   return isAboveVersion8() && isBelowVersion10();
-}
+};
 
-function isVersion10 () {
+var isVersion10 = function () {
   return isAboveVersion9() && isBelowVersion11();
-}
+};
 
-function isVersion11 () {
+var isVersion11 = function () {
   return isAboveVersion10() && isBelowVersion12();
-}
+};
 
 
 
@@ -234,41 +234,15 @@ var ie$1 = Object.freeze({
 	isVersion11: isVersion11
 });
 
-var ie$1 = Object.freeze({
-	isAboveVersion6: isAboveVersion6,
-	isAboveVersion7: isAboveVersion7,
-	isAboveVersion8: isAboveVersion8,
-	isAboveVersion9: isAboveVersion9,
-	isAboveVersion10: isAboveVersion10,
-	isAboveVersion11: isAboveVersion11,
-	isBelowVersion6: isBelowVersion6,
-	isBelowVersion7: isBelowVersion7,
-	isBelowVersion8: isBelowVersion8,
-	isBelowVersion9: isBelowVersion9,
-	isBelowVersion10: isBelowVersion10,
-	isBelowVersion11: isBelowVersion11,
-	isBelowVersion12: isBelowVersion12,
-	isVersion6: isVersion6,
-	isVersion7: isVersion7,
-	isVersion8: isVersion8,
-	isVersion9: isVersion9,
-	isVersion10: isVersion10,
-	isVersion11: isVersion11
-});
+var hasChromeWebstoreInstallCheck = function () {
+  return Boolean(browserWindow && browserWindow.chrome && browserWindow.chrome.webstore && browserWindow.chrome.webstore.install);
+};
 
-function hasChromeWebstoreInstallCheck () {
-  return Boolean(window$1 && window$1.chrome && window$1.chrome.webstore && window$1.chrome.webstore.install);
-}
-
-function isAboveVersion15 () {
+var isAboveVersion15 = function () {
   return chrome() && hasChromeWebstoreInstallCheck();
-}
+};
 
 
-
-var chrome$1 = Object.freeze({
-	isAboveVersion15: isAboveVersion15
-});
 
 var chrome$1 = Object.freeze({
 	isAboveVersion15: isAboveVersion15
@@ -302,6 +276,75 @@ var createClass = function () {
     return Constructor;
   };
 }();
+
+
+
+
+
+
+
+var get$1 = function get$1(object, property, receiver) {
+  if (object === null) object = Function.prototype;
+  var desc = Object.getOwnPropertyDescriptor(object, property);
+
+  if (desc === undefined) {
+    var parent = Object.getPrototypeOf(object);
+
+    if (parent === null) {
+      return undefined;
+    } else {
+      return get$1(parent, property, receiver);
+    }
+  } else if ("value" in desc) {
+    return desc.value;
+  } else {
+    var getter = desc.get;
+
+    if (getter === undefined) {
+      return undefined;
+    }
+
+    return getter.call(receiver);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var set = function set(object, property, value, receiver) {
+  var desc = Object.getOwnPropertyDescriptor(object, property);
+
+  if (desc === undefined) {
+    var parent = Object.getPrototypeOf(object);
+
+    if (parent !== null) {
+      set(parent, property, value, receiver);
+    }
+  } else if ("value" in desc && desc.writable) {
+    desc.value = value;
+  } else {
+    var setter = desc.set;
+
+    if (setter !== undefined) {
+      setter.call(receiver, value);
+    }
+  }
+
+  return value;
+};
 
 var Detective = function () {
   function Detective() {
@@ -518,11 +561,11 @@ var tags = {
 
 var prefix = '';
 
-function prefixedClassFor (className) {
+var prefixedClassFor = function (className) {
   return '' + prefix + className;
-}
+};
 
-var docElement = document && document.documentElement && document.documentElement.className ? document.documentElement : { className: '' };
+var docElement = browserDocument && browserDocument.documentElement && browserDocument.documentElement.className ? browserDocument.documentElement : { className: '' };
 
 function makeTest(item) {
   return function test() {
@@ -612,15 +655,15 @@ function cleanTags() {
   removeTag(tags.NOTAGGING);
 }
 
-function tagger (detective) {
+var tagger = function (detective) {
   return {
     tag: function tag() {
-      if (document) {
+      if (browserDocument) {
         tagPage(detective);
       }
     }
   };
-}
+};
 
 var detective = new Detective();
 

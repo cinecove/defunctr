@@ -10,6 +10,7 @@
 * Starting to add test suite
 * Adding flow
 * Build now occurs on Node 6.3+
+* Updated dependencies to current versions
 
 ### 1.2.3 (May 8, 2016)
 * NPM support added
