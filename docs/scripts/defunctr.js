@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T04:56:05.604Z
+ * Build Date: 2017-02-10T05:11:18.946Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -191,7 +191,7 @@ var isBelowVersion10 = function () {
 };
 
 var isBelowVersion11 = function () {
-  return ie() && !hasAtobCheck() && activeXCheck();
+  return ie() && activeXCheck();
 };
 
 var isBelowVersion12 = function () {
