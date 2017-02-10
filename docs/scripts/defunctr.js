@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T04:04:24.425Z
+ * Build Date: 2017-02-10T04:23:04.507Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -340,7 +340,7 @@ var classes = {
   IE_GREATERTHAN_10: 'ie-gt-10',
   IE_GREATERTHAN_11: 'ie-gt-11',
 
-  IE_VERSION_6: 'ie-verion-6',
+  IE_VERSION_6: 'ie-version-6',
   IE_VERSION_7: 'ie-version-7',
   IE_VERSION_8: 'ie-version-8',
   IE_VERSION_9: 'ie-version-9',
@@ -434,22 +434,22 @@ function tagPage(detective) {
     }
 
     if (!hasTag(tags.IE_LESSTHAN_OFF)) {
-      test(prefixedClassFor(classes.IE_LESSTHAN_6), makeTest(detective.ieBelowVersion6));
-      test(prefixedClassFor(classes.IE_LESSTHAN_7), makeTest(detective.ieBelowVersion7));
-      test(prefixedClassFor(classes.IE_LESSTHAN_8), makeTest(detective.ieBelowVersion8));
-      test(prefixedClassFor(classes.IE_LESSTHAN_9), makeTest(detective.ieBelowVersion9));
-      test(prefixedClassFor(classes.IE_LESSTHAN_10), makeTest(detective.ieBelowVersion10));
-      test(prefixedClassFor(classes.IE_LESSTHAN_11), makeTest(detective.ieBelowVersion11));
-      test(prefixedClassFor(classes.IE_LESSTHAN_12), makeTest(detective.ieBelowVersion12));
+      test(prefixedClassFor(classes.IE_LESSTHAN_6), makeTest(detective.ieIsBelowVersion6));
+      test(prefixedClassFor(classes.IE_LESSTHAN_7), makeTest(detective.ieIsBelowVersion7));
+      test(prefixedClassFor(classes.IE_LESSTHAN_8), makeTest(detective.ieIsBelowVersion8));
+      test(prefixedClassFor(classes.IE_LESSTHAN_9), makeTest(detective.ieIsBelowVersion9));
+      test(prefixedClassFor(classes.IE_LESSTHAN_10), makeTest(detective.ieIsBelowVersion10));
+      test(prefixedClassFor(classes.IE_LESSTHAN_11), makeTest(detective.ieIsBelowVersion11));
+      test(prefixedClassFor(classes.IE_LESSTHAN_12), makeTest(detective.ieIsBelowVersion12));
     }
 
     if (!hasTag(tags.IE_GREATERTHAN_OFF)) {
-      test(prefixedClassFor(classes.IE_GREATERTHAN_6), makeTest(detective.ieAboveVersion6));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_7), makeTest(detective.ieAboveVersion7));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_8), makeTest(detective.ieAboveVersion8));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_9), makeTest(detective.ieAboveVersion9));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_10), makeTest(detective.ieAboveVersion10));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_11), makeTest(detective.ieAboveVersion11));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_6), makeTest(detective.ieIsAboveVersion6));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_7), makeTest(detective.ieIsAboveVersion7));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_8), makeTest(detective.ieIsAboveVersion8));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_9), makeTest(detective.ieIsAboveVersion9));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_10), makeTest(detective.ieIsAboveVersion10));
+      test(prefixedClassFor(classes.IE_GREATERTHAN_11), makeTest(detective.ieIsAboveVersion11));
     }
 
     if (!hasTag(tags.VERSION_OFF)) {
