@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T03:24:27.937Z
+ * Build Date: 2017-02-10T03:53:12.693Z
  */
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
@@ -164,7 +164,7 @@ var hasCompatModeCheck = function () {
 };
 
 var isBelowVersion6 = function () {
-  return ie() && (!hasCompatModeCheck() || hasBackCompatCSS1Check());
+  return ie() && !hasCompatModeCheck();
 };
 
 var isBelowVersion7 = function () {
