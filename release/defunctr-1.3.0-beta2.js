@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T00:36:08.576Z
+ * Build Date: 2017-02-10T01:08:53.852Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -219,7 +219,7 @@ var isVersion11 = function () {
 
 
 
-var ie$1 = Object.freeze({
+var ie$1 = (Object.freeze || Object)({
 	isAboveVersion6: isAboveVersion6,
 	isAboveVersion7: isAboveVersion7,
 	isAboveVersion8: isAboveVersion8,
@@ -251,7 +251,7 @@ var isAboveVersion15 = function () {
 
 
 
-var chrome$1 = Object.freeze({
+var chrome$1 = (Object.freeze || Object)({
 	isAboveVersion15: isAboveVersion15
 });
 

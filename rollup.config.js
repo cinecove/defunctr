@@ -7,6 +7,7 @@ let external = Object.keys(pkg.dependencies);
 
 export default {
   entry: 'lib/defunctr.js',
+  legacy: true,
   plugins: [
     babel(babelrc()),
     //istanbul({
