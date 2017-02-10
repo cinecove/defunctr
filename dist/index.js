@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T01:08:53.852Z
+ * Build Date: 2017-02-10T02:11:44.756Z
  */
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
@@ -617,25 +617,12 @@ var tagger = function (detective) {
   };
 };
 
-var Defunctr = function () {
-  function Defunctr() {
-    classCallCheck(this, Defunctr);
+var Defunctr = function Defunctr() {
+  classCallCheck(this, Defunctr);
 
-    this.version = '1.3.0-beta2';
-    this._d = null;
-  }
-
-  createClass(Defunctr, [{
-    key: 'detective',
-    get: function get$$1() {
-      if (this._d === null) {
-        this._d = new Detective();
-      }
-      return this._d;
-    }
-  }]);
-  return Defunctr;
-}();
+  this.version = '1.3.0-beta2';
+  this.detective = new Detective();
+};
 
 var defunctr = new Defunctr();
 
@@ -643,7 +630,7 @@ if (browserWindow) {
   tagger(new Detective()).tag();
 
   browserWindow.defunctr = defunctr;
-  if (Object.defineProperty) {
+  try {
     Object.defineProperty(browserWindow, 'Defunctr', {
       get: function get$$1() {
         logger.warn('window.Defunctr is deprecated and will be removed. Please use window.defunctr');
@@ -652,7 +639,7 @@ if (browserWindow) {
       enumerable: true,
       configurable: true
     });
-  } else {
+  } catch (ex) {
     browserWindow.Defunctr = defunctr;
   }
 }
