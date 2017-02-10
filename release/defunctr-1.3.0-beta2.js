@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T06:07:49.622Z
+ * Build Date: 2017-02-10T06:30:06.421Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -59,20 +59,20 @@ var msWriteProfilerMarkCheck = function () {
   return Boolean(browserWindow && typeof browserWindow.msWriteProfilerMark !== 'undefined');
 };
 
-var webkit = function () {
-  return webKitTransformCheck() && msWriteProfilerMarkCheck() === false;
-};
-
-var mozBoxSizingCheck = function () {
-  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'MozBoxSizing' in browserDocument.documentElement.style);
+var installTriggerCheck = function () {
+  return Boolean(browserWindow && typeof browserWindow.InstallTrigger !== 'undefined');
 };
 
 var firefox = function () {
-  return mozBoxSizingCheck();
+  return installTriggerCheck();
+};
+
+var webkit = function () {
+  return webKitTransformCheck() && msWriteProfilerMarkCheck() === false && !firefox();
 };
 
 var chrome = function () {
-  return !safari() && !operaNext() && !firefox() && webkit();
+  return !safari() && !operaNext() && webkit();
 };
 
 var activeXCheck = function () {
