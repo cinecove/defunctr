@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T04:23:04.507Z
+ * Build Date: 2017-02-10T04:47:06.154Z
  */
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
@@ -119,12 +119,8 @@ var hasXmlHttpRequestCheck = function () {
   return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
 };
 
-var hasBackCompatCheck = function () {
-  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
-};
-
 var isAboveVersion6 = function () {
-  return ie() && hasBackCompatCheck() && !hasXmlHttpRequestCheck();
+  return ie() && hasBackCompatCSS1Check() && hasXmlHttpRequestCheck();
 };
 
 var hasQuerySelectorCheck = function () {
@@ -165,6 +161,10 @@ var hasCompatModeCheck = function () {
 
 var isBelowVersion6 = function () {
   return ie() && !hasCompatModeCheck();
+};
+
+var hasBackCompatCheck = function () {
+  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
 };
 
 var isBelowVersion7 = function () {
