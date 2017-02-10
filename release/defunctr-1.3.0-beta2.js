@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T03:14:22.918Z
+ * Build Date: 2017-02-10T03:24:27.937Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -113,16 +113,20 @@ var undetected = function () {
   return !webkit() && !ie() && !chrome() && !edge() && !firefox() && !opera() && !operaNext() && !safari();
 };
 
-var hasBackCompatCheck = function () {
-  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
+var hasBackCompatCSS1Check = function () {
+  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'CSS1Compat');
 };
 
 var isAboveVersion5 = function () {
-  return ie() && hasBackCompatCheck();
+  return ie() && hasBackCompatCSS1Check();
 };
 
 var hasXmlHttpRequestCheck = function () {
   return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
+};
+
+var hasBackCompatCheck = function () {
+  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
 };
 
 var isAboveVersion6 = function () {
@@ -166,7 +170,7 @@ var hasCompatModeCheck = function () {
 };
 
 var isBelowVersion6 = function () {
-  return ie() && (!hasCompatModeCheck() || hasBackCompatCheck());
+  return ie() && (!hasCompatModeCheck() || hasBackCompatCSS1Check());
 };
 
 var isBelowVersion7 = function () {
