@@ -1,17 +1,14 @@
 /*!
- * Defunctr 1.3.0-beta1
+ * Defunctr 1.3.0-beta2
  * https://github.com/cinecove/defunctr
  *
- * Copyright 2012 - 2016 Cinecove Digital, LLC and other contributors
+ * Copyright 2012 - 2017 Cinecove Digital, LLC and other contributors
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2016-11-26T00:26:40.944Z
+ * Build Date: 2017-02-10T00:36:08.576Z
  */
-import Modernizr from 'modernizr';
-
 var browserWindow = window || null;
-var browserNavigator = navigator || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
 var undef = void 0;
 
@@ -35,6 +32,19 @@ var safari = function () {
   return htmlElementConstructorCheck();
 };
 
+
+function hasOperaHeader() {
+  try {
+    return 'WebkitTransform' in browserDocument.documentElement.style && browserWindow.clientInformation.vendor.substring('Opera') === 0;
+  } catch (ex) {
+    return false;
+  }
+}
+
+var operaNext = function () {
+  return hasOperaHeader();
+};
+
 var webKitTransformCheck = function () {
   return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'WebkitTransform' in browserDocument.documentElement.style);
 };
@@ -47,17 +57,16 @@ var webkit = function () {
   return webKitTransformCheck() && msWriteProfilerMarkCheck() === false;
 };
 
+var mozBoxSizingCheck = function () {
+  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'MozBoxSizing' in browserDocument.documentElement.style);
+};
 
-function hasOperaHeader() {
-  return Boolean(browserNavigator && browserNavigator.userAgent && /(Opera|OPR)/.test(browserNavigator.userAgent));
-}
-
-var operaNext = function () {
-  return webkit() && hasOperaHeader();
+var firefox = function () {
+  return mozBoxSizingCheck();
 };
 
 var chrome = function () {
-  return !safari() && !operaNext() && webkit();
+  return !safari() && !operaNext() && !firefox() && webkit();
 };
 
 var activeXCheck = function () {
@@ -70,14 +79,6 @@ var functionalEventCheck = function () {
 
 var edge = function () {
   return Boolean(!activeXCheck() && functionalEventCheck() && msWriteProfilerMarkCheck());
-};
-
-var mozBoxSizingCheck = function () {
-  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'MozBoxSizing' in browserDocument.documentElement.style);
-};
-
-var firefox = function () {
-  return mozBoxSizingCheck();
 };
 
 var khtmlMarqueeCheck = function () {
@@ -277,75 +278,6 @@ var createClass = function () {
   };
 }();
 
-
-
-
-
-
-
-var get$1 = function get$1(object, property, receiver) {
-  if (object === null) object = Function.prototype;
-  var desc = Object.getOwnPropertyDescriptor(object, property);
-
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
-
-    if (parent === null) {
-      return undefined;
-    } else {
-      return get$1(parent, property, receiver);
-    }
-  } else if ("value" in desc) {
-    return desc.value;
-  } else {
-    var getter = desc.get;
-
-    if (getter === undefined) {
-      return undefined;
-    }
-
-    return getter.call(receiver);
-  }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var set = function set(object, property, value, receiver) {
-  var desc = Object.getOwnPropertyDescriptor(object, property);
-
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
-
-    if (parent !== null) {
-      set(parent, property, value, receiver);
-    }
-  } else if ("value" in desc && desc.writable) {
-    desc.value = value;
-  } else {
-    var setter = desc.set;
-
-    if (setter !== undefined) {
-      setter.call(receiver, value);
-    }
-  }
-
-  return value;
-};
-
 var Detective = function () {
   function Detective() {
     classCallCheck(this, Detective);
@@ -353,162 +285,162 @@ var Detective = function () {
 
   createClass(Detective, [{
     key: 'isWebKit',
-    get: function get() {
+    get: function get$$1() {
       return webkit();
     }
   }, {
     key: 'isOpera',
-    get: function get() {
+    get: function get$$1() {
       return opera();
     }
   }, {
     key: 'isIE',
-    get: function get() {
+    get: function get$$1() {
       return ie();
     }
   }, {
     key: 'isFirefox',
-    get: function get() {
+    get: function get$$1() {
       return firefox();
     }
   }, {
     key: 'isSafari',
-    get: function get() {
+    get: function get$$1() {
       return safari();
     }
   }, {
     key: 'isKhtml',
-    get: function get() {
+    get: function get$$1() {
       return khtml();
     }
   }, {
     key: 'isOperaNext',
-    get: function get() {
+    get: function get$$1() {
       return operaNext();
     }
   }, {
     key: 'isChrome',
-    get: function get() {
+    get: function get$$1() {
       return chrome();
     }
   }, {
     key: 'isEdge',
-    get: function get() {
+    get: function get$$1() {
       return edge();
     }
   }, {
     key: 'isUndetected',
-    get: function get() {
+    get: function get$$1() {
       return undetected();
     }
   }, {
     key: 'standardsCompliant',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion9() || !ie();
     }
   }, {
     key: 'chromeIsAbove15',
-    get: function get() {
+    get: function get$$1() {
       return versions.chrome.isAboveVersion15();
     }
   }, {
     key: 'ieIsVersion11',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion11();
     }
   }, {
     key: 'ieIsVersion10',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion10();
     }
   }, {
     key: 'ieIsVersion9',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion9();
     }
   }, {
     key: 'ieIsVersion8',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion8();
     }
   }, {
     key: 'ieIsVersion7',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion7();
     }
   }, {
     key: 'ieIsVersion6',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isVersion6();
     }
   }, {
     key: 'ieIsBelowVersion6',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion6();
     }
   }, {
     key: 'ieIsBelowVersion7',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion7();
     }
   }, {
     key: 'ieIsBelowVersion8',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion8();
     }
   }, {
     key: 'ieIsBelowVersion9',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion9();
     }
   }, {
     key: 'ieIsBelowVersion10',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion10();
     }
   }, {
     key: 'ieIsBelowVersion11',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion11();
     }
   }, {
     key: 'ieIsBelowVersion12',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isBelowVersion12();
     }
   }, {
     key: 'ieIsAboveVersion5',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion5();
     }
   }, {
     key: 'ieIsAboveVersion6',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion6();
     }
   }, {
     key: 'ieIsAboveVersion7',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion7();
     }
   }, {
     key: 'ieIsAboveVersion8',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion8();
     }
   }, {
     key: 'ieIsAboveVersion9',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion9();
     }
   }, {
     key: 'ieIsAboveVersion10',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion10();
     }
   }, {
     key: 'ieIsAboveVersion11',
-    get: function get() {
+    get: function get$$1() {
       return versions.ie.isAboveVersion11();
     }
   }]);
@@ -565,7 +497,27 @@ var prefixedClassFor = function (className) {
   return '' + prefix + className;
 };
 
+var optionalModernizr = {
+  modernizr: undefined
+};
+
+if (typeof require === 'function') {
+  require(['modernizr'], function (m) {
+    optionalModernizr.modernizr = m;
+  });
+} else {
+  if (browserWindow) {
+    if (browserWindow.Modernizr) {
+      optionalModernizr.modernizr = browserWindow.Modernizr;
+    } else if (browserWindow.modernizr) {
+      optionalModernizr.modernizr = browserWindow.modernizr;
+    }
+  }
+}
+
 var docElement = browserDocument && browserDocument.documentElement && browserDocument.documentElement.className ? browserDocument.documentElement : { className: '' };
+
+var Modernizr = optionalModernizr.modernizr;
 
 function makeTest(item) {
   return function test() {
@@ -665,19 +617,21 @@ var tagger = function (detective) {
   };
 };
 
-var detective = new Detective();
-
 var Defunctr = function () {
   function Defunctr() {
     classCallCheck(this, Defunctr);
 
-    this.version = '1.3.0-beta1';
+    this.version = '1.3.0-beta2';
+    this._d = null;
   }
 
   createClass(Defunctr, [{
     key: 'detective',
-    get: function get() {
-      return detective;
+    get: function get$$1() {
+      if (this._d === null) {
+        this._d = new Detective();
+      }
+      return this._d;
     }
   }]);
   return Defunctr;
@@ -685,13 +639,13 @@ var Defunctr = function () {
 
 var defunctr = new Defunctr();
 
-if (window) {
-  tagger(detective).tag();
+if (browserWindow) {
+  tagger(new Detective()).tag();
 
-  window.defunctr = defunctr;
+  browserWindow.defunctr = defunctr;
   if (Object.defineProperty) {
-    Object.defineProperty(window, 'Defunctr', {
-      get: function get() {
+    Object.defineProperty(browserWindow, 'Defunctr', {
+      get: function get$$1() {
         logger.warn('window.Defunctr is deprecated and will be removed. Please use window.defunctr');
         return defunctr;
       },
@@ -699,7 +653,7 @@ if (window) {
       configurable: true
     });
   } else {
-    window.Defunctr = defunctr;
+    browserWindow.Defunctr = defunctr;
   }
 }
 

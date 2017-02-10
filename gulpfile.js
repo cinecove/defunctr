@@ -86,6 +86,7 @@ gulp.task('build-umd', function () {
     .pipe(strip())
     .pipe(replace('@@version', version))
     .pipe(banner(header, { pkg: pkg, build_tag: build_tag, buildDate: buildDate }))
+    .pipe(gulp.dest('./docs/scripts'))
     .pipe(gulp.dest('./release'))
     .pipe(rename({suffix: '-' + version}))
     .pipe(gulp.dest('./release'))
