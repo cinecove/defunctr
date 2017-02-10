@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T03:04:40.030Z
+ * Build Date: 2017-02-10T03:14:22.918Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -113,12 +113,16 @@ var undetected = function () {
   return !webkit() && !ie() && !chrome() && !edge() && !firefox() && !opera() && !operaNext() && !safari();
 };
 
-var hasXmlHttpRequestCheck = function () {
-  return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
-};
-
 var hasBackCompatCheck = function () {
   return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
+};
+
+var isAboveVersion5 = function () {
+  return ie() && hasBackCompatCheck();
+};
+
+var hasXmlHttpRequestCheck = function () {
+  return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
 };
 
 var isAboveVersion6 = function () {
@@ -126,7 +130,7 @@ var isAboveVersion6 = function () {
 };
 
 var hasQuerySelectorCheck = function () {
-  return Boolean(browserDocument && browserDocument.querySelector !== 'undefined');
+  return Boolean(browserDocument && typeof browserDocument.querySelector !== 'undefined');
 };
 
 var isAboveVersion7 = function () {
@@ -134,7 +138,7 @@ var isAboveVersion7 = function () {
 };
 
 var hasAddEventListenerCheck = function () {
-  return Boolean(browserDocument && browserDocument.addEventListener !== 'undefined');
+  return Boolean(browserDocument && typeof browserDocument.addEventListener !== 'undefined');
 };
 
 var isAboveVersion8 = function () {
@@ -189,10 +193,6 @@ var isBelowVersion12 = function () {
   return ie() && !functionalEventCheck();
 };
 
-var isAboveVersion5 = function () {
-  return ie() && hasBackCompatCheck();
-};
-
 var isVersion6 = function () {
   return isAboveVersion5() && isBelowVersion7();
 };
@@ -220,6 +220,7 @@ var isVersion11 = function () {
 
 
 var ie$1 = (Object.freeze || Object)({
+	isAboveVersion5: isAboveVersion5,
 	isAboveVersion6: isAboveVersion6,
 	isAboveVersion7: isAboveVersion7,
 	isAboveVersion8: isAboveVersion8,
@@ -299,6 +300,7 @@ var Detective = function Detective() {
   this.ieIsBelowVersion11 = versions.ie.isBelowVersion11();
   this.ieIsBelowVersion12 = versions.ie.isBelowVersion12();
 
+  this.ieIsAboveVersion5 = versions.ie.isAboveVersion5();
   this.ieIsAboveVersion6 = versions.ie.isAboveVersion6();
   this.ieIsAboveVersion7 = versions.ie.isAboveVersion7();
   this.ieIsAboveVersion8 = versions.ie.isAboveVersion8();
