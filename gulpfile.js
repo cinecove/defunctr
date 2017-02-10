@@ -40,9 +40,7 @@ gulp.task('nuget-pack', function (callback) {
     licenseUrl: pkg.licenseUrl,
     copyright: '2013 - ' + (new Date()).getFullYear() + ' ' + pkg.author.name,
     requireLicenseAcceptance: false,
-    dependencies: [
-      { id: 'Modernizr', version: '[2,4)' }
-    ],
+    dependencies: [],
     tags: 'Modernizr, Browser Detection, HTML5, Shiv',
     outputDir: 'nuget',
     baseDir: '.'
@@ -114,9 +112,9 @@ gulp.task('build-npm', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('release', ['build', 'nuget-pack']);
-
 
 gulp.task('build', ['build-npm', 'build-umd']);
+
+gulp.task('release', ['build', 'nuget-pack']);
 
 gulp.task('default', ['build']);

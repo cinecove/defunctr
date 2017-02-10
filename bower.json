@@ -2,7 +2,7 @@
   "name": "defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
   "main": "dist/defunctr.js",
-  "version": "1.3.0-beta1",
+  "version": "1.3.0",
   "main": [
     "release/defunctr.min.js"
   ],
@@ -68,7 +68,5 @@
     "CONTRIBUTING.md",
     "nuget"
   ],
-  "dependencies": {
-    "modernizr-min": "~3.3.0"
-  }
+  "dependencies": {}
 }

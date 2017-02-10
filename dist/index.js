@@ -1,12 +1,12 @@
 /*!
- * Defunctr 1.3.0-beta2
+ * Defunctr 1.3.0
  * https://github.com/cinecove/defunctr
  *
  * Copyright 2012 - 2017 Cinecove Digital, LLC and other contributors
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T06:43:11.040Z
+ * Build Date: 2017-02-10T07:58:02.681Z
  */
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
@@ -485,7 +485,7 @@ var tagger = function (detective) {
 var Defunctr = function Defunctr() {
   classCallCheck(this, Defunctr);
 
-  this.version = '1.3.0-beta2';
+  this.version = '1.3.0';
   this.detective = new Detective();
 };
 
