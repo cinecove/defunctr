@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T02:48:53.252Z
+ * Build Date: 2017-02-10T03:04:40.030Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -299,7 +299,6 @@ var Detective = function Detective() {
   this.ieIsBelowVersion11 = versions.ie.isBelowVersion11();
   this.ieIsBelowVersion12 = versions.ie.isBelowVersion12();
 
-  this.ieIsAboveVersion5 = versions.ie.isAboveVersion5();
   this.ieIsAboveVersion6 = versions.ie.isAboveVersion6();
   this.ieIsAboveVersion7 = versions.ie.isAboveVersion7();
   this.ieIsAboveVersion8 = versions.ie.isAboveVersion8();
