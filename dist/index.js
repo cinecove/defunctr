@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T02:11:44.756Z
+ * Build Date: 2017-02-10T02:48:53.252Z
  */
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
@@ -260,192 +260,47 @@ var classCallCheck = function (instance, Constructor) {
   }
 };
 
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+var Detective = function Detective() {
+  classCallCheck(this, Detective);
 
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
+  this.isWebKit = webkit();
+  this.isOpera = opera();
+  this.isIE = ie();
+  this.isFirefox = firefox();
+  this.isSafari = safari();
+  this.isKhtml = khtml();
+  this.isOperaNext = operaNext();
+  this.isChrome = chrome();
+  this.isEdge = edge();
+  this.isUndetected = undetected();
 
-var Detective = function () {
-  function Detective() {
-    classCallCheck(this, Detective);
-  }
+  this.standardsCompliant = versions.ie.isAboveVersion9() || !ie();
 
-  createClass(Detective, [{
-    key: 'isWebKit',
-    get: function get$$1() {
-      return webkit();
-    }
-  }, {
-    key: 'isOpera',
-    get: function get$$1() {
-      return opera();
-    }
-  }, {
-    key: 'isIE',
-    get: function get$$1() {
-      return ie();
-    }
-  }, {
-    key: 'isFirefox',
-    get: function get$$1() {
-      return firefox();
-    }
-  }, {
-    key: 'isSafari',
-    get: function get$$1() {
-      return safari();
-    }
-  }, {
-    key: 'isKhtml',
-    get: function get$$1() {
-      return khtml();
-    }
-  }, {
-    key: 'isOperaNext',
-    get: function get$$1() {
-      return operaNext();
-    }
-  }, {
-    key: 'isChrome',
-    get: function get$$1() {
-      return chrome();
-    }
-  }, {
-    key: 'isEdge',
-    get: function get$$1() {
-      return edge();
-    }
-  }, {
-    key: 'isUndetected',
-    get: function get$$1() {
-      return undetected();
-    }
-  }, {
-    key: 'standardsCompliant',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion9() || !ie();
-    }
-  }, {
-    key: 'chromeIsAbove15',
-    get: function get$$1() {
-      return versions.chrome.isAboveVersion15();
-    }
-  }, {
-    key: 'ieIsVersion11',
-    get: function get$$1() {
-      return versions.ie.isVersion11();
-    }
-  }, {
-    key: 'ieIsVersion10',
-    get: function get$$1() {
-      return versions.ie.isVersion10();
-    }
-  }, {
-    key: 'ieIsVersion9',
-    get: function get$$1() {
-      return versions.ie.isVersion9();
-    }
-  }, {
-    key: 'ieIsVersion8',
-    get: function get$$1() {
-      return versions.ie.isVersion8();
-    }
-  }, {
-    key: 'ieIsVersion7',
-    get: function get$$1() {
-      return versions.ie.isVersion7();
-    }
-  }, {
-    key: 'ieIsVersion6',
-    get: function get$$1() {
-      return versions.ie.isVersion6();
-    }
-  }, {
-    key: 'ieIsBelowVersion6',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion6();
-    }
-  }, {
-    key: 'ieIsBelowVersion7',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion7();
-    }
-  }, {
-    key: 'ieIsBelowVersion8',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion8();
-    }
-  }, {
-    key: 'ieIsBelowVersion9',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion9();
-    }
-  }, {
-    key: 'ieIsBelowVersion10',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion10();
-    }
-  }, {
-    key: 'ieIsBelowVersion11',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion11();
-    }
-  }, {
-    key: 'ieIsBelowVersion12',
-    get: function get$$1() {
-      return versions.ie.isBelowVersion12();
-    }
-  }, {
-    key: 'ieIsAboveVersion5',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion5();
-    }
-  }, {
-    key: 'ieIsAboveVersion6',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion6();
-    }
-  }, {
-    key: 'ieIsAboveVersion7',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion7();
-    }
-  }, {
-    key: 'ieIsAboveVersion8',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion8();
-    }
-  }, {
-    key: 'ieIsAboveVersion9',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion9();
-    }
-  }, {
-    key: 'ieIsAboveVersion10',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion10();
-    }
-  }, {
-    key: 'ieIsAboveVersion11',
-    get: function get$$1() {
-      return versions.ie.isAboveVersion11();
-    }
-  }]);
-  return Detective;
-}();
+  this.chromeIsAbove15 = versions.chrome.isAboveVersion15();
+
+  this.ieIsVersion11 = versions.ie.isVersion11();
+  this.ieIsVersion10 = versions.ie.isVersion10();
+  this.ieIsVersion9 = versions.ie.isVersion9();
+  this.ieIsVersion8 = versions.ie.isVersion8();
+  this.ieIsVersion7 = versions.ie.isVersion7();
+  this.ieIsVersion6 = versions.ie.isVersion6();
+
+  this.ieIsBelowVersion6 = versions.ie.isBelowVersion6();
+  this.ieIsBelowVersion7 = versions.ie.isBelowVersion7();
+  this.ieIsBelowVersion8 = versions.ie.isBelowVersion8();
+  this.ieIsBelowVersion9 = versions.ie.isBelowVersion9();
+  this.ieIsBelowVersion10 = versions.ie.isBelowVersion10();
+  this.ieIsBelowVersion11 = versions.ie.isBelowVersion11();
+  this.ieIsBelowVersion12 = versions.ie.isBelowVersion12();
+
+  this.ieIsAboveVersion5 = versions.ie.isAboveVersion5();
+  this.ieIsAboveVersion6 = versions.ie.isAboveVersion6();
+  this.ieIsAboveVersion7 = versions.ie.isAboveVersion7();
+  this.ieIsAboveVersion8 = versions.ie.isAboveVersion8();
+  this.ieIsAboveVersion9 = versions.ie.isAboveVersion9();
+  this.ieIsAboveVersion10 = versions.ie.isAboveVersion10();
+  this.ieIsAboveVersion11 = versions.ie.isAboveVersion11();
+};
 
 var classes = {
   IE: 'ie',
