@@ -1,7 +1,7 @@
 
 # [Defunctr](http://github.com/cinecove/defunctr) ![Github version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=Current%20Version) [![Join the chat at https://gitter.im/cinecove/defunctr](https://badges.gitter.im/cinecove/defunctr.svg)](https://gitter.im/cinecove/defunctr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##### Defunctr is a [Modernizr](http://www.modernizr.com) extension JavaScript library that detects browsers using feature detection for use in HTML5 and CSS3.
+##### Defunctr is a Javascript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
@@ -27,7 +27,7 @@ Defunctr has the ability to exclude testing and tagging by appending any of the 
 
 ### Classes created by Defunctr
 
-Defunctr will assign a series of tests to Modernizr to execute. Modernizr will apply class names to the `<html>` element based on the results of the test. The class name will be appended with `no-` if the test result is false.
+Defunctr will execute a series of browser detection tests. The tests will be assigned to Modernizr if it is present. Modernizr is not required. Defunctr (or Modernizr) will apply class names to the `<html>` element based on the results of the test. The class name will be appended with `no-` if the test result is false.
 
 Assume you had a css class definition called button that will style a gradient background with a rounded border.
 
@@ -93,7 +93,7 @@ While Modernizr provides some really useful tests, sometimes we want to know the
 
 #### Browser Type Tests
 
-The browser  type tests detect the browser that is running without using any information set in the user-agent string.
+The browser  type tests detect the browser that is running without using any information set in the user-agent string. These tests include Quirks mode and Internet Explorer's emulation modes.
 
 | CSS Class | Description |
 | ------- | ---------------------------|
@@ -156,13 +156,12 @@ We support most browsers, which is the point of using our module in the first pl
 * Chrome 1+
 * Safari 3+
 * Opera 8+ (including Opera Next)
-* Khtml (experimental)
+* Khtml
 
 #### Things to know about this release
 
 * Microsoft Edge is detected as Microsoft Edge not Internet Explorer.
 * Opera Next is detected as Opera-Next not Opera.
-* Experimental support for KHtml.
 * Only Internet Explorer is supported for version information.
 
 ### CDN Delivery
@@ -180,11 +179,13 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 	<body>
 		...
 
-		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.3.0/modernizr.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.3.1/modernizr.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/defunctr/{version}/defunctr.min.js"></script>
 	</body>
 	...
 ```
+
+> Including Modernizr is not required.
 
 ####Version aliasing with jsDelivr
 
@@ -194,9 +195,9 @@ For latest version use:
 
 You can also load versions per branch:
 
-`//cdn.jsdelivr.net/defunctr/1.2.3/defunctr.min.js` Exact 1.2.3 branch
+`//cdn.jsdelivr.net/defunctr/1.3.0/defunctr.min.js` Exact 1.3.0 branch
 
-`//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js` Latest in 1.2.* branch
+`//cdn.jsdelivr.net/defunctr/1.3/defunctr.min.js` Latest in 1.3.* branch
 
 `//cdn.jsdelivr.net/defunctr/1/defunctr.min.js` Latest in 1.* branch
 
@@ -218,6 +219,9 @@ Just run
 ```
     $ npm install defunctr
 ```
+
+> **Isomorphic (Server Side) Rendering**:
+> Defunctr does not currently suport isomporphic rendering. This feature is coming in a future release. To bring this feature in requires a breaking change.
 
 ### NuGet
 
@@ -241,8 +245,8 @@ Using the NuGet package manager, execute:
 
 #### Optional Tools
 - [ATOM](https://atom.io/) (Project IDE)
-- [WebStorm](http://jetbrains.com/webstorm) (Project IDE)
 - [Visual Studio Code](https://code.visualstudio.com/) (Project IDE)
+- [WebStorm](http://jetbrains.com/webstorm) (Project IDE)
 
 check out the source code
 ``` bash
@@ -307,7 +311,6 @@ There are currently three branches in the git repository:
 |`v*`|  The `v*` tags are to mark each release. Older builds used `release/v*`. |
 |`feature/*`|  The `feature/*` branch is where the current **unstable** and **not-likely-working** coding is taking place that is being shared across forks. |
 |`legacy-1.x`|  The `legacy-1.x` branch the original master before the project went into a build process. It is no longer used and will be deleted in the future. |
-|`dist`|  The `dist` branch the original distribution branch before npm and bower releases were introduced. This branch will be deleted. |
 
 
 
