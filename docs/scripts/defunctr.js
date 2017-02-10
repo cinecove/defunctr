@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T05:45:48.723Z
+ * Build Date: 2017-02-10T06:07:49.622Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -41,7 +41,7 @@ var safari = function () {
 
 function hasOperaHeader() {
   try {
-    return 'WebkitTransform' in browserDocument.documentElement.style && browserWindow.clientInformation.vendor.substring('Opera') === 0;
+    return 'WebkitTransform' in browserDocument.documentElement.style && !!browserWindow.opr && !!browserWindow.opr.addons;
   } catch (ex) {
     return false;
   }
