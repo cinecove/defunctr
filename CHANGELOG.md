@@ -1,5 +1,6 @@
 ### HEAD
 
+* Fixed Opera Next detection
 * Moved off Grunt to Gulp
 * Moved to rollup for UMD and node transpiling
 * Migrated all code to ES6

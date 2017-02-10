@@ -2,7 +2,7 @@
   "name": "defunctr",
   "title": "Defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
-  "version": "1.3.0-beta1",
+  "version": "1.3.0-beta2",
   "main": "dist/defunctr.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
