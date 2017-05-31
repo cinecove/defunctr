@@ -43,7 +43,7 @@
     "babel-register": "^6.11.6",
     "babelrc-rollup": "^3.0.0",
     "bower": "^1.7.9",
-    "chai": "^3.5.0",
+    "chai": "^4.0.1",
     "eslint": "^3.9.1",
     "flow": "^0.2.3",
     "gulp": "^3.9.1",
