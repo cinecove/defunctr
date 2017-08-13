@@ -6,7 +6,7 @@ let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 export default {
-  entry: 'lib/defunctr.js',
+  entry: 'lib/index.js',
   legacy: true,
   plugins: [
     babel(babelrc()),

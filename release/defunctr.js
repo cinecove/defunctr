@@ -1,12 +1,12 @@
 /*!
- * Defunctr 1.3.1
+ * Defunctr 2.0.0
  * https://github.com/cinecove/defunctr
  *
  * Copyright 2012 - 2017 Cinecove Digital, LLC and other contributors
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T02:37:48.958Z
+ * Build Date: 2017-08-13T23:35:47.250Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -14,217 +14,199 @@
 	(global.defunctr = factory());
 }(this, (function () { 'use strict';
 
-var browserWindow = window || null;
-var browserDocument = browserWindow ? browserWindow.document || null : null;
-var undef = void 0;
+var htmlElementConstructorCheck = (function (window) {
+  return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);
+});
 
-var noop = function noop() {};
-var console = browserWindow && browserWindow.console ? browserWindow.console : undefined;
-var log = console ? console.log || noop : noop;
-var warn = console ? console.warn || log : noop;
-var error = console ? console.error || log : noop;
-
-var logger = {
-  log: log,
-  warn: warn,
-  error: error
-};
-
-var htmlElementConstructorCheck = function () {
-  return Boolean(browserWindow && browserWindow.HTMLElement && Object.prototype.toString.call(browserWindow.HTMLElement).indexOf('Constructor') > 0);
-};
-
-var safari = function () {
-  return htmlElementConstructorCheck();
-};
+var safari = (function (window) {
+  return htmlElementConstructorCheck(window);
+});
 
 
-function hasOperaHeader() {
+var hasOperaHeader = function hasOperaHeader(window, document) {
   try {
-    return 'WebkitTransform' in browserDocument.documentElement.style && !!browserWindow.opr && !!browserWindow.opr.addons;
+    return 'WebkitTransform' in document.documentElement.style && !!window.opr && !!window.opr.addons;
   } catch (ex) {
     return false;
   }
-}
-
-var operaNext = function () {
-  return hasOperaHeader();
 };
 
-var webKitTransformCheck = function () {
-  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'WebkitTransform' in browserDocument.documentElement.style);
-};
+var operaNext = (function (window, document) {
+  return hasOperaHeader(window, document);
+});
 
-var msWriteProfilerMarkCheck = function () {
-  return Boolean(browserWindow && typeof browserWindow.msWriteProfilerMark !== 'undefined');
-};
+var webKitTransformCheck = (function (document) {
+  return Boolean(document && document.documentElement && document.documentElement.style && 'WebkitTransform' in document.documentElement.style);
+});
 
-var installTriggerCheck = function () {
-  return Boolean(browserWindow && typeof browserWindow.InstallTrigger !== 'undefined');
-};
+var msWriteProfilerMarkCheck = (function (window) {
+  return Boolean(window && typeof window.msWriteProfilerMark !== 'undefined');
+});
 
-var firefox = function () {
-  return installTriggerCheck();
-};
+var installTriggerCheck = (function (window) {
+  return Boolean(window && typeof window.InstallTrigger !== 'undefined');
+});
 
-var operaVersionCheck = function () {
-  return Boolean(browserWindow && browserWindow.opera && browserWindow.opera.version !== undef);
-};
+var firefox = (function (window) {
+  return installTriggerCheck(window);
+});
 
-var opera = function () {
-  return operaVersionCheck();
-};
+var webkit = (function (window, document) {
+  return webKitTransformCheck(document) && !msWriteProfilerMarkCheck(window) && !firefox(window);
+});
 
-var webkit = function () {
-  return webKitTransformCheck() && msWriteProfilerMarkCheck() === false && !firefox() && !opera();
-};
+var chrome = (function (window, document) {
+  return !safari(window) && !operaNext(window, document) && webkit(window, document);
+});
 
-var chrome = function () {
-  return !safari() && !operaNext() && webkit();
-};
+var activeXCheck = (function (window) {
+  return Boolean('ActiveXObject' in window);
+});
 
-var activeXCheck = function () {
-  return 'ActiveXObject' in browserWindow;
-};
+var functionalEventCheck = (function (window) {
+  return Boolean(window && window.Event && typeof window.Event === 'function');
+});
 
-var functionalEventCheck = function () {
-  return Boolean(browserWindow && browserWindow.Event && typeof browserWindow.Event === 'function');
-};
+var edge = (function (window) {
+  return !activeXCheck(window) && functionalEventCheck(window) && msWriteProfilerMarkCheck(window);
+});
 
-var edge = function () {
-  return Boolean(!activeXCheck() && functionalEventCheck() && msWriteProfilerMarkCheck());
-};
+var khtmlMarqueeCheck = (function (document) {
+  return Boolean(document && document.documentElement && document.documentElement.style && 'KhtmlMarquee' in document.documentElement.style);
+});
 
-var khtmlMarqueeCheck = function () {
-  return Boolean(browserDocument && browserDocument.documentElement && browserDocument.documentElement.style && 'KhtmlMarquee' in browserDocument.documentElement.style);
-};
+var khtml = (function (window, document) {
+  return khtmlMarqueeCheck(document) && !safari(window);
+});
 
-var khtml = function () {
-  return khtmlMarqueeCheck() && !safari();
-};
+var operaVersionCheck = (function (window) {
+  return Boolean(window && window.opera && window.opera.version !== undefined);
+});
+
+var opera = (function (window) {
+  return operaVersionCheck(window);
+});
+
+var ie = (function (window) {
+  return activeXCheck(window);
+});
+
+var undetected = (function (window, document) {
+  return !webkit(window, document) && !ie(window) && !chrome(window, document) && !edge(window) && !firefox(window) && !opera(window) && !operaNext(window, document) && !safari(window);
+});
 
 
+var hasBackCompatCSS1Check = (function (document) {
+  return Boolean(document && document.compatMode && (document.compatMode === 'CSS1Compat' || document.compatMode === 'BackCompat'));
+});
 
-var ie = function () {
-  return activeXCheck();
-};
+var isAboveVersion5 = (function (window, document) {
+  return ie(window) && hasBackCompatCSS1Check(document);
+});
 
-var undetected = function () {
-  return !webkit() && !ie() && !chrome() && !edge() && !firefox() && !opera() && !operaNext() && !safari();
-};
+var hasXmlHttpRequestCheck = (function (window) {
+  return Boolean(window && typeof window.XMLHttpRequest !== 'undefined');
+});
 
+var isAboveVersion6 = (function (window, document) {
+  return ie(window) && hasBackCompatCSS1Check(document) && hasXmlHttpRequestCheck(window);
+});
 
-var hasBackCompatCSS1Check = function () {
-  return Boolean(browserDocument && browserDocument.compatMode && (browserDocument.compatMode === 'CSS1Compat' || browserDocument.compatMode === 'BackCompat'));
-};
+var hasQuerySelectorCheck = (function (document) {
+  return Boolean(document && typeof document.querySelector !== 'undefined');
+});
 
-var isAboveVersion5 = function () {
-  return ie() && hasBackCompatCSS1Check();
-};
+var isAboveVersion7 = (function (window, document) {
+  return ie(window) && hasQuerySelectorCheck(document);
+});
 
-var hasXmlHttpRequestCheck = function () {
-  return Boolean(browserWindow && typeof browserWindow.XMLHttpRequest !== 'undefined');
-};
+var hasAddEventListenerCheck = (function (document) {
+  return Boolean(document && typeof document.addEventListener !== 'undefined');
+});
 
-var isAboveVersion6 = function () {
-  return ie() && hasBackCompatCSS1Check() && hasXmlHttpRequestCheck();
-};
+var isAboveVersion8 = (function (window, document) {
+  return ie(window) && hasAddEventListenerCheck(document);
+});
 
-var hasQuerySelectorCheck = function () {
-  return Boolean(browserDocument && typeof browserDocument.querySelector !== 'undefined');
-};
+var hasAtobCheck = (function (window) {
+  return Boolean(window && typeof window.atob !== 'undefined');
+});
 
-var isAboveVersion7 = function () {
-  return ie() && hasQuerySelectorCheck();
-};
+var isAboveVersion9 = (function (window) {
+  return ie(window) && hasAtobCheck(window);
+});
 
-var hasAddEventListenerCheck = function () {
-  return Boolean(browserDocument && typeof browserDocument.addEventListener !== 'undefined');
-};
+var attachEventCheck = (function (document) {
+  return Boolean(document && typeof document.attachEvent !== 'undefined');
+});
 
-var isAboveVersion8 = function () {
-  return ie() && hasAddEventListenerCheck();
-};
+var isAboveVersion10 = (function (window, document) {
+  return ie(window) && hasAtobCheck(window) && !attachEventCheck(document);
+});
 
-var hasAtobCheck = function () {
-  return Boolean(browserWindow && typeof browserWindow.atob !== 'undefined');
-};
+var isAboveVersion11 = (function (window) {
+  return ie(window) && functionalEventCheck(window);
+});
 
-var isAboveVersion9 = function () {
-  return ie() && hasAtobCheck();
-};
+var hasCompatModeCheck = (function (document) {
+  return Boolean(document && typeof document.compatMode !== 'undefined');
+});
 
-var attachEventCheck = function () {
-  return Boolean(browserDocument && typeof browserDocument.attachEvent !== 'undefined');
-};
+var isBelowVersion6 = (function (window, document) {
+  return ie(window) && !hasCompatModeCheck(document);
+});
 
-var isAboveVersion10 = function () {
-  return ie() && hasAtobCheck() && !attachEventCheck();
-};
+var hasBackCompatCheck = (function (document) {
+  return Boolean(document && document.compatMode && document.compatMode === 'BackCompat');
+});
 
-var isAboveVersion11 = function () {
-  return ie() && functionalEventCheck();
-};
+var isBelowVersion7 = (function (window, document) {
+  return ie(window) && !hasBackCompatCheck(document) && !hasXmlHttpRequestCheck(window);
+});
 
-var hasCompatModeCheck = function () {
-  return Boolean(browserDocument && typeof browserDocument.compatMode !== 'undefined');
-};
+var isBelowVersion8 = (function (window, document) {
+  return ie(window) && !hasQuerySelectorCheck(document);
+});
 
-var isBelowVersion6 = function () {
-  return ie() && !hasCompatModeCheck();
-};
+var isBelowVersion9 = (function (window, document) {
+  return ie(window) && !hasAddEventListenerCheck(document);
+});
 
-var hasBackCompatCheck = function () {
-  return Boolean(browserDocument && browserDocument.compatMode && browserDocument.compatMode === 'BackCompat');
-};
+var isBelowVersion10 = (function (window) {
+  return ie(window) && !hasAtobCheck(window);
+});
 
-var isBelowVersion7 = function () {
-  return ie() && !hasBackCompatCheck() && !hasXmlHttpRequestCheck();
-};
+var isBelowVersion11 = (function (window, document) {
+  return ie(window) && attachEventCheck(document);
+});
 
-var isBelowVersion8 = function () {
-  return ie() && !hasQuerySelectorCheck();
-};
+var isBelowVersion12 = (function (window) {
+  return ie(window) && !functionalEventCheck(window);
+});
 
-var isBelowVersion9 = function () {
-  return ie() && !hasAddEventListenerCheck();
-};
+var isVersion6 = (function (window, document) {
+  return isAboveVersion5(window, document) && isBelowVersion7(window, document);
+});
 
-var isBelowVersion10 = function () {
-  return ie() && !hasAtobCheck();
-};
+var isVersion7 = (function (window, document) {
+  return isAboveVersion6(window, document) && isBelowVersion8(window, document);
+});
 
-var isBelowVersion11 = function () {
-  return ie() && attachEventCheck();
-};
+var isVersion8 = (function (window, document) {
+  return isAboveVersion7(window, document) && isBelowVersion9(window, document);
+});
 
-var isBelowVersion12 = function () {
-  return ie() && !functionalEventCheck();
-};
+var isVersion9 = (function (window, document) {
+  return isAboveVersion8(window, document) && isBelowVersion10(window);
+});
 
-var isVersion6 = function () {
-  return isAboveVersion5() && isBelowVersion7();
-};
+var isVersion10 = (function (window, document) {
+  return isAboveVersion9(window) && isBelowVersion11(window, document);
+});
 
-var isVersion7 = function () {
-  return isAboveVersion6() && isBelowVersion8();
-};
-
-var isVersion8 = function () {
-  return isAboveVersion7() && isBelowVersion9();
-};
-
-var isVersion9 = function () {
-  return isAboveVersion8() && isBelowVersion10();
-};
-
-var isVersion10 = function () {
-  return isAboveVersion9() && isBelowVersion11();
-};
-
-var isVersion11 = function () {
-  return isAboveVersion10() && isBelowVersion12();
-};
+var isVersion11 = (function (window, document) {
+  return isAboveVersion10(window, document) && isBelowVersion12(window);
+});
 
 
 
@@ -251,13 +233,13 @@ var ie$1 = (Object.freeze || Object)({
 	isVersion11: isVersion11
 });
 
-var hasChromeWebstoreInstallCheck = function () {
-  return Boolean(browserWindow && browserWindow.chrome && browserWindow.chrome.webstore && browserWindow.chrome.webstore.install);
-};
+var hasChromeWebstoreInstallCheck = (function (window) {
+  return Boolean(window && window.chrome && window.chrome.webstore && window.chrome.webstore.install);
+});
 
-var isAboveVersion15 = function () {
-  return chrome() && hasChromeWebstoreInstallCheck();
-};
+var isAboveVersion15 = (function (window, document) {
+  return chrome(window, document) && hasChromeWebstoreInstallCheck(window);
+});
 
 
 
@@ -270,53 +252,49 @@ var versions = {
   chrome: chrome$1
 };
 
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
+var detective = (function (window, document) {
+  return function () {
+    return {
+      isWebKit: webkit(window, document),
+      isOpera: opera(window),
+      isIE: ie(window),
+      isFirefox: firefox(window),
+      isSafari: safari(window),
+      isKhtml: khtml(window, document),
+      isOperaNext: operaNext(window, document),
+      isChrome: chrome(window, document),
+      isEdge: edge(window),
+      isUndetected: undetected(window, document),
 
-var Detective = function Detective() {
-  classCallCheck(this, Detective);
+      standardsCompliant: versions.ie.isAboveVersion9(window) || !ie(window),
 
-  this.isWebKit = webkit();
-  this.isOpera = opera();
-  this.isIE = ie();
-  this.isFirefox = firefox();
-  this.isSafari = safari();
-  this.isKhtml = khtml();
-  this.isOperaNext = operaNext();
-  this.isChrome = chrome();
-  this.isEdge = edge();
-  this.isUndetected = undetected();
+      chromeIsAbove15: versions.chrome.isAboveVersion15(window, document),
 
-  this.standardsCompliant = versions.ie.isAboveVersion9() || !ie();
+      ieIsVersion11: versions.ie.isVersion11(window, document),
+      ieIsVersion10: versions.ie.isVersion10(window, document),
+      ieIsVersion9: versions.ie.isVersion9(window, document),
+      ieIsVersion8: versions.ie.isVersion8(window, document),
+      ieIsVersion7: versions.ie.isVersion7(window, document),
+      ieIsVersion6: versions.ie.isVersion6(window, document),
 
-  this.chromeIsAbove15 = versions.chrome.isAboveVersion15();
+      ieIsBelowVersion6: versions.ie.isBelowVersion6(window, document),
+      ieIsBelowVersion7: versions.ie.isBelowVersion7(window, document),
+      ieIsBelowVersion8: versions.ie.isBelowVersion8(window, document),
+      ieIsBelowVersion9: versions.ie.isBelowVersion9(window, document),
+      ieIsBelowVersion10: versions.ie.isBelowVersion10(window, document),
+      ieIsBelowVersion11: versions.ie.isBelowVersion11(window, document),
+      ieIsBelowVersion12: versions.ie.isBelowVersion12(window, document),
 
-  this.ieIsVersion11 = versions.ie.isVersion11();
-  this.ieIsVersion10 = versions.ie.isVersion10();
-  this.ieIsVersion9 = versions.ie.isVersion9();
-  this.ieIsVersion8 = versions.ie.isVersion8();
-  this.ieIsVersion7 = versions.ie.isVersion7();
-  this.ieIsVersion6 = versions.ie.isVersion6();
-
-  this.ieIsBelowVersion6 = versions.ie.isBelowVersion6();
-  this.ieIsBelowVersion7 = versions.ie.isBelowVersion7();
-  this.ieIsBelowVersion8 = versions.ie.isBelowVersion8();
-  this.ieIsBelowVersion9 = versions.ie.isBelowVersion9();
-  this.ieIsBelowVersion10 = versions.ie.isBelowVersion10();
-  this.ieIsBelowVersion11 = versions.ie.isBelowVersion11();
-  this.ieIsBelowVersion12 = versions.ie.isBelowVersion12();
-
-  this.ieIsAboveVersion5 = versions.ie.isAboveVersion5();
-  this.ieIsAboveVersion6 = versions.ie.isAboveVersion6();
-  this.ieIsAboveVersion7 = versions.ie.isAboveVersion7();
-  this.ieIsAboveVersion8 = versions.ie.isAboveVersion8();
-  this.ieIsAboveVersion9 = versions.ie.isAboveVersion9();
-  this.ieIsAboveVersion10 = versions.ie.isAboveVersion10();
-  this.ieIsAboveVersion11 = versions.ie.isAboveVersion11();
-};
+      ieIsAboveVersion5: versions.ie.isAboveVersion5(window, document),
+      ieIsAboveVersion6: versions.ie.isAboveVersion6(window, document),
+      ieIsAboveVersion7: versions.ie.isAboveVersion7(window, document),
+      ieIsAboveVersion8: versions.ie.isAboveVersion8(window, document),
+      ieIsAboveVersion9: versions.ie.isAboveVersion9(window, document),
+      ieIsAboveVersion10: versions.ie.isAboveVersion10(window, document),
+      ieIsAboveVersion11: versions.ie.isAboveVersion11(window, document)
+    };
+  };
+});
 
 var classes = {
   IE: 'ie',
@@ -353,198 +331,312 @@ var classes = {
   IE_VERSION_11: 'ie-version-11'
 };
 
+var prefix = 'defunctr';
+
 var tags = {
-  DEFUNCTR: 'defunctr',
-  VERSION_OFF: 'defunctr-version-off',
-  IE_ONLY: 'defunctr-ie-only',
-  IE_LESSTHAN_OFF: 'defunctr-lt-off',
-  IE_GREATERTHAN_OFF: 'defunctr-gt-off',
-  NOTAGGING: 'defunctr-off'
+  DEFUNCTR: prefix,
+  VERSION_OFF: prefix + '-version-off',
+  IE_ONLY: prefix + '-ie-only',
+  IE_LESSTHAN_OFF: prefix + '-lt-off',
+  IE_GREATERTHAN_OFF: prefix + '-gt-off',
+  NOTAGGING: prefix + '-off'
 };
 
-var prefix = '';
-
-var prefixedClassFor = function (className) {
-  return '' + prefix + className;
-};
+var prefixedClassForFactory = (function () {
+  var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  return function (className) {
+    return '' + prefix + className;
+  };
+});
 
 var optionalModernizr = {
   modernizr: undefined
 };
 
-if (typeof require === 'function') {
-  require(['modernizr'], function (m) {
-    optionalModernizr.modernizr = m;
-  });
-} else {
-  if (browserWindow) {
-    if (browserWindow.Modernizr) {
-      optionalModernizr.modernizr = browserWindow.Modernizr;
-    } else if (browserWindow.modernizr) {
-      optionalModernizr.modernizr = browserWindow.modernizr;
+var createStub = function createStub(window) {
+  if (typeof require === 'function') {
+    require(['modernizer'], function (m) {
+      optionalModernizr.modernizr = m;
+    });
+  } else {
+    if (window) {
+      if (window.Modernizr) {
+        optionalModernizr.modernizr = window.Modernizr;
+      } else if (window.modernizr) {
+        optionalModernizr.modernizr = window.modernizr;
+      }
     }
   }
-}
+  return optionalModernizr;
+};
 
-var docElement = browserDocument && browserDocument.documentElement && browserDocument.documentElement.className ? browserDocument.documentElement : { className: '' };
+var optionalModernizr$1 = (function (window) {
+  return createStub(window);
+});
 
-var Modernizr = optionalModernizr.modernizr;
+var extractDocElement = function extractDocElement(document) {
+  return document && document.documentElement && document.documentElement.className ? document.documentElement : { className: '' };
+};
 
-function makeTest(item) {
-  return function test() {
+var hasTag = function hasTag(docElement, tag) {
+  return docElement.className.match(new RegExp('\\b' + tag + '\\b'));
+};
+
+var removeTag = function removeTag(docElement, tag) {
+  docElement.className = docElement.className.replace(new RegExp('\\b' + tag + '\\b'), '');
+};
+
+var addTag = function addTag(docElement, tag) {
+  if (!hasTag(docElement, tag)) {
+    docElement.className += docElement.className.length > 0 ? ' ' + tag : '';
+  }
+};
+
+var cleanTags = function cleanTags(docElement) {
+  removeTag(docElement, tags.IE_GREATERTHAN_OFF);
+  removeTag(docElement, tags.IE_LESSTHAN_OFF);
+  removeTag(docElement, tags.VERSION_OFF);
+  removeTag(docElement, tags.IE_ONLY);
+  removeTag(docElement, tags.DEFUNCTR);
+  removeTag(docElement, tags.NOTAGGING);
+};
+
+var makeTest = function makeTest(item) {
+  return function () {
     return item;
   };
-}
+};
 
-function test(key, test) {
-  if (Modernizr) {
-    Modernizr.addTest(key, test);
-  } else {
-    if (test()) {
-      addTag(key);
+var test = function test(docElement, modernizr) {
+  return function (key, test) {
+    if (modernizr) {
+      modernizr.addTest(key, test);
     } else {
-      addTag('no-' + key);
+      if (test()) {
+        addTag(docElement, key);
+      } else {
+        addTag(docElement, 'no-' + key);
+      }
     }
+  };
+};
+
+var tagPage = function tagPage(detective, document, modernizr) {
+  var prefix = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+
+  var docElement = extractDocElement(document);
+  var tester = test(docElement, modernizr);
+  var prefixedClassFor = prefixedClassForFactory(prefix);
+  if (!hasTag(docElement, tags.NOTAGGING)) {
+    tester(prefixedClassFor(classes.IE), makeTest(detective.isIE));
+    if (!hasTag(docElement, tags.IE_ONLY)) {
+      tester(prefixedClassFor(classes.CHROME), makeTest(detective.isChrome));
+      tester(prefixedClassFor(classes.SAFARI), makeTest(detective.isSafari));
+      tester(prefixedClassFor(classes.OPERA), makeTest(detective.isOpera));
+      tester(prefixedClassFor(classes.OPERANEXT), makeTest(detective.isOperaNext));
+      tester(prefixedClassFor(classes.FIREFOX), makeTest(detective.isFirefox));
+      tester(prefixedClassFor(classes.KHTML), makeTest(detective.isKhtml));
+      tester(prefixedClassFor(classes.WEBKIT), makeTest(detective.isWebKit));
+      tester(prefixedClassFor(classes.EDGE), makeTest(detective.isEdge));
+      tester(prefixedClassFor(classes.UNKNOWN), makeTest(detective.isUndetected));
+    }
+
+    if (!hasTag(docElement, tags.IE_LESSTHAN_OFF)) {
+      tester(prefixedClassFor(classes.IE_LESSTHAN_6), makeTest(detective.ieIsBelowVersion6));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_7), makeTest(detective.ieIsBelowVersion7));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_8), makeTest(detective.ieIsBelowVersion8));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_9), makeTest(detective.ieIsBelowVersion9));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_10), makeTest(detective.ieIsBelowVersion10));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_11), makeTest(detective.ieIsBelowVersion11));
+      tester(prefixedClassFor(classes.IE_LESSTHAN_12), makeTest(detective.ieIsBelowVersion12));
+    }
+
+    if (!hasTag(docElement, tags.IE_GREATERTHAN_OFF)) {
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_6), makeTest(detective.ieIsAboveVersion6));
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_7), makeTest(detective.ieIsAboveVersion7));
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_8), makeTest(detective.ieIsAboveVersion8));
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_9), makeTest(detective.ieIsAboveVersion9));
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_10), makeTest(detective.ieIsAboveVersion10));
+      tester(prefixedClassFor(classes.IE_GREATERTHAN_11), makeTest(detective.ieIsAboveVersion11));
+    }
+
+    if (!hasTag(docElement, tags.VERSION_OFF)) {
+      tester(prefixedClassFor(classes.IE_VERSION_6), makeTest(detective.ieIsVersion6));
+      tester(prefixedClassFor(classes.IE_VERSION_7), makeTest(detective.ieIsVersion7));
+      tester(prefixedClassFor(classes.IE_VERSION_8), makeTest(detective.ieIsVersion8));
+      tester(prefixedClassFor(classes.IE_VERSION_9), makeTest(detective.ieIsVersion9));
+      tester(prefixedClassFor(classes.IE_VERSION_10), makeTest(detective.ieIsVersion10));
+      tester(prefixedClassFor(classes.IE_VERSION_11), makeTest(detective.ieIsVersion11));
+    }
+
+    cleanTags(docElement);
   }
-}
+};
 
-function removeTag(tag) {
-  docElement.className = docElement.className.replace(new RegExp('\\b' + tag + '\\b'), '');
-}
-
-function addTag(tag) {
-  if (!hasTag(tag)) {
-    docElement.className += docElement.className.length > 0 ? ' ' + tag : tag;
-  }
-}
-
-function hasTag(tag) {
-  return docElement.className.match(new RegExp('\\b' + tag + '\\b'));
-}
-
-function tagPage(detective) {
-  if (!hasTag(tags.NOTAGGING)) {
-    test(prefixedClassFor(classes.IE), makeTest(detective.isIE));
-
-    if (!hasTag(tags.IE_ONLY)) {
-      test(prefixedClassFor(classes.CHROME), makeTest(detective.isChrome));
-      test(prefixedClassFor(classes.SAFARI), makeTest(detective.isSafari));
-      test(prefixedClassFor(classes.OPERA), makeTest(detective.isOpera));
-      test(prefixedClassFor(classes.OPERANEXT), makeTest(detective.isOperaNext));
-      test(prefixedClassFor(classes.FIREFOX), makeTest(detective.isFirefox));
-      test(prefixedClassFor(classes.KHTML), makeTest(detective.isKhtml));
-      test(prefixedClassFor(classes.WEBKIT), makeTest(detective.isWebKit));
-      test(prefixedClassFor(classes.EDGE), makeTest(detective.isEdge));
-      test(prefixedClassFor(classes.UNKNOWN), makeTest(detective.isUndetected));
-    }
-
-    if (!hasTag(tags.IE_LESSTHAN_OFF)) {
-      test(prefixedClassFor(classes.IE_LESSTHAN_6), makeTest(detective.ieIsBelowVersion6));
-      test(prefixedClassFor(classes.IE_LESSTHAN_7), makeTest(detective.ieIsBelowVersion7));
-      test(prefixedClassFor(classes.IE_LESSTHAN_8), makeTest(detective.ieIsBelowVersion8));
-      test(prefixedClassFor(classes.IE_LESSTHAN_9), makeTest(detective.ieIsBelowVersion9));
-      test(prefixedClassFor(classes.IE_LESSTHAN_10), makeTest(detective.ieIsBelowVersion10));
-      test(prefixedClassFor(classes.IE_LESSTHAN_11), makeTest(detective.ieIsBelowVersion11));
-      test(prefixedClassFor(classes.IE_LESSTHAN_12), makeTest(detective.ieIsBelowVersion12));
-    }
-
-    if (!hasTag(tags.IE_GREATERTHAN_OFF)) {
-      test(prefixedClassFor(classes.IE_GREATERTHAN_6), makeTest(detective.ieIsAboveVersion6));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_7), makeTest(detective.ieIsAboveVersion7));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_8), makeTest(detective.ieIsAboveVersion8));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_9), makeTest(detective.ieIsAboveVersion9));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_10), makeTest(detective.ieIsAboveVersion10));
-      test(prefixedClassFor(classes.IE_GREATERTHAN_11), makeTest(detective.ieIsAboveVersion11));
-    }
-
-    if (!hasTag(tags.VERSION_OFF)) {
-      test(prefixedClassFor(classes.IE_VERSION_6), makeTest(detective.ieIsVersion6));
-      test(prefixedClassFor(classes.IE_VERSION_7), makeTest(detective.ieIsVersion7));
-      test(prefixedClassFor(classes.IE_VERSION_8), makeTest(detective.ieIsVersion8));
-      test(prefixedClassFor(classes.IE_VERSION_9), makeTest(detective.ieIsVersion9));
-      test(prefixedClassFor(classes.IE_VERSION_10), makeTest(detective.ieIsVersion10));
-      test(prefixedClassFor(classes.IE_VERSION_11), makeTest(detective.ieIsVersion11));
-    }
-  }
-  cleanTags();
-}
-
-function cleanTags() {
-  removeTag(tags.IE_GREATERTHAN_OFF);
-  removeTag(tags.IE_LESSTHAN_OFF);
-  removeTag(tags.VERSION_OFF);
-  removeTag(tags.IE_ONLY);
-  removeTag(tags.DEFUNCTR);
-  removeTag(tags.NOTAGGING);
-}
-
-var tagger = function (detective) {
+var tagger = (function (detective, window, document) {
   return {
     tag: function tag() {
-      if (browserDocument) {
-        tagPage(detective);
+      var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      if (document) {
+        var d = detective();
+        tagPage(d, document, optionalModernizr$1(window).modernizr, prefix);
       }
     }
   };
+});
+
+var mapVendor = function mapVendor(detector) {
+	if (detector.isIE) {
+		return 'ie';
+	}
+	if (detector.isOpera || detector.isOperaNext) {
+		return 'opera';
+	}
+	if (detector.isChrome) {
+		return 'chrome';
+	}
+	if (detector.isEdge) {
+		return 'edge';
+	}
+	if (detector.isSafari) {
+		return 'safari';
+	}
+	if (detector.isFirefox) {
+		return 'firefox';
+	}
+	if (detector.isKhtml) {
+		return 'khtml';
+	}
+	return 'unknown';
 };
 
-var Defunctr = function Defunctr() {
-  classCallCheck(this, Defunctr);
-
-  this.version = '1.3.1';
-  this.browser = function browser() {
-    var d = new Detective();
-    return {
-      vendor: d.isChrome ? 'chrome' : d.isEdge ? 'edge' : d.isFirefox ? 'firefox' : d.isIE ? 'ie' : d.isKhtml ? 'khtml' : d.isOpera && d.isOperaNext ? 'opera' : d.isSafari ? 'safari' : 'unknown',
-      version: !d.isIE ? 0 : d.ieIsBelowVersion6 ? 5 : d.ieIsVersion6 ? 6 : d.ieIsVersion7 ? 7 : d.ieIsVersion8 ? 8 : d.ieIsVersion9 ? 9 : d.ieIsVersion10 ? 10 : d.ieIsVersion11 ? 11 : d.ieIsAboveVersion11 ? 12 : 0,
-      standards: d.standardsCompliant,
-      detected: !d.isUndetected,
-      webkit: d.isWebKit
-    };
-  };
+var mapVersion = function mapVersion(detector) {
+	if (detector.isIE) {
+		if (detector.ieIsBelowVersion6) {
+			return 5;
+		}
+		if (detector.ieIsVersion6) {
+			return 6;
+		}
+		if (detector.ieIsVersion7) {
+			return 7;
+		}
+		if (detector.ieIsVersion8) {
+			return 8;
+		}
+		if (detector.ieIsVersion9) {
+			return 9;
+		}
+		if (detector.ieIsVersion10) {
+			return 10;
+		}
+		if (detector.ieIsVersion11) {
+			return 11;
+		}
+		if (detector.ieIsAboveVersion11) {
+			return 12;
+		}
+	}
+	return 0;
 };
 
-var defunctr = new Defunctr();
+var browser = (function (detector) {
+	return function () {
+		var d = detector();
+		return {
+			vendor: mapVendor(d),
+			webkit: d.isWebKit,
+			detected: !d.isUndetected,
+			version: mapVersion(d),
+			standards: d.standardsCompliant
+		};
+	};
+});
 
-try {
-  Object.defineProperty(defunctr, 'detective', {
-    get: function get$$1() {
-      try {
-        var warn = logger && logger.warn ? logger.warn : logger.log;
-        warn('defunctr.detective is deprecated and will be removed in 2.0. Please use window.browser instead.');
-      } catch (oe) {
-      }
-      return new Detective();
-    },
-    enumerable: true,
-    configurable: true
-  });
-} catch (ex) {
-  defunctr.detective = new Detective();
-}
+var message = 'defunctr.detective is deprecated and will be removed in version 3.0. Please use defunctr.browser instead.';
 
-if (browserWindow) {
-  tagger(new Detective()).tag();
-
-  browserWindow.defunctr = defunctr;
+var deprecateStaticDetector = function deprecateStaticDetector(defunctr, detective$$1) {
   try {
-    Object.defineProperty(browserWindow, 'Defunctr', {
-      get: function get$$1() {
-        try {
-          var warn = logger && logger.warn ? logger.warn : logger.log;
-          warn('window.Defunctr is deprecated and will be removed in 2.0. Please use window.defunctr instead.');
-        } catch (oe) {
+    Object.defineProperty(defunctr, 'detective', {
+      get: function get() {
+        if (console) {
+          if (console.warn) {
+            console.warn(message);
+          } else if (console.log) {
+            console.log(message);
+          }
         }
-        return defunctr;
+        return detective$$1();
       },
       enumerable: true,
       configurable: true
     });
   } catch (ex) {
-    browserWindow.Defunctr = defunctr;
+    defunctr.detective = detective$$1();
   }
-}
+};
 
-return defunctr;
+var defunctr = (function (window) {
+  var w = window;
+  var d = window && window.document ? window.document : undefined;
+  var det = detective(w, d);
+  var t = tagger(det, w, d);
+
+  var defunctr = {
+    version: '2.0.0',
+    name: 'defunctr',
+    tag: t.tag,
+    browser: browser(det)
+  };
+  deprecateStaticDetector(defunctr, det);
+
+  return defunctr;
+});
+
+var message$1 = 'window.Defunctr is deprecated and will be removed in version 2.0. Please use window.defunctr instead.';
+
+var deprecateDefunctr = (function (defunctr, window) {
+	try {
+		Object.defineProperty(window, 'Defunctr', {
+			get: function get() {
+				try {
+					console.warn(message$1);
+				} catch (ex) {
+					console.log(message$1);
+				}
+				return defunctr;
+			},
+			enumerable: true,
+			configurable: true
+		});
+	} catch (ex) {
+		window.Defunctr = defunctr;
+	}
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var autoload = (function (defunctr, window, console) {
+	if (window) {
+		var autoloader = defunctr(window);
+		autoloader.tag('');
+		window.defunctr = autoloader;
+		deprecateDefunctr(defunctr, window, console);
+		if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined') {
+			return defunctr;
+		}
+		return autoloader;
+	}
+});
+
+
+var index = autoload(defunctr, window, console);
+
+return index;
 
 })));

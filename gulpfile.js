@@ -85,7 +85,7 @@ gulp.task('compress', function (cb) {
       comments: true
     },
     mangle: {
-      reserved: ['Modernizr', 'window', 'navigator']
+      //reserved: ['Modernizr', 'window', 'navigator']
     },
     ie8: true
   };
