@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-13T23:35:47.250Z
+ * Build Date: 2017-08-14T06:43:44.160Z
  */
 var htmlElementConstructorCheck = (function (window) {
   return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);
@@ -45,8 +45,16 @@ var firefox = (function (window) {
   return installTriggerCheck(window);
 });
 
+var operaVersionCheck = (function (window) {
+  return Boolean(window && window.opera && window.opera.version !== undefined);
+});
+
+var opera = (function (window) {
+  return operaVersionCheck(window);
+});
+
 var webkit = (function (window, document) {
-  return webKitTransformCheck(document) && !msWriteProfilerMarkCheck(window) && !firefox(window);
+  return webKitTransformCheck(document) && !msWriteProfilerMarkCheck(window) && !firefox(window) && !opera(window);
 });
 
 var chrome = (function (window, document) {
@@ -71,14 +79,6 @@ var khtmlMarqueeCheck = (function (document) {
 
 var khtml = (function (window, document) {
   return khtmlMarqueeCheck(document) && !safari(window);
-});
-
-var operaVersionCheck = (function (window) {
-  return Boolean(window && window.opera && window.opera.version !== undefined);
-});
-
-var opera = (function (window) {
-  return operaVersionCheck(window);
 });
 
 var ie = (function (window) {
@@ -548,28 +548,7 @@ var browser = (function (detector) {
 	};
 });
 
-var message = 'defunctr.detective is deprecated and will be removed in version 3.0. Please use defunctr.browser instead.';
 
-var deprecateStaticDetector = function deprecateStaticDetector(defunctr, detective$$1) {
-  try {
-    Object.defineProperty(defunctr, 'detective', {
-      get: function get() {
-        if (console) {
-          if (console.warn) {
-            console.warn(message);
-          } else if (console.log) {
-            console.log(message);
-          }
-        }
-        return detective$$1();
-      },
-      enumerable: true,
-      configurable: true
-    });
-  } catch (ex) {
-    defunctr.detective = detective$$1();
-  }
-};
 
 var defunctr = (function (window) {
   var w = window;
@@ -583,30 +562,8 @@ var defunctr = (function (window) {
     tag: t.tag,
     browser: browser(det)
   };
-  deprecateStaticDetector(defunctr, det);
 
   return defunctr;
-});
-
-var message$1 = 'window.Defunctr is deprecated and will be removed in version 2.0. Please use window.defunctr instead.';
-
-var deprecateDefunctr = (function (defunctr, window) {
-	try {
-		Object.defineProperty(window, 'Defunctr', {
-			get: function get() {
-				try {
-					console.warn(message$1);
-				} catch (ex) {
-					console.log(message$1);
-				}
-				return defunctr;
-			},
-			enumerable: true,
-			configurable: true
-		});
-	} catch (ex) {
-		window.Defunctr = defunctr;
-	}
 });
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -615,12 +572,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
-var autoload = (function (defunctr, window, console) {
+
+var autoload = (function (defunctr, window ) {
 	if (window) {
 		var autoloader = defunctr(window);
 		autoloader.tag('');
 		window.defunctr = autoloader;
-		deprecateDefunctr(defunctr, window, console);
 		if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined') {
 			return defunctr;
 		}

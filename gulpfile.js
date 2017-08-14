@@ -45,11 +45,11 @@ gulp.task('nuget-pack', function (callback) {
     outputDir: 'nuget',
     baseDir: '.'
   },[
-    { src: 'dist/defunctr-dev.js', dest: '/content/Scripts/Vendor/Defunctr/defunctr.js'},
-    { src: 'dist/defunctr.js', dest: '/content/Scripts/Vendor/Defunctr/defunctr.min.js'},
-    { src: 'LICENSE.md', dest: '/content/Scripts/Vendor/Defunctr/license.md'},
-    { src: 'CHANGELOG.md', dest: '/content/Scripts/Vendor/Defunctr/changelog.md'},
-    { src: 'docs/migrating-to-npm.md', dest: '/content/Scripts/Vendor/Defunctr/migrate-to-npm.md'}
+    { src: 'dist/defunctr-dev.js', dest: '/content/scripts/defunctr/defunctr.js'},
+    { src: 'dist/defunctr.js', dest: '/content/scripts/defunctr/defunctr.min.js'},
+    { src: 'LICENSE.md', dest: '/content/scripts/defunctr/license.md'},
+    { src: 'CHANGELOG.md', dest: '/content/scripts/defunctr/changelog.md'},
+    { src: 'docs/migrating-to-npm.md', dest: '/content/scripts/defunctr/migrate-to-npm.md'}
   ],
   callback
   );
