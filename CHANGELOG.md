@@ -3,6 +3,11 @@
 * Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
 * Starting to add automated test suite
 
+### 1.3.1 (August 13, 2017)
+* Added defunctr.browser which will replace defunctr.detective in 2.0
+* Deprecated defunctr.detective
+* Updated build to current versions
+
 ### 1.3.0 (February 10, 2017)
 * Modernizr is now optional
 * Fixed issues in Safari detection

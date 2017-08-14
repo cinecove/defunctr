@@ -1,6 +1,6 @@
 import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
-import istanbul from 'rollup-plugin-istanbul';
+//import istanbul from 'rollup-plugin-istanbul';
 
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);

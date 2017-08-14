@@ -1,12 +1,12 @@
 /*!
- * Defunctr 1.3.0
+ * Defunctr 1.3.1
  * https://github.com/cinecove/defunctr
  *
  * Copyright 2012 - 2017 Cinecove Digital, LLC and other contributors
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-02-10T07:58:02.681Z
+ * Build Date: 2017-08-14T00:08:10.680Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -22,12 +22,12 @@ var noop = function noop() {};
 var console = browserWindow && browserWindow.console ? browserWindow.console : undefined;
 var log = console ? console.log || noop : noop;
 var warn = console ? console.warn || log : noop;
-var error$1 = console ? console.error || log : noop;
+var error = console ? console.error || log : noop;
 
 var logger = {
   log: log,
   warn: warn,
-  error: error$1
+  error: error
 };
 
 var htmlElementConstructorCheck = function () {
@@ -491,11 +491,33 @@ var tagger = function (detective) {
 var Defunctr = function Defunctr() {
   classCallCheck(this, Defunctr);
 
-  this.version = '1.3.0';
-  this.detective = new Detective();
+  this.version = '1.3.1';
+  this.browser = function () {
+    var d = new Detective();
+    return {
+      vendor: d.isChrome ? 'chrome' : d.isEdge ? 'edge' : d.isFirefox ? 'firefox' : d.isIE ? 'ie' : d.isKhtml ? 'khtml' : d.isOpera && d.isOperaNext ? 'opera' : d.isSafari ? 'safari' : 'unknown',
+      version: !d.isIE ? 0 : d.ieIsBelowVersion6 ? 5 : d.ieIsVersion6 ? 6 : d.ieIsVersion7 ? 7 : d.ieIsVersion8 ? 8 : d.ieIsVersion9 ? 9 : d.ieIsVersion10 ? 10 : d.ieIsVersion11 ? 11 : d.ieIsAboveVersion11 ? 12 : 0,
+      standards: d.standardsCompliant,
+      detected: !d.isUndetected,
+      webkit: d.isWebKit
+    };
+  }.bind(this);
 };
 
 var defunctr = new Defunctr();
+
+try {
+  Object.defineProperty(defunctr, 'detective', {
+    get: function get$$1() {
+      logger.warn('defunctr.detective is deprecated and will be removed in 2.0. Please use window.browser instead.');
+      return new Detective();
+    },
+    enumerable: true,
+    configurable: true
+  });
+} catch (ex) {
+  defunctr.detective = new Detective();
+}
 
 if (browserWindow) {
   tagger(new Detective()).tag();
@@ -504,7 +526,7 @@ if (browserWindow) {
   try {
     Object.defineProperty(browserWindow, 'Defunctr', {
       get: function get$$1() {
-        logger.warn('window.Defunctr is deprecated and will be removed. Please use window.defunctr');
+        logger.warn('window.Defunctr is deprecated and will be removed in 2.0. Please use window.defunctr instead.');
         return defunctr;
       },
       enumerable: true,

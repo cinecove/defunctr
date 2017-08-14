@@ -3,14 +3,14 @@ var strip = require('gulp-strip-comments');
 var pkg = require('./package.json');
 var replace = require('gulp-replace');
 var banner = require('gulp-banner');
-var gutil = require('gulp-util');
-var uglify = require('gulp-uglify');
+var minify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var clean = require('gulp-clean');
 var bump = require('gulp-bump');
 var nugetpack = require('gulp-nuget-pack');
-var main = pkg['main'];
-var mainmod = pkg['jsnext:main'];
+var pump = require('pump');
+var gulpSequence = require('gulp-sequence');
+//var main = pkg['main'];
+//var mainmod = pkg['jsnext:main'];
 var version = pkg['version'];
 var build_tag = version
 var buildDate = (new Date()).toISOString();
@@ -79,6 +79,27 @@ gulp.task('bump-major', function() {
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('compress', function (cb) {
+  var options = {
+    output: {
+      comments: true
+    },
+    mangle: {
+      reserved: ['Modernizr', 'window', 'navigator']
+    },
+    ie8: true
+  };
+  pump([
+    gulp.src('./dist/defunctr.js'),
+    minify(options),
+    gulp.dest('./dist'),
+    rename({ suffix: '.min' }),
+    gulp.dest('./release'),
+    rename({ basename: 'defunctr', suffix: '-' + version + '.min'}),
+    gulp.dest('./release')
+  ], cb);
+});
+
 gulp.task('build-umd', function () {
   return gulp.src('./dist/defunctr.js')
     .pipe(strip())
@@ -90,18 +111,8 @@ gulp.task('build-umd', function () {
     .pipe(gulp.dest('./release'))
     .pipe(rename({basename: 'defunctr', suffix: '-dev'}))
     .pipe(gulp.dest('./dist'))
-    .pipe(uglify({
-      preserveComments: 'all',
-      mangle: {
-        except: ['Modernizr', 'window', 'navigator']
-      }
-    }))
-    .pipe(rename({ basename: 'defunctr', suffix: ''}))
-    .pipe(gulp.dest('./dist'))
-    .pipe(rename({ suffix: '.min'}))
-    .pipe(gulp.dest('./release'))
-    .pipe(rename({ basename: 'defunctr', suffix: '-' + version + '.min'}))
-    .pipe(gulp.dest('./release'));
+    .pipe(rename({ basename: 'defunctr', suffix: '' }))
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('build-npm', function () {
@@ -113,8 +124,12 @@ gulp.task('build-npm', function () {
 });
 
 
-gulp.task('build', ['build-npm', 'build-umd']);
+gulp.task('build', function (cb) {
+  gulpSequence('build-npm', 'build-umd', 'compress', cb);
+});
 
-gulp.task('release', ['build', 'nuget-pack']);
+gulp.task('release', function (cb) {
+  gulpSequence('build', 'nuget-pack', cb);
+});
 
 gulp.task('default', ['build']);
