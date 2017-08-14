@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T00:28:04.828Z
+ * Build Date: 2017-08-14T01:54:36.416Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -509,7 +509,11 @@ var defunctr = new Defunctr();
 try {
   Object.defineProperty(defunctr, 'detective', {
     get: function get$$1() {
-      logger.warn('defunctr.detective is deprecated and will be removed in 2.0. Please use window.browser instead.');
+      try {
+        var warn = logger && logger.warn ? logger.warn : logger.log;
+        warn('defunctr.detective is deprecated and will be removed in 2.0. Please use window.browser instead.');
+      } catch (oe) {
+      }
       return new Detective();
     },
     enumerable: true,
@@ -526,7 +530,11 @@ if (browserWindow) {
   try {
     Object.defineProperty(browserWindow, 'Defunctr', {
       get: function get$$1() {
-        logger.warn('window.Defunctr is deprecated and will be removed in 2.0. Please use window.defunctr instead.');
+        try {
+          var warn = logger && logger.warn ? logger.warn : logger.log;
+          warn('window.Defunctr is deprecated and will be removed in 2.0. Please use window.defunctr instead.');
+        } catch (oe) {
+        }
         return defunctr;
       },
       enumerable: true,
