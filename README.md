@@ -7,8 +7,9 @@
 | ------- | ---------------------------|
 |[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/defunctr)|
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
-|[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
+|[Yarn](#yarb)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
+|[Bower](#bower)| Deprecated |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
 user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `defunctr` object, and as classes on the
@@ -164,9 +165,12 @@ We support most browsers, which is the point of using our module in the first pl
 * Kindle Fire has an issue where it is detected as Khtml and Chrome.
 * Android Emulators are unpredictable and may report Chrome as Safari or even Khtml.
 * All 3rd party browsers (Chome, Firefox) will be **correctly** detected as Safari on iOS. All browsers on iOS are required to use Apple's provided frameworks for accessing the web. These browsers are only shells around Safari.
-* `Defunctr` is deprecated and will be removed in 2.0. Use `defunctr` instead.
-* `defunctr.detective` is deprecated and will be removed in 2.0. Use `defunctr.browser()` instead.
 * Known issue with crashing on IE 6 actual (vs quirks emulation). Investigation under way.
+
+#### Breaking Changes in 2.0
+
+* Deprecated `Defunctr` has been removed. Use `defunctr` instead.
+* Deprecated `defunctr.detective` has been removed. Use `defunctr.browser()` instead.
 
 #### Warning about Chrome Plugins
 
@@ -187,7 +191,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 	<body>
 		...
 
-		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.3.1/modernizr.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.5.0/modernizr.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/defunctr@{version}/dist/defunctr.js"></script>
 	</body>
 	...
@@ -195,7 +199,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 
 > Including Modernizr is not required.
 
-#### Version aliasing with jsDelivr (Version > 1.3)
+#### Version aliasing with jsDelivr
 
 For latest version use:
 
@@ -203,49 +207,34 @@ For latest version use:
 
 You can also load versions per branch:
 
-`//cdn.jsdelivr.net/npm/defunctr@1.3.1/dist/defunctr.js` Exact 1.3.1 branch
+`//cdn.jsdelivr.net/npm/defunctr@2.0.0/dist/defunctr.js` Exact 2.0.0 branch
 
-`//cdn.jsdelivr.net/npm/defunctr@1.3/dist/defunctr.js` Latest in 1.3.* branch
+`//cdn.jsdelivr.net/npm/defunctr@2.0/dist/defunctr.js` Latest in 2.0.* branch
 
-`//cdn.jsdelivr.net/npm/defunctr@1/dist/defunctr.js` Latest in 1.* branch
+`//cdn.jsdelivr.net/npm/defunctr@2/dist/defunctr.js` Latest in 2.* branch
 
 > A path shortcut is available `//cdn.jsdelivr.net/defunctr@latest`. All `@` commands work. You __MUST__ omit any trailing `/` on the url for this to work. A trailing `/` will display the directory contents.
 
-#### Version aliasing with jsDelivr (Version < 1.3)
-
-For latest version use:
-
-~~`//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js`~~
-
-> Pulling the latest no longer works as jsDelivr has moved to a new format (above)
-
-You can also load versions per branch:
-
-`//cdn.jsdelivr.net/defunctr/1.2.3/defunctr.min.js` Exact 1.2.3 branch
-
-`//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js` Latest in 1.2.* branch
-
-~~`//cdn.jsdelivr.net/defunctr/1/defunctr.min.js` Latest in 1.* branch~~
-
-> Pulling the latest 1.* branch no longer works as jsDelivr has moved to a new format (above)
+> CDN Versions prior to version 1.3 are no longer supported. They still exist at the old jsDelivr urls, but will not be maintained or migrated to the current jsDelivr url format.
 
 ### Bower
-To Install with [bower](http://bower.io/).
 
-Just run
+Defunctr still exists in the bower repository, we no longer support this method of installation. Please use NPM or Yarn instead.
+
+### Yarn
+
+To Install with [yarn](https://yarnpkg.com/en/).
 
 ```
-    $ bower install defunctr
+    $ yarn add defunctr
 ```
 
 ### NPM
 
 To Install with [npm](https://www.npmjs.com/).
 
-Just run
-
 ```
-    $ npm install defunctr
+    $ npm i defunctr --save
 ```
 
 > **Isomorphic (Server Side) Rendering**:
@@ -261,14 +250,11 @@ Using the NuGet package manager, execute:
 	PM> Install-Package Defunctr
 ```
 
-> **NOTICE:**
-> Visual Studio 2015 users should begin migrating to NPM. New projects created in Visual Studio 2015 and above should use the NPM package.
-
 ### Building the code
 
 #### Required Tools
-- Node
-- NPM
+- Node (6.11.1+)
+- NPM (3.10.10)
 - Gulp
 
 #### Optional Tools
