@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T00:08:10.680Z
+ * Build Date: 2017-08-14T00:28:04.828Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -492,7 +492,7 @@ var Defunctr = function Defunctr() {
   classCallCheck(this, Defunctr);
 
   this.version = '1.3.1';
-  this.browser = function () {
+  this.browser = function browser() {
     var d = new Detective();
     return {
       vendor: d.isChrome ? 'chrome' : d.isEdge ? 'edge' : d.isFirefox ? 'firefox' : d.isIE ? 'ie' : d.isKhtml ? 'khtml' : d.isOpera && d.isOperaNext ? 'opera' : d.isSafari ? 'safari' : 'unknown',
@@ -501,7 +501,7 @@ var Defunctr = function Defunctr() {
       detected: !d.isUndetected,
       webkit: d.isWebKit
     };
-  }.bind(this);
+  };
 };
 
 var defunctr = new Defunctr();
