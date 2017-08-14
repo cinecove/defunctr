@@ -195,7 +195,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 
 > Including Modernizr is not required.
 
-####Version aliasing with jsDelivr (Version > 1.3)
+#### Version aliasing with jsDelivr (Version > 1.3)
 
 For latest version use:
 
@@ -211,7 +211,7 @@ You can also load versions per branch:
 
 > A path shortcut is available `//cdn.jsdelivr.net/defunctr@latest`. All `@` commands work. You __MUST__ omit any trailing `/` on the url for this to work. A trailing `/` will display the directory contents.
 
-####Version aliasing with jsDelivr (Version < 1.3)
+#### Version aliasing with jsDelivr (Version < 1.3)
 
 For latest version use:
 
