@@ -9,7 +9,6 @@
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
 |[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
-|[Ruby Gem](#ruby-gem)| ![Gem version](https://img.shields.io/gem/v/defunctr.svg?label=current%20version) **Coming Soon** |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
 user-agent detection easily fails and apply browser hacks do not work in all cases. Defunctr makes this detection available in two ways: as properties on a global `defunctr` object, and as classes on the
@@ -195,7 +194,7 @@ For latest version use:
 
 You can also load versions per branch:
 
-`//cdn.jsdelivr.net/defunctr/1.3.0/defunctr.min.js` Exact 1.3.0 branch
+`//cdn.jsdelivr.net/defunctr/1.3.1/defunctr.min.js` Exact 1.3.1 branch
 
 `//cdn.jsdelivr.net/defunctr/1.3/defunctr.min.js` Latest in 1.3.* branch
 
@@ -286,7 +285,8 @@ $ cd release
 Defunctr is licensed under the [MIT license](./LICENSE.md)
 
 
-### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
+### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/cinecove/defunctr.svg)](https://greenkeeper.io/)
+
 
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)
 
