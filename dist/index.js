@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T06:43:44.160Z
+ * Build Date: 2017-08-14T08:08:18.416Z
  */
 var htmlElementConstructorCheck = (function (window) {
   return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);
@@ -586,6 +586,8 @@ var autoload = (function (defunctr, window ) {
 });
 
 
-var index = autoload(defunctr, window, console);
+var logger = typeof console === 'undefined' ? {} : console; 
+
+var index = autoload(defunctr, window, logger);
 
 export default index;

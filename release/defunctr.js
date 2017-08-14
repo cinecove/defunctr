@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T06:43:44.160Z
+ * Build Date: 2017-08-14T08:08:18.416Z
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -592,7 +592,9 @@ var autoload = (function (defunctr, window ) {
 });
 
 
-var index = autoload(defunctr, window, console);
+var logger = typeof console === 'undefined' ? {} : console; 
+
+var index = autoload(defunctr, window, logger);
 
 return index;
 
