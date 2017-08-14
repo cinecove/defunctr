@@ -188,26 +188,46 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 		...
 
 		<script type="text/javascript" src="//cdn.jsdelivr.net/modernizr/3.3.1/modernizr.min.js"></script>
-		<script type="text/javascript" src="//cdn.jsdelivr.net/defunctr/{version}/defunctr.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/defunctr@{version}/dist/defunctr.js"></script>
 	</body>
 	...
 ```
 
 > Including Modernizr is not required.
 
-####Version aliasing with jsDelivr
+####Version aliasing with jsDelivr (Version > 1.3)
 
 For latest version use:
 
-`//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js`
+`//cdn.jsdelivr.net/npm/defunctr@latest/dist/defunctr.js`
 
 You can also load versions per branch:
 
-`//cdn.jsdelivr.net/defunctr/1.3.1/defunctr.min.js` Exact 1.3.1 branch
+`//cdn.jsdelivr.net/npm/defunctr@1.3.1/dist/defunctr.js` Exact 1.3.1 branch
 
-`//cdn.jsdelivr.net/defunctr/1.3/defunctr.min.js` Latest in 1.3.* branch
+`//cdn.jsdelivr.net/npm/defunctr@1.3/dist/defunctr.js` Latest in 1.3.* branch
 
-`//cdn.jsdelivr.net/defunctr/1/defunctr.min.js` Latest in 1.* branch
+`//cdn.jsdelivr.net/npm/defunctr@1/dist/defunctr.js` Latest in 1.* branch
+
+> A path shortcut is available `//cdn.jsdelivr.net/defunctr@latest`. All `@` commands work. You __MUST__ omit any trailing `/` on the url for this to work. A trailing `/` will display the directory contents.
+
+####Version aliasing with jsDelivr (Version < 1.3)
+
+For latest version use:
+
+~~`//cdn.jsdelivr.net/defunctr/latest/defunctr.min.js`~~
+
+> Pulling the latest no longer works as jsDelivr has moved to a new format (above)
+
+You can also load versions per branch:
+
+`//cdn.jsdelivr.net/defunctr/1.2.3/defunctr.min.js` Exact 1.2.3 branch
+
+`//cdn.jsdelivr.net/defunctr/1.2/defunctr.min.js` Latest in 1.2.* branch
+
+~~`//cdn.jsdelivr.net/defunctr/1/defunctr.min.js` Latest in 1.* branch~~
+
+> Pulling the latest 1.* branch no longer works as jsDelivr has moved to a new format (above)
 
 ### Bower
 To Install with [bower](http://bower.io/).
