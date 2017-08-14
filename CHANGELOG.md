@@ -4,6 +4,7 @@
 * Starting to add automated test suite
 
 ### 1.3.1 (August 13, 2017)
+* Fixed issue where Opera 12 through 14 were detecting as Chrome, WebKit, and Opera
 * Added defunctr.browser which will replace defunctr.detective in 2.0
 * Deprecated defunctr.detective
 * Updated build to current versions

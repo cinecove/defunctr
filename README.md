@@ -159,9 +159,14 @@ We support most browsers, which is the point of using our module in the first pl
 
 #### Things to know about this release
 
-* Microsoft Edge is detected as Microsoft Edge not Internet Explorer.
 * Opera Next is detected as Opera-Next not Opera.
 * Only Internet Explorer is supported for version information.
+* Kindle Fire has an issue where it is detected as Khtml and Chrome.
+* Android Emulators are unpredictable and may report Chrome as Safari or even Khtml.
+* All 3rd party browsers (Chome, Firefox) will be **correctly** detected as Safari on iOS. All browsers on iOS are required to use Apple's provided frameworks for accessing the web. These browsers are only shells around Safari.
+* `Defunctr` is deprecated and will be removed in 2.0. Use `defunctr` instead.
+* `defunctr.detective` is deprecated and will be removed in 2.0. Use `defunctr.browser()` instead.
+* Known issue with crashing on IE 6 actual (vs quirks emulation). Investigation under way.
 
 ### CDN Delivery
 
