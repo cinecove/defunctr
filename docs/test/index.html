@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Defunctr Test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <!--<script src="js/modernizr-3.3.1.min.js"></script>-->
+    </head>
+    <body>
+		<div id="here"></div>
+
+		<script type="text/javascript">
+
+		(function () {
+			var container = document.getElementById('here');
+			var root = document.createElement('div');
+			root.style.width = '100%';
+
+			var h1 = document.createElement('h1');
+			h1.innerText = 'Window';
+			var h2 = document.createElement('h1');
+			h2.innerText = 'Document';
+
+			root.appendChild(h1);
+			for (var property in window) {
+				var row = document.createElement('div');
+				row.style.width = '100%';
+				var col1 = document.createElement('div');
+				col1.style.width = '50%'
+				col1.style.display = 'inline-block';
+				col1.innerText = property;
+				row.appendChild(col1);
+				var col2 = document.createElement('div');
+				col2.style.width = '50%';
+				col2.style.display = 'inline-block';
+				try {
+					col2.innerHTML = Object.prototype.toString.call(window[property]);
+				} catch (ex) {
+					col2.innerHTML = ex.toString();
+					col2.style.color = 'red';
+				}
+				row.appendChild(col2);
+				root.appendChild(row);
+			}
+
+			root.appendChild(h2);
+			for (var property in document) {
+				var row = document.createElement('div');
+				row.style.width = '100%';
+				var col1 = document.createElement('div');
+				col1.style.width = '50%'
+				col1.style.display = 'inline-block';
+				col1.innerText = property;
+				row.appendChild(col1);
+				var col2 = document.createElement('div');
+				col2.style.width = '50%';
+				col2.style.display = 'inline-block';
+				try {
+					col2.innerHTML = Object.prototype.toString.call(document[property]);
+				} catch (ex) {
+					col2.innerHTML = ex.toString();
+					col2.style.color = 'red';
+				}
+				row.appendChild(col2);
+				root.appendChild(row);
+			}
+
+			container.appendChild(root);
+		}());
+		</script>
+
+    </body>
+</html>
