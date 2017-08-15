@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T08:14:29.991Z
+ * Build Date: 2017-08-15T08:39:24.775Z
  */
 var htmlElementConstructorCheck = (function (window) {
   return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);
@@ -343,37 +343,12 @@ var prefixedClassForFactory = (function () {
   };
 });
 
-var optionalModernizr = {
-  modernizr: undefined
-};
-
-var createStub = function createStub(window) {
-  if (typeof require === 'function') {
-    require(['modernizer'], function (m) {
-      optionalModernizr.modernizr = m;
-    });
-  } else {
-    if (window) {
-      if (window.Modernizr) {
-        optionalModernizr.modernizr = window.Modernizr;
-      } else if (window.modernizr) {
-        optionalModernizr.modernizr = window.modernizr;
-      }
-    }
-  }
-  return optionalModernizr;
-};
-
-var optionalModernizr$1 = (function (window) {
-  return createStub(window);
-});
-
 var extractDocElement = function extractDocElement(document) {
-  return document && document.documentElement && document.documentElement.className ? document.documentElement : { className: '' };
+  return document && document.documentElement && document.documentElement.className !== undefined ? document.documentElement : { className: '' };
 };
 
 var hasTag = function hasTag(docElement, tag) {
-  return docElement.className.match(new RegExp('\\b' + tag + '\\b'));
+  return docElement.className.length === 0 ? false : docElement.className.match(new RegExp('\\b' + tag + '\\b'));
 };
 
 var removeTag = function removeTag(docElement, tag) {
@@ -382,7 +357,7 @@ var removeTag = function removeTag(docElement, tag) {
 
 var addTag = function addTag(docElement, tag) {
   if (!hasTag(docElement, tag)) {
-    docElement.className += docElement.className.length > 0 ? ' ' + tag : '';
+    docElement.className += docElement.className.length > 0 ? ' ' + tag : tag;
   }
 };
 
@@ -401,25 +376,21 @@ var makeTest = function makeTest(item) {
   };
 };
 
-var test = function test(docElement, modernizr) {
+var test = function test(docElement) {
   return function (key, test) {
-    if (modernizr) {
-      modernizr.addTest(key, test);
+    if (test()) {
+      addTag(docElement, key);
     } else {
-      if (test()) {
-        addTag(docElement, key);
-      } else {
-        addTag(docElement, 'no-' + key);
-      }
+      addTag(docElement, 'no-' + key);
     }
   };
 };
 
-var tagPage = function tagPage(detective, document, modernizr) {
-  var prefix = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+var tagPage = function tagPage(detective, document) {
+  var prefix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
   var docElement = extractDocElement(document);
-  var tester = test(docElement, modernizr);
+  var tester = test(docElement);
   var prefixedClassFor = prefixedClassForFactory(prefix);
   if (!hasTag(docElement, tags.NOTAGGING)) {
     tester(prefixedClassFor(classes.IE), makeTest(detective.isIE));
@@ -474,7 +445,7 @@ var tagger = (function (detective, window, document) {
 
       if (document) {
         var d = detective();
-        tagPage(d, document, optionalModernizr$1(window).modernizr, prefix);
+        tagPage(d, document, prefix);
       }
     }
   };
