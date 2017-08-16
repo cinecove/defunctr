@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-15T08:39:24.775Z
+ * Build Date: 2017-08-16T17:17:58.320Z
  */
 var htmlElementConstructorCheck = (function (window) {
   return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);

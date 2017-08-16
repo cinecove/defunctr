@@ -41,7 +41,7 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
-    "babel-register": "^6.24.1",
+    "babel-register": "^6.26.0",
     "babelrc-rollup": "^3.0.0",
     "bower": "^1.8.0",
     "chai": "^4.1.1",
@@ -61,7 +61,7 @@
     "mocha-logger": "^1.0.5",
     "pump": "^1.0.2",
     "rollup": "^0.47.4",
-    "rollup-plugin-babel": "^3.0.1",
+    "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-istanbul": "^1.0.0",
     "rollup-watch": "^4.3.1"
   },

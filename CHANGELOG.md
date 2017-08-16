@@ -1,18 +1,26 @@
 ### HEAD
 
+* Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
+* Starting to add automated test suite
+* Updated dependencies
+
+### 2.0.0 Beta 1 (August 13, 2017)
+
 * Removed deprecated `window.Defunctr`
 * Removed deprecated `defunctr.detective`
 * NuGet installs to `{content}/scripts/defunctr/` now instead of `{content}/Scripts/Vendor/Defunctr/`
-* Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
-* Starting to add automated test suite
+* Changed code base to composition paradigm
+* Updated dependencies
 
 ### 1.3.1 (August 13, 2017)
+
 * Fixed issue where Opera 12 through 14 were detecting as Chrome, WebKit, and Opera
 * Added `defunctr.browser` which will replace `defunctr.detective` in 2.0
 * Deprecated `defunctr.detective`
 * Updated build to current versions
 
 ### 1.3.0 (February 10, 2017)
+
 * Modernizr is now optional
 * Fixed issues in Safari detection
 * Fixed issues in Opera Next detection
@@ -28,16 +36,20 @@
 * Updated dependencies to current versions
 
 ### 1.2.3 (May 8, 2016)
+
 * NPM support added
 
 ### 1.2.2 (May 8, 2016)
+
 * Fixes for linting issues
 * Corrected spelling on css class name `undetected-browser`
 
-## 1.2.1 (January 14, 2016)
+### 1.2.1 (January 14, 2016)
+
 * Bower support added
 
-## 1.2.0 (January 14, 2016)
+### 1.2.0 (January 14, 2016)
+
 * Support for IE 11
 * Support for IE 12 preview
 * Support for Edge
@@ -45,6 +57,7 @@
 * Added support for require, commmonjs, and amd
 
 ### 1.1.2 (January 13, 2016)
+
 
 * Removed unused variable declarations
 * Deprecated window.Defunctr in favor of window.defunctr
