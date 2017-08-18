@@ -6,14 +6,36 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-14T02:37:48.958Z
+ * Build Date: 2017-08-18T18:53:07.175Z
  */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+
+
+
+
+
+
+
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
 var browserWindow = window || null;
 var browserDocument = browserWindow ? browserWindow.document || null : null;
 var undef = void 0;
 
 var noop = function noop() {};
-var console = browserWindow && browserWindow.console ? browserWindow.console : undefined;
+var console = browserWindow && _typeof(browserWindow.console) !== undefined ? browserWindow.console : { log: noop, warn: noop, error: noop };
 var log = console ? console.log || noop : noop;
 var warn = console ? console.warn || log : noop;
 var error = console ? console.error || log : noop;
@@ -264,12 +286,6 @@ var versions = {
   chrome: chrome$1
 };
 
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
 var Detective = function Detective() {
   classCallCheck(this, Detective);
 
@@ -380,7 +396,7 @@ if (typeof require === 'function') {
   }
 }
 
-var docElement = browserDocument && browserDocument.documentElement && browserDocument.documentElement.className ? browserDocument.documentElement : { className: '' };
+var docElement = browserDocument && browserDocument.documentElement && browserDocument.documentElement.className !== undefined ? browserDocument.documentElement : { className: '' };
 
 var Modernizr = optionalModernizr.modernizr;
 
