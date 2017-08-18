@@ -2,6 +2,7 @@
 
 * Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
 * Starting to add automated test suite
+* Support for isomorphic rendering added.
 * Updated dependencies
 
 ### 2.0.0 Beta 1 (August 13, 2017)
