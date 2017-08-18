@@ -166,11 +166,6 @@ We support most browsers, which is the point of using our module in the first pl
 * All 3rd party browsers (Chome, Firefox) will be **correctly** detected as Safari on iOS. All browsers on iOS are required to use Apple's provided frameworks for accessing the web. These browsers are only shells around Safari.
 * `Defunctr` is deprecated and will be removed in 2.0. Use `defunctr` instead.
 * `defunctr.detective` is deprecated and will be removed in 2.0. Use `defunctr.browser()` instead.
-* Known issue with crashing on IE 6 actual (vs quirks emulation). Investigation under way.
-
-#### Warning about Chrome Plugins
-
-Some Chrome plugins (like Feedly) add class attributes to the `html` tag. If there is no existing class attribute with a value on `html`, some plugins (like Feedly) will completely replace the attribute value. This means the Defunctr tagging system is now removed. To proactively solve this problem when relying on class tags, add a class attribute with the value of `js` (or `no-js` if using Modernizr). The problem plugins should no longer destroy the classes added by Defunctr or Modernizr.
 
 ### CDN Delivery
 
