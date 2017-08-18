@@ -5,9 +5,9 @@
 
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
-|[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/defunctr)|
+|[CDN](#cdn-delivery)|[![jsDelivr](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version)](http://www.jsdelivr.com/projects/defunctr)|
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
-|[Bower](#bower)| ![Bower version](https://img.shields.io/bower/v/defunctr.svg?label=current%20version) |
+|[Bower](#bower)| ![Bower version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
