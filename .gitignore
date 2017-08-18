@@ -17,3 +17,4 @@ dist
 .sizecache.json
 bower_components
 coverage
+.nyc_output

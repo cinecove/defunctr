@@ -3,6 +3,7 @@
 * Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
 * Starting to add automated test suite
 * fixed issue with empty className on load
+* fixed issue with ie 6
 * updated dependencies
 
 ### 1.3.1 (August 13, 2017)
