@@ -17,14 +17,9 @@ export default {
   external: external,
   targets: [
     {
-      dest: pkg['main'],
+      dest: pkg['browser'],
       format: 'umd',
       moduleName: 'defunctr',
-      sourceMap: false
-    },
-    {
-      dest: pkg['jsnext:main'],
-      format: 'es',
       sourceMap: false
     }
   ]

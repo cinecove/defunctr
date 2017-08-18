@@ -237,8 +237,69 @@ To Install with [npm](https://www.npmjs.com/).
     $ npm i defunctr --save
 ```
 
-> **Isomorphic (Server Side) Rendering**:
-> Defunctr does not currently suport isomporphic rendering. This feature is coming in a future release. To bring this feature in requires a breaking change.
+### Isomorphic (Server Side) Rendering / Module Version
+
+Defunctr supports isomorphic rendering but will not autotag the webpage. To start the tagging process you need to manually send the `window` object to defunctr.
+
+```js
+import Defunctr from 'defunctr';
+
+const defunctr = Defunctr(window);
+
+// if you want to add the css tags:
+defunctr.tag();
+```
+
+In React the tagging should be performed in `componentDidMount`.
+
+```js
+import React, { Component } from 'react';
+import Defunctr from 'defunctr';
+
+export default ExampleTagger extends Component {
+
+	componentDidMount() {
+		Defunctr(window).tag();
+	}
+
+	render() {
+		return this.props.children;
+	}
+}
+```
+
+You could also use the `browser` object without tagging the page at all.
+
+```js
+import React, { Component } from 'react';
+import Defunctr from 'defunctr';
+
+const setBrowserState = window => (state, props) => {
+	const defunctr = Defunctr(window);
+	return {
+		browser: defunctr.browser
+	};
+};
+
+export default ExampleComponent extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			browser: null
+		};
+	}
+
+	componentDidMount() {
+		this.setState(setBrowserState(window));
+	}
+
+	render() {
+		const isIE = this.state.browser.vender === 'ie';
+		... do something
+	}
+}
+```
 
 ### NuGet
 
@@ -300,7 +361,7 @@ $ cd release
 Defunctr is licensed under the [MIT license](./LICENSE.md)
 
 
-### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/cinecove/defunctr.svg)](https://greenkeeper.io/) [![bitHound Code](https://www.bithound.io/github/cinecove/defunctr/badges/code.svg)](https://www.bithound.io/github/cinecove/defunctr)
+### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/cinecove/defunctr.svg)](https://greenkeeper.io/) [![bitHound Code](https://www.bithound.io/github/cinecove/defunctr/badges/code.svg)](https://www.bithound.io/github/cinecove/defunctr) [![Coverage Status](https://coveralls.io/repos/github/cinecove/defunctr/badge.svg)](https://coveralls.io/github/cinecove/defunctr)
 
 
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)

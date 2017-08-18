@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-16T17:17:58.320Z
+ * Build Date: 2017-08-18T17:56:50.497Z
  */
 var htmlElementConstructorCheck = (function (window) {
   return Boolean(window && window.HTMLElement && Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0);
@@ -537,28 +537,4 @@ var defunctr = (function (window) {
   return defunctr;
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-var autoload = (function (defunctr, window ) {
-	if (window) {
-		var autoloader = defunctr(window);
-		autoloader.tag('');
-		window.defunctr = autoloader;
-		if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined') {
-			return defunctr;
-		}
-		return autoloader;
-	}
-});
-
-
-var logger = window && window.console ? window.console : {}; 
-
-var index = autoload(defunctr, window, logger);
-
-export default index;
+export default defunctr;

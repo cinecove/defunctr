@@ -3,6 +3,7 @@
   "title": "Defunctr",
   "description": "JavaScript library for web browser detection by feature detection.",
   "version": "2.0.0",
+  "browser": "dist/defunctr.js",
   "cdn": "dist/defunctr.js",
   "main": "dist/defunctr.js",
   "module": "dist/index.js",
@@ -45,6 +46,7 @@
     "babelrc-rollup": "^3.0.0",
     "bower": "^1.8.0",
     "chai": "^4.1.1",
+    "coveralls": "^2.13.1",
     "eslint": "^4.4.1",
     "flow": "^0.2.3",
     "gulp": "^3.9.1",
@@ -59,8 +61,9 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
     "mocha-logger": "^1.0.5",
+    "nyc": "^11.1.0",
     "pump": "^1.0.2",
-    "rollup": "^0.47.4",
+    "rollup": "^0.47.6",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-istanbul": "^1.0.0",
     "rollup-watch": "^4.3.1"
@@ -71,16 +74,17 @@
   ],
   "scripts": {
     "prebuild": "eslint lib test",
-    "build": "rollup -c && gulp",
-    "release": "rollup -c && gulp release",
+    "build": "rollup -c rollup.umd.config.js && rollup -c rollup.es.config.js && gulp",
+    "release": "rollup -c rollup.umd.config.js && rollup -c rollup.es.config.js && gulp release",
     "bump": "gulp bump",
     "bumpbeta": "gulp bump-beta",
     "bumpminor": "gulp bump-minor",
     "bumpmajor": "gulp bump-major",
     "watch": "rollup -c -w",
     "pretest": "npm run build",
-    "test": "mocha \"./{,!(node_modules)/**/}*.test.js\"",
-    "prepublish": "npm test"
+    "test": "nyc mocha \"./{,!(node_modules)/**/}*.test.js\"",
+    "prepublish": "npm test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "contributors": [
     {
