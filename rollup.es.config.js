@@ -6,7 +6,7 @@ let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 export default {
-  entry: 'lib/defunctr.js',
+  input: 'lib/defunctr.js',
   legacy: true,
   plugins: [
     babel(babelrc()),
@@ -15,11 +15,9 @@ export default {
     //})
   ],
   external: external,
-  targets: [
-    {
-      dest: pkg['jsnext:main'],
-      format: 'es',
-      sourceMap: false
-    }
-  ]
+  output: {
+    file: pkg['jsnext:main'],
+    format: 'es',
+  },
+  sourcemap: false
 };

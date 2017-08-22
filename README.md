@@ -5,10 +5,11 @@
 
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
-|[CDN](#cdn-delivery)|[jsDelivr](http://www.jsdelivr.com/projects/defunctr)|
+|[CDN](#cdn-delivery)|[![jsDelivr](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version)](http://www.jsdelivr.com/projects/defunctr)|
 |[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
+|[Bower](#bower)| ![Bower version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
-|[Yarn](#yarb)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
+|[Yarn](#yarn)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
 |[Bower](#bower)| Deprecated |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
@@ -165,16 +166,11 @@ We support most browsers, which is the point of using our module in the first pl
 * Kindle Fire has an issue where it is detected as Khtml and Chrome.
 * Android Emulators are unpredictable and may report Chrome as Safari or even Khtml.
 * All 3rd party browsers (Chome, Firefox) will be **correctly** detected as Safari on iOS. All browsers on iOS are required to use Apple's provided frameworks for accessing the web. These browsers are only shells around Safari.
-* Known issue with crashing on IE 6 actual (vs quirks emulation). Investigation under way.
 
 #### Breaking Changes in 2.0
 
 * Deprecated `Defunctr` has been removed. Use `defunctr` instead.
 * Deprecated `defunctr.detective` has been removed. Use `defunctr.browser()` instead.
-
-#### Warning about Chrome Plugins
-
-Some Chrome plugins (like Feedly) add class attributes to the `html` tag. If there is no existing class attribute with a value on `html`, some plugins (like Feedly) will completely replace the attribute value. This means the Defunctr tagging system is now removed. To proactively solve this problem when relying on class tags, add a class attribute with the value of `js` (or `no-js` if using Modernizr). The problem plugins should no longer destroy the classes added by Defunctr or Modernizr.
 
 ### CDN Delivery
 

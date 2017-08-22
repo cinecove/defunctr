@@ -6,7 +6,7 @@ let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 export default {
-  entry: 'lib/index.js',
+  input: 'lib/index.js',
   legacy: true,
   plugins: [
     babel(babelrc()),
@@ -15,12 +15,10 @@ export default {
     //})
   ],
   external: external,
-  targets: [
-    {
-      dest: pkg['browser'],
-      format: 'umd',
-      moduleName: 'defunctr',
-      sourceMap: false
-    }
-  ]
+  output: {
+    file: pkg['browser'],
+    format: 'umd',
+    name: 'defunctr',
+  },
+  sourcemap: false
 };

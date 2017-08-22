@@ -1,17 +1,30 @@
 ### HEAD
 
 * Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
-* Starting to add automated test suite
+
+### 2.0.0-beta.2 (August 22, 2017)
+
 * Support for isomorphic rendering added.
 * Updated dependencies
+* Added unit testing
+* Pulled current 1.3.2-beta.2 core
 
-### 2.0.0 Beta 1 (August 13, 2017)
+### 2.0.0-beta.1 (August 13, 2017)
 
 * Removed deprecated `window.Defunctr`
 * Removed deprecated `defunctr.detective`
 * NuGet installs to `{content}/scripts/defunctr/` now instead of `{content}/Scripts/Vendor/Defunctr/`
 * Changed code base to composition paradigm
 * Updated dependencies
+
+### 1.3.2-beta.2 (August 22, 2017)
+
+* Compiler dependeny updates.
+
+### 1.3.2-beta.1 (August 18, 2017)
+
+* Fixed issue tagging with empty `className` on `html` element on load.
+* fixed issue with ie 6 crash.
 
 ### 1.3.1 (August 13, 2017)
 
