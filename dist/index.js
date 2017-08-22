@@ -1,12 +1,12 @@
 /*!
- * Defunctr 1.3.2-beta.1
+ * Defunctr 1.3.2-beta.2
  * https://github.com/cinecove/defunctr
  *
  * Copyright 2012 - 2017 Cinecove Digital, LLC and other contributors
  * Released under the MIT license
  * https://github.com/cinecove/defunctr/blob/master/LICENSE.md
  *
- * Build Date: 2017-08-18T19:35:01.456Z
+ * Build Date: 2017-08-22T16:51:46.219Z
  */
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -501,7 +501,7 @@ var tagger = function (detective) {
 var Defunctr = function Defunctr() {
   classCallCheck(this, Defunctr);
 
-  this.version = '1.3.2-beta.1';
+  this.version = '1.3.2-beta.2';
   this.browser = function browser() {
     var d = new Detective();
     return {
