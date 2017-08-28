@@ -2,6 +2,7 @@
 
 * Adding document to illustrate how to migrate a Visual Studio project to NPM so we can stop distributing through NuGet
 * Starting to add automated test suite
+* Updated rollup
 
 ### 1.3.2-beta.2 (August 22, 2017)
 
