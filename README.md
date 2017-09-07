@@ -1,13 +1,13 @@
 
-# [Defunctr](http://github.com/cinecove/defunctr) ![Github version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=Current%20Version) [![Join the chat at https://gitter.im/cinecove/defunctr](https://badges.gitter.im/cinecove/defunctr.svg)](https://gitter.im/cinecove/defunctr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# [Defunctr](http://github.com/cinecove/defunctr) ![Github version](https://img.shields.io/github/release/cinecove/defunctr/all.svg?label=Current%20Version) [![Join the chat at https://gitter.im/cinecove/defunctr](https://badges.gitter.im/cinecove/defunctr.svg)](https://gitter.im/cinecove/defunctr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ##### Defunctr is a Javascript library that detects browsers using feature detection for use in HTML5 and CSS3.
 
 | Package Manager | Current Release and Statistics |
 | ------- | ---------------------------|
-|[CDN](#cdn-delivery)|[![jsDelivr](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version)](http://www.jsdelivr.com/projects/defunctr)|
-|[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/v/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
-|[Bower](#bower)| ![Bower version](https://img.shields.io/github/release/cinecove/defunctr.svg?label=current%20version) |
+|[CDN](#cdn-delivery)|[![jsDelivr](https://img.shields.io/github/release/cinecove/defunctr/all.svg?label=current%20version)](https://www.jsdelivr.com/package/npm/defunctr)|
+|[NuGet](https://www.nuget.org/packages/Defunctr/)| [![NuGet version](https://img.shields.io/nuget/vpre/defunctr.svg?label=current%20version)](https://www.nuget.org/packages/defunctr)|
+|[Bower](#bower)| ![Bower version](https://img.shields.io/github/release/cinecove/defunctr/all.svg?label=current%20version) |
 |[NPM](#npm)| [![npm version](https://img.shields.io/npm/v/defunctr.svg?label=current%20version)](https://www.npmjs.com/package/defunctr) |
 
 Defunctr detects which browser is visiting your site by detecting feature sets the browser supports. The purpose is to allow UX changes where a change must be made explicitly to an older browser. Using
@@ -173,6 +173,8 @@ We support most browsers, which is the point of using our module in the first pl
 >
 > We would like to add CDNJS to our list in the future. CDNJS requires a github project star rating above 100. If you would like to see Defunctr hosted there, please contribute by starring this project.
 
+[![](https://data.jsdelivr.com/v1/package/npm/defunctr/badge)](https://www.jsdelivr.com/package/npm/defunctr)
+
 Defunctr is available on the [jsDelivr](http://www.jsdelivr.com/projects/defunctr) content delivery network.
 
 To use Defunctr via jsDelivr add the following script to your html (replace the version with the one you wish to use). Be sure to add Modernizr before you add Defunctr.
@@ -190,7 +192,7 @@ To use Defunctr via jsDelivr add the following script to your html (replace the 
 
 > Including Modernizr is not required.
 
-#### Version aliasing with jsDelivr (Version > 1.3)
+#### Version aliasing with jsDelivr (Version >= 1.3)
 
 For latest version use:
 
@@ -235,6 +237,8 @@ Just run
 
 ### NPM
 
+[![npm](https://img.shields.io/npm/dm/defunctr.svg)](https://www.npmjs.com/package/defunctr)
+
 To Install with [npm](https://www.npmjs.com/).
 
 Just run
@@ -248,12 +252,20 @@ Just run
 
 ### NuGet
 
+[![NuGet](https://img.shields.io/nuget/dt/defunctr.svg)](https://www.nuget.org/packages/Defunctr/)
+
 To Install with [NuGet](https://www.nuget.org/)
 
 Using the NuGet package manager, execute:
 
 ```
 	PM> Install-Package Defunctr
+```
+
+Alternatively, using the .NET CLI:
+
+```
+	> dotnet add package Defunctr
 ```
 
 > **NOTICE:**
