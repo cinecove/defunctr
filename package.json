@@ -58,7 +58,7 @@
     "gulp-uglify": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
-    "pump": "^1.0.3",
+    "pump": "^2.0.0",
     "rollup": "^0.52.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-istanbul": "^1.0.0",
