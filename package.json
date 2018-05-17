@@ -52,7 +52,7 @@
     "gulp-bump": "^2.8.0",
     "gulp-nuget-pack": "0.0.7",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.6.1",
+    "gulp-replace": "^1.0.0",
     "gulp-sequence": "^0.4.6",
     "gulp-strip-comments": "^2.5.1",
     "gulp-uglify": "^3.0.0",
