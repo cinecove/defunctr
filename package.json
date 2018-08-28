@@ -60,7 +60,7 @@
     "mocha": "^4.0.1",
     "pump": "^1.0.3",
     "rollup": "^0.52.0",
-    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-babel": "^4.0.1",
     "rollup-plugin-istanbul": "^1.0.0",
     "rollup-watch": "^4.3.1"
   },
