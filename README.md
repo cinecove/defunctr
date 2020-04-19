@@ -321,7 +321,7 @@ $ cd release
 Defunctr is licensed under the [MIT license](./LICENSE.md)
 
 
-### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/cinecove/defunctr.svg)](https://greenkeeper.io/) [![bitHound Code](https://www.bithound.io/github/cinecove/defunctr/badges/code.svg)](https://www.bithound.io/github/cinecove/defunctr)
+### Project Dashboard [![Build Status](https://travis-ci.org/cinecove/defunctr.svg)](https://travis-ci.org/cinecove/defunctr) [![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)  [![bitHound Code](https://www.bithound.io/github/cinecove/defunctr/badges/code.svg)](https://www.bithound.io/github/cinecove/defunctr)
 
 
 You can see issues, pull requests, backlog items, etc. in the [OneGet Dashboard](https://waffle.io/Cinecove/defunctr)
