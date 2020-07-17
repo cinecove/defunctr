@@ -45,7 +45,7 @@
     "babelrc-rollup": "^3.0.0",
     "bower": "^1.8.2",
     "chai": "^4.1.1",
-    "eslint": "^4.12.0",
+    "eslint": "^5.0.0",
     "flow": "^0.2.3",
     "gulp": "^3.9.1",
     "gulp-banner": "^0.1.3",
